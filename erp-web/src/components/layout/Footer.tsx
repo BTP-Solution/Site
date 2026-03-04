@@ -27,7 +27,7 @@ export default function Footer({ dict }: FooterProps) {
                     <div className="space-y-4">
                         <h4 className="text-sm font-semibold text-slate-200">{dict.navigation.contact}</h4>
                         <address className="not-italic text-sm text-slate-400 space-y-1">
-                            <p>123 Business St.</p>
+                            <p>Ferahevler</p>
                             <p>Tech City, TC 12345</p>
                             <p>+1-401-555-1212</p>
                         </address>
