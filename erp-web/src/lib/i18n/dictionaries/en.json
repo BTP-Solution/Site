@@ -1,0 +1,131 @@
+{
+    "navigation": {
+        "services": "Services",
+        "products": "Products",
+        "about": "About",
+        "contact": "Contact",
+        "getConsultation": "Let's Connect"
+    },
+    "hero": {
+        "title": "Transforming Technology into Value.",
+        "morphWords": [
+            "S/4HANA & Cloud Transformation Consulting",
+            "AI-Powered Process Automation",
+            "Next-Gen Integration with SAP BTP",
+            "Public & Private Cloud Strategy",
+            "Sustainability & Carbon Management",
+            "Application Development with ABAP, RAP, CAP"
+        ],
+        "subtitle": "We transform your enterprise processes with specialized SAP consulting and AI-powered niche products.",
+        "primaryCta": "Explore Solutions",
+        "secondaryCta": "Get in Touch",
+        "stats": [
+            {
+                "value": 50,
+                "suffix": "+",
+                "label": "Projects Delivered"
+            },
+            {
+                "value": 30,
+                "suffix": "+",
+                "label": "Happy Clients"
+            },
+            {
+                "value": 4,
+                "suffix": "+",
+                "label": "Active Products"
+            }
+        ]
+    },
+    "expertise": {
+        "label": "Platforms We Specialize In"
+    },
+    "bento": {
+        "sectionTitle": "What We Do",
+        "sectionSubtitle": "From SAP consulting to AI, sustainability to financial automation — we deliver end-to-end value.",
+        "consulting": {
+            "tag": "Consulting",
+            "title": "SAP Consulting",
+            "description": "S/4HANA migration, BTP integration, ABAP & Fiori development, and process optimization to future-proof your enterprise."
+        },
+        "edonusum": {
+            "title": "E-Transformation",
+            "description": "We manage all your e-transformation processes including e-Invoice, e-Dispatch, e-Archive with seamless SAP integration."
+        },
+        "supplychain": {
+            "title": "Digital Supply Chain",
+            "description": "We digitize your planning, production, logistics, and supplier management processes to boost efficiency."
+        },
+        "integration": {
+            "title": "Integration Solutions",
+            "description": "Bank integration, DBS, API connections, and U-ETDS to connect your systems end-to-end."
+        },
+        "tech": {
+            "title": "Technology & Cloud",
+            "description": "S/4HANA, SAP BTP, ABAP/RAP/CAP, Fiori, and cloud strategies to manage your technological transformation."
+        },
+        "rnd": {
+            "tag": "R&D",
+            "title": "Product Innovation",
+            "description": "We develop niche products on the SAP ecosystem focused on AI and sustainability."
+        },
+        "productSlides": [
+            {
+                "tag": "AI-Powered",
+                "title": "AI e-Document Processing",
+                "description": "An AI model that automatically recognizes, classifies, and processes incoming e-invoices."
+            },
+            {
+                "tag": "Sustainability",
+                "title": "Carbon Emission Calculator",
+                "description": "Carbon footprint measurement, emission tracking, and sustainability reporting."
+            },
+            {
+                "tag": "Integration",
+                "title": "Bank Integration Platform",
+                "description": "Multi-bank integration, automated reconciliation, and payment management."
+            }
+        ],
+        "solutionSlides": [
+            {
+                "tag": "Finance",
+                "title": "Financial Management",
+                "description": "Cash flow forecasting, IFRS-compliant reporting, and multi-currency management."
+            },
+            {
+                "tag": "Logistics",
+                "title": "Logistics & Supply Chain",
+                "description": "Warehouse management, supply planning, and distribution process optimization."
+            },
+            {
+                "tag": "Production",
+                "title": "Production Planning",
+                "description": "Production scheduling, capacity planning, and material requirements management."
+            },
+            {
+                "tag": "Quality",
+                "title": "Quality Management",
+                "description": "Quality control, inspection planning, and non-conformity management."
+            }
+        ],
+        "statCard": {
+            "value": "50+",
+            "sub": "Enterprise Projects",
+            "label": "Successfully delivered in the SAP ecosystem"
+        }
+    },
+    "clients": {
+        "title": "Companies We Work With"
+    },
+    "cta": {
+        "title": "Start Your Digital Transformation Journey Today",
+        "subtitle": "We are here to future-proof your business. Meet our expert team.",
+        "primaryCta": "Contact Us",
+        "secondaryCta": "Explore Solutions"
+    },
+    "footer": {
+        "description": "Specialized SAP consulting and innovative product solutions.",
+        "rights": "All rights reserved.",
+        "links": "Quick Links"
+    }
+}
