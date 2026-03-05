@@ -33,7 +33,7 @@
             {
                 "value": 4,
                 "suffix": "+",
-                "label": "Aktif Ürün"
+                "label": "İnovatif Çözüm"
             }
         ]
     },
@@ -46,23 +46,59 @@
         "consulting": {
             "tag": "Danışmanlık",
             "title": "SAP Danışmanlığı",
-            "description": "S/4HANA geçişi, BTP entegrasyon, ABAP & Fiori geliştirme ve süreç optimizasyonu ile kurumsal altyapınızı geleceğe hazırlıyoruz."
+            "description": "S/4HANA geçişi, BTP entegrasyon, ABAP & Fiori geliştirme ve süreç optimizasyonu ile kurumsal altyapınızı geleceğe hazırlıyoruz.",
+            "tags": [
+                "SD",
+                "MM",
+                "FI",
+                "CO",
+                "PP",
+                "QM"
+            ]
         },
         "edonusum": {
             "title": "E-Dönüşüm",
-            "description": "e-Fatura, e-İrsaliye, e-Arşiv ve diğer tüm e-dönüşüm süreçlerinizi SAP entegrasyonuyla sorunsuz yönetiyoruz."
+            "description": "e-Fatura, e-İrsaliye, e-Arşiv ve diğer tüm e-dönüşüm süreçlerinizi SAP entegrasyonuyla sorunsuz yönetiyoruz.",
+            "tags": [
+                "e-Fatura",
+                "e-İrsaliye",
+                "e-Arşiv",
+                "e-Defter",
+                "e-Müstahsil"
+            ]
         },
         "supplychain": {
             "title": "Dijital Tedarik Zinciri",
-            "description": "Planlama, üretim, lojistik ve tedarikçi yönetimi süreçlerinizi dijitalleştirerek verimliliğinizi artırıyoruz."
+            "description": "Planlama, üretim, lojistik ve tedarikçi yönetimi süreçlerinizi dijitalleştirerek verimliliğinizi artırıyoruz.",
+            "tags": [
+                "EWM",
+                "TM",
+                "IBP",
+                "Lojistik",
+                "Depo Yönetimi"
+            ]
         },
         "integration": {
             "title": "Entegrasyon Çözümleri",
-            "description": "Banka entegrasyonu, DBS, API bağlantıları ve U-ETDS ile sistemlerinizi uçtan uca birbirine bağlıyoruz."
+            "description": "Banka entegrasyonu, DBS, API bağlantıları ve U-ETDS ile sistemlerinizi uçtan uca birbirine bağlıyoruz.",
+            "tags": [
+                "DBS",
+                "Banka API",
+                "U-ETDS",
+                "B2B Entegrasyon",
+                "Web Servisleri"
+            ]
         },
         "tech": {
             "title": "Teknoloji & Cloud",
-            "description": "S/4HANA, SAP BTP, ABAP/RAP/CAP, Fiori ve bulut stratejileriyle teknolojik dönüşümünüzü yönetiyoruz."
+            "description": "S/4HANA, SAP BTP, ABAP/RAP/CAP, Fiori ve bulut stratejileriyle teknolojik dönüşümünüzü yönetiyoruz.",
+            "tags": [
+                "SAP BTP",
+                "S/4HANA",
+                "Fiori",
+                "ABAP RAP",
+                "Cloud"
+            ]
         },
         "rnd": {
             "tag": "Ar-Ge",
