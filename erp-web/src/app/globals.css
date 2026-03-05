@@ -509,8 +509,32 @@ body {
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
 .animate-marquee-left {
   animation: marquee-left var(--marquee-speed, 25s) linear infinite;
+}
+
+@keyframes marquee-half {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-half {
+  animation: marquee-half 35s linear infinite;
 }
 
 .animate-marquee-right {
@@ -518,7 +542,11 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee-left 20s linear infinite;
+  animation: marquee 15s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marquee 35s linear infinite;
 }
 
 /* ═══════════════════════════════════════════

@@ -103,7 +103,21 @@
         "rnd": {
             "tag": "Ar-Ge",
             "title": "Ürün İnovasyonu",
-            "description": "SAP ekosistemi üzerinde yapay zekâ ve sürdürülebilirlik odaklı niş ürünler geliştiriyoruz."
+            "description": "SAP ekosistemi üzerinde yapay zekâ ve sürdürülebilirlik odaklı niş ürünler geliştiriyoruz.",
+            "products": [
+                {
+                    "title": "BTP AI Edge",
+                    "description": "Yapay zeka destekli akıllı öngörü ve karar sistemleri ile iş süreçlerinizi otomatikleştirin."
+                },
+                {
+                    "title": "GreenOps Dashboard",
+                    "description": "ESG standartlarına uyumlu, gerçek zamanlı sürdürülebilirlik takibi ve karbon ayak izi raporlama."
+                },
+                {
+                    "title": "Smart Logistics Co-Pilot",
+                    "description": "Lojistik ağınızı sensörler ve yapay zeka ile uçtan uca anlık optimize eden akıllı asistan."
+                }
+            ]
         },
         "productSlides": [
             {

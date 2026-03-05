@@ -26,8 +26,8 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
         let core = {
             x: canvas.width / 2,
             y: canvas.height / 2,
-            vx: (Math.random() - 0.5) * 6,
-            vy: (Math.random() - 0.5) * 6,
+            vx: (Math.random() - 0.5) * 3, // Slower base speed
+            vy: (Math.random() - 0.5) * 3, // Slower base speed
             radius: 6,
         };
 
@@ -39,7 +39,7 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
             const count = Math.floor(Math.random() * 20) + 30; // 30-50 fragments
             for (let i = 0; i < count; i++) {
                 const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * 6 + 2;
+                const speed = Math.random() * 3 + 1; // Slower explosion
                 fragments.push({
                     x,
                     y,
@@ -47,8 +47,8 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
                     vy: Math.sin(angle) * speed,
                     radius: Math.random() * 2 + 1,
                     color: FRAG_COLORS[Math.floor(Math.random() * FRAG_COLORS.length)],
-                    maxLife: Math.random() * 40 + 20,
-                    life: Math.random() * 40 + 20
+                    maxLife: Math.random() * 60 + 30, // Longer life so they fade slower
+                    life: Math.random() * 60 + 30
                 });
             }
         };
@@ -61,8 +61,8 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
                 core.x = canvas.width / 2;
                 core.y = canvas.height / 2;
                 // Give it a kick start
-                core.vx = (Math.random() - 0.5) * 8;
-                core.vy = (Math.random() - 0.5) * 8;
+                core.vx = (Math.random() - 0.5) * 4; // Slower reset kick
+                core.vy = (Math.random() - 0.5) * 4; // Slower reset kick
             }
         };
 
@@ -116,9 +116,16 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
 
             if (hit) {
                 spawnExplosion(explosionX, explosionY);
-                // slight scatter on bounce
-                core.vx += (Math.random() - 0.5);
-                core.vy += (Math.random() - 0.5);
+                // slight scatter on bounce, but much softer
+                core.vx += (Math.random() - 0.5) * 0.4;
+                core.vy += (Math.random() - 0.5) * 0.4;
+
+                // Speed limit
+                const speed = Math.sqrt(core.vx * core.vx + core.vy * core.vy);
+                if (speed > 2.5) {
+                    core.vx = (core.vx / speed) * 2.5;
+                    core.vy = (core.vy / speed) * 2.5;
+                }
             }
 
             // Draw core
