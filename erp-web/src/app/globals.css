@@ -575,3 +575,39 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* ═══════════════════════════════════════════
+   HERO RETRO GRID & BADGE
+   ═══════════════════════════════════════════ */
+
+@keyframes retro-grid-move {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+.animate-retro-grid {
+  animation: retro-grid-move 3s linear infinite;
+}
+
+@keyframes badge-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(52, 99, 172, 0.2), inset 0 0 10px rgba(52, 99, 172, 0.2);
+    border-color: rgba(52, 99, 172, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(126, 34, 206, 0.4), inset 0 0 20px rgba(126, 34, 206, 0.2);
+    border-color: rgba(126, 34, 206, 0.6);
+  }
+}
+
+.hero-badge {
+  animation: badge-glow 4s ease-in-out infinite;
+}

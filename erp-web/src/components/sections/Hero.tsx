@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
 type HeroProps = {
@@ -43,6 +43,7 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 export default function Hero({ dict, lang }: HeroProps) {
     const [morphIndex, setMorphIndex] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const words = dict.hero.morphWords;
 
     useEffect(() => {
@@ -56,25 +57,54 @@ export default function Hero({ dict, lang }: HeroProps) {
         return () => clearInterval(interval);
     }, [words.length]);
 
+    const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setMousePosition({
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+        });
+    };
+
     return (
-        <section className="relative overflow-hidden bg-slate-950 min-h-[90vh] flex items-center">
-            {/* Animated gradient orbs */}
-            <div className="absolute inset-0">
-                <div className="absolute top-[-20%] right-[-10%] h-[700px] w-[700px] rounded-full bg-gradient-to-br from-[#3463ac]/25 to-transparent blur-[120px] animate-orb-1"></div>
-                <div className="absolute bottom-[-20%] left-[-10%] h-[500px] w-[500px] rounded-full bg-gradient-to-tr from-purple-600/20 to-transparent blur-[100px] animate-orb-2"></div>
-                <div className="absolute top-[30%] left-[40%] h-[300px] w-[300px] rounded-full bg-gradient-to-br from-blue-400/10 to-transparent blur-[80px] animate-orb-3"></div>
+        <section
+            className="relative overflow-hidden bg-[#060d1a] min-h-[95vh] flex items-center pt-24 pb-16"
+            onMouseMove={handleMouseMove}
+        >
+            {/* Interactive Spotlight */}
+            <div
+                className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
+                style={{
+                    background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(52, 99, 172, 0.08), transparent 40%)`
+                }}
+            />
+
+            {/* Premium Retro Grid */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden [mask-image:linear-gradient(to_bottom,black_10%,transparent_90%)] opacity-30">
+                <div
+                    className="absolute inset-0 -top-[50px] bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px] [transform-origin:50%_0%] animate-retro-grid border-t border-white/[0.02]"
+                ></div>
             </div>
 
-            {/* Noise texture */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{
-                backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)',
-                backgroundSize: '24px 24px'
-            }}></div>
+            {/* Ambient Base Orbs */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                <div className="absolute top-[-10%] right-[10%] h-[500px] w-[500px] rounded-full bg-[#3463ac]/15 blur-[120px] animate-orb-1"></div>
+                <div className="absolute bottom-[-10%] left-[10%] h-[500px] w-[500px] rounded-full bg-purple-600/10 blur-[120px] animate-orb-2"></div>
+            </div>
 
-            <div className="container relative mx-auto px-4 sm:px-8 z-10 pt-12">
-                <div className="mx-auto max-w-5xl text-center">
+            <div className="container relative mx-auto px-4 sm:px-8 z-10 pt-12 md:pt-20">
+                <div className="mx-auto max-w-5xl text-center flex flex-col items-center">
+
+                    {/* Animated Pre-title Badge */}
+                    <div
+                        className="hero-badge mb-8 flex items-center gap-2 rounded-full border border-[#3463ac]/40 bg-white/[0.03] backdrop-blur-md px-4 py-1.5 text-sm font-medium text-slate-300"
+                        style={{ animationDelay: '0s', animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0s both, badge-glow 4s ease-in-out infinite' }}
+                    >
+                        <Sparkles className="h-4 w-4 text-purple-400" />
+                        <span>Yeni Nesil SAP ve AI Çözümleri</span>
+                    </div>
+
                     {/* Main Headline */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 leading-[1.1] pb-2" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
                         {dict.hero.title}
                     </h1>
 
@@ -113,16 +143,18 @@ export default function Hero({ dict, lang }: HeroProps) {
                         </Link>
                     </div>
 
-                    {/* Animated Counter Stats */}
-                    <div className="mt-20 flex items-center justify-center gap-12 sm:gap-20" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.7s both' }}>
-                        {dict.hero.stats.map((stat: any, i: number) => (
-                            <div key={i} className="flex flex-col items-center">
-                                <span className="text-3xl sm:text-4xl font-bold text-white tabular-nums">
-                                    <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                                </span>
-                                <span className="mt-1 text-xs sm:text-sm text-slate-500 font-medium tracking-wide">{stat.label}</span>
-                            </div>
-                        ))}
+                    {/* Animated Counter Stats Dock */}
+                    <div className="mt-20 w-full max-w-4xl mx-auto rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md p-6 sm:p-8" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.7s both' }}>
+                        <div className="grid grid-cols-1 divide-y divide-white/5 sm:grid-cols-3 sm:divide-y-0 sm:divide-x sm:divide-white/5">
+                            {dict.hero.stats.map((stat: any, i: number) => (
+                                <div key={i} className="flex flex-col items-center py-4 sm:py-0">
+                                    <span className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 tabular-nums">
+                                        <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                                    </span>
+                                    <span className="mt-2 text-xs sm:text-sm text-slate-400 font-medium tracking-wide">{stat.label}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
