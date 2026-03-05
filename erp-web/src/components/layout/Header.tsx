@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Globe, Menu, X, ChevronRight, ChevronDown, Cloud, Database, Link2, BarChart3, Check, Sparkles } from 'lucide-react';
+import { Globe, Menu, X, ChevronRight, ChevronDown, Cloud, Database, Link2, BarChart3, Check, Sparkles, FileCheck2 } from 'lucide-react';
 import Navbar from './Navbar';
 
 const SUPPORTED_LANGUAGES = [
@@ -196,9 +196,13 @@ export default function Header({ dict, lang }: HeaderProps) {
                             <ChevronDown className={`h-4 w-4 text-slate-500 transition-transform duration-400 ${expandedMobileSection === 'products' ? 'rotate-180 text-purple-400' : ''}`} />
                         </button>
 
-                        <div className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'products' ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                        <div className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'products' ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                             }`}>
                             <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
+                            <Link href={`/${lang}/products/apd`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
+                                <FileCheck2 className="h-4 w-4 text-[#ff7700]" />
+                                <span className="font-medium text-sm">APD Automation</span>
+                            </Link>
                             <Link href={`/${lang}/products#connector`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
                                 <Link2 className="h-3.5 w-3.5 text-slate-500" />
                                 <span className="font-medium text-sm">BTP Connector</span>

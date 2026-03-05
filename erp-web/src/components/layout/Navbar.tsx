@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronDown, Cloud, Database, Link2, BarChart3, Monitor, FileText, Truck, Settings } from 'lucide-react';
+import { ChevronDown, Cloud, Database, Link2, BarChart3, Monitor, FileText, Truck, Settings, FileCheck2 } from 'lucide-react';
 
 type NavbarProps = {
     dict: any;
@@ -119,6 +119,16 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                     <div className="mb-2 px-4 pt-2">
                                         <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">{dict.navigation.products}</span>
                                     </div>
+                                    <Link href={`/${lang}/products/apd`} className="dropdown-item group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all">
+                                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#ff7700]/20 to-[#3463ac]/10 ring-1 ring-white/[0.06] transition-all duration-300 group-hover/item:from-[#ff7700]/30 group-hover/item:to-[#3463ac]/20 group-hover/item:shadow-[0_0_12px_rgba(255,119,0,0.2)]">
+                                            <FileCheck2 className="h-4 w-4 text-[#ff7700] transition-colors group-hover/item:text-[#ff8c2b]" />
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="font-semibold text-white/90 transition-colors group-hover/item:text-white">APD Automation</span>
+                                            <span className="text-xs text-slate-500 transition-colors group-hover/item:text-slate-400">Smart posting document engine</span>
+                                        </div>
+                                    </Link>
+                                    <div className="mx-4 my-0.5 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
                                     <Link href={`/${lang}/products#connector`} className="dropdown-item group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all">
                                         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500/20 to-[#3463ac]/10 ring-1 ring-white/[0.06] transition-all duration-300 group-hover/item:from-purple-500/30 group-hover/item:to-[#3463ac]/20 group-hover/item:shadow-[0_0_12px_rgba(126,34,206,0.2)]">
                                             <Link2 className="h-4 w-4 text-purple-400 transition-colors group-hover/item:text-purple-300" />
