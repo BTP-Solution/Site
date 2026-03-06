@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Globe, Menu, X, ChevronRight, ChevronDown, Cloud, Database, Link2, BarChart3, Check, Sparkles, FileCheck2 } from 'lucide-react';
 import Navbar from './Navbar';
 
@@ -22,6 +23,14 @@ export default function Header({ dict, lang }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [expandedMobileSection, setExpandedMobileSection] = useState<string | null>(null);
     const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname();
+
+    const redirectedPathname = (locale: string) => {
+        if (!pathname) return `/${locale}`;
+        const segments = pathname.split('/');
+        segments[1] = locale; // Replace the current locale segment with the new one
+        return segments.join('/');
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -88,7 +97,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 {SUPPORTED_LANGUAGES.map((l) => (
                                     <Link
                                         key={l.code}
-                                        href={`/${l.code}`}
+                                        href={redirectedPathname(l.code)}
                                         className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all duration-200 ${lang === l.code
                                             ? 'bg-[#3463ac]/15 text-white font-semibold shadow-[inset_0_0_0_1px_rgba(52,99,172,0.2)]'
                                             : 'text-slate-400 hover:text-white hover:bg-white/[0.06]'
@@ -250,7 +259,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                             {SUPPORTED_LANGUAGES.map((l) => (
                                 <Link
                                     key={l.code}
-                                    href={`/${l.code}`}
+                                    href={redirectedPathname(l.code)}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     className={`flex items-center gap-3 py-3.5 px-5 text-sm transition-all ${lang === l.code
                                         ? 'bg-[#3463ac]/10 text-white font-semibold'
