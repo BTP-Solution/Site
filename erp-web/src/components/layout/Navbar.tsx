@@ -1,11 +1,105 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronDown, Cloud, Database, Link2, BarChart3, Monitor, FileText, Truck, Settings, FileCheck2 } from 'lucide-react';
+import { ChevronDown, Cloud, Database, Link2, BarChart3, Monitor, FileText, Truck, Settings, FileCheck2, Code2, Blocks, Brain, Sparkles, ArrowRight, Cpu, Workflow, Archive, Zap, ShieldCheck } from 'lucide-react';
 
 type NavbarProps = {
     dict: any;
     lang: string;
 };
+
+/* ─── service categories data ─── */
+const SERVICE_CATEGORIES = [
+    {
+        key: 'sap',
+        icon: Monitor,
+        color: '#3463ac',
+        label: 'SAP Danışmanlık',
+        items: [
+            { label: 'SAP S/4HANA Danışmanlığı', href: '/services/sap-danismanlik/s4hana' },
+            { label: 'SAP Uygulama Danışmanlığı', href: '/services/sap-danismanlik/uygulama' },
+            { label: 'SAP Teknoloji Danışmanlığı', href: '/services/sap-danismanlik/teknoloji' },
+            { label: 'Süreç Analizi ve İyileştirme', href: '/services/sap-danismanlik/surec-analizi' },
+            { label: 'Proje ve Çözüm Mimari Desteği', href: '/services/sap-danismanlik/mimari-destek' },
+            { label: 'Uzman Kaynak Desteği', href: '/services/sap-danismanlik/uzman-kaynak' },
+        ],
+    },
+    {
+        key: 'supply',
+        icon: Truck,
+        color: '#34d399',
+        label: 'Tedarik Zinciri Çözümleri',
+        items: [
+            { label: 'Planlama', href: '/services' },
+            { label: 'Üretim', href: '/services' },
+            { label: 'Lojistik', href: '/services' },
+            { label: 'Satınalma Süreçleri', href: '/services' },
+            { label: 'Tedarikçi Yönetimi', href: '/services' },
+            { label: 'Depo ve Operasyon Yönetimi', href: '/services' },
+        ],
+    },
+    {
+        key: 'tech',
+        icon: Code2,
+        color: '#a78bfa',
+        label: 'Teknoloji ve Yazılım Geliştirme',
+        items: [
+            { label: 'S/4HANA ve SAP BTP Çözümleri', href: '/services' },
+            { label: 'ABAP Geliştirme', href: '/services' },
+            { label: 'RAP / CAP Geliştirme', href: '/services' },
+            { label: 'SAP Fiori Uygulamaları', href: '/services' },
+            { label: 'SAPUI5 Arayüz Geliştirme', href: '/services' },
+        ],
+    },
+    {
+        key: 'integration',
+        icon: Blocks,
+        color: '#f59e0b',
+        label: 'Entegrasyon Çözümleri',
+        items: [
+            { label: 'API ve Sistem Entegrasyonları', href: '/services' },
+            { label: 'SAP ve Non-SAP Entegrasyonları', href: '/services' },
+        ],
+    },
+    {
+        key: 'cloud',
+        icon: Cloud,
+        color: '#22d3ee',
+        label: 'Bulut ve Altyapı Çözümleri',
+        items: [
+            { label: 'Public Cloud Çözümleri', href: '/services' },
+            { label: 'Private Cloud Çözümleri', href: '/services' },
+            { label: 'HANA Donanım ve Altyapı Danışmanlığı', href: '/services' },
+            { label: 'Bulut Geçiş Hizmetleri', href: '/services' },
+            { label: 'Sistem Modernizasyonu', href: '/services' },
+        ],
+    },
+    {
+        key: 'digital',
+        icon: Workflow,
+        color: '#f472b6',
+        label: 'Dijital Dönüşüm Çözümleri',
+        items: [
+            { label: 'Dijital Arşivleme', href: '/services' },
+            { label: 'E-Dönüşüm Çözümleri', href: '/services' },
+            { label: 'Doküman ve Süreç Dijitalleştirme', href: '/services' },
+            { label: 'İş Akışı ve Onay Mekanizmaları', href: '/services' },
+            { label: 'Kurumsal Süreç Otomasyonu', href: '/services' },
+        ],
+    },
+    {
+        key: 'ai',
+        icon: Brain,
+        color: '#818cf8',
+        label: 'Veri, Yapay Zeka ve Akıllı Çözümler',
+        items: [
+            { label: 'Veri Dönüşümü ve Veri Yönetimi', href: '/services' },
+            { label: 'Raporlama ve Analitik Çözümleri', href: '/services' },
+            { label: 'AI Destekli Süreçler', href: '/services' },
+            { label: 'ML Tabanlı Uygulamalar', href: '/services' },
+            { label: 'Karar Destek Çözümleri', href: '/services' },
+        ],
+    },
+];
 
 export default function Navbar({ dict, lang }: NavbarProps) {
     return (
@@ -41,61 +135,87 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                 <ChevronDown className="h-3.5 w-3.5 opacity-40 transition-all duration-300 group-hover:rotate-180 group-hover:opacity-100" />
                             </Link>
 
-                            {/* MEGA DROPDOWN — WIDE 4-COLUMN */}
-                            <div className="absolute left-1/2 top-full pt-3 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[640px] z-50">
-                                <div className="dropdown-panel rounded-2xl border border-white/[0.08] bg-slate-950/95 backdrop-blur-2xl p-5 shadow-[0_20px_60px_-12px_rgba(0,0,0,0.6)] ring-1 ring-white/[0.05]">
-                                    <div className="grid grid-cols-2 gap-5">
+                            {/* ═══ MEGA DROPDOWN — 7 CATEGORIES ═══ */}
+                            <div className="absolute left-1/2 top-full pt-3 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[920px] z-50">
+                                <div className="mega-dropdown-panel rounded-2xl border border-white/[0.08] bg-[#0a1628]/[0.97] backdrop-blur-2xl p-0 shadow-[0_25px_80px_-12px_rgba(0,0,0,0.7)] ring-1 ring-white/[0.05] overflow-hidden">
 
-                                        {/* SAP Danışmanlık */}
-                                        <div>
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <Monitor className="h-4 w-4 text-[#3463ac]" strokeWidth={1.5} />
-                                                <span className="text-xs font-bold text-white/70">SAP Danışmanlık</span>
-                                            </div>
-                                            <div className="space-y-0.5">
-                                                {['Lisans & Bakım', 'Teknoloji Danışmanlığı', 'Uygulama Danışmanlığı', 'Dış Kaynak Kullanımı', 'HANA Donanım & Bulut'].map(s => (
-                                                    <Link key={s} href={`/${lang}/services`} className="block rounded-lg px-3 py-1.5 text-[13px] text-slate-400 transition-colors hover:bg-white/[0.04] hover:text-white">{s}</Link>
-                                                ))}
-                                            </div>
+                                    {/* TOP GRADIENT LINE */}
+                                    <div className="h-[2px] w-full bg-gradient-to-r from-[#3463ac] via-[#a78bfa] to-[#22d3ee]"></div>
+
+                                    <div className="flex">
+
+                                        {/* LEFT: 3-COLUMN GRID */}
+                                        <div className="flex-1 grid grid-cols-3 gap-0 p-5 pr-0">
+                                            {SERVICE_CATEGORIES.slice(0, 6).map((cat, ci) => {
+                                                const Icon = cat.icon;
+                                                return (
+                                                    <div key={cat.key} className="mega-cat-group px-3 py-2">
+                                                        {/* Category heading */}
+                                                        <div className="flex items-center gap-2.5 mb-2.5">
+                                                            <div
+                                                                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ring-1 ring-white/[0.08]"
+                                                                style={{ background: `linear-gradient(135deg, ${cat.color}22, ${cat.color}08)` }}
+                                                            >
+                                                                <Icon className="h-3.5 w-3.5" style={{ color: cat.color }} strokeWidth={1.8} />
+                                                            </div>
+                                                            <span className="text-[11px] font-bold uppercase tracking-wider text-white/60">{cat.label}</span>
+                                                        </div>
+                                                        {/* Items */}
+                                                        <div className="space-y-0">
+                                                            {cat.items.map((s, si) => (
+                                                                <Link
+                                                                    key={s.label}
+                                                                    href={`/${lang}${s.href}`}
+                                                                    className="mega-item block rounded-lg px-2.5 py-[6px] text-[12.5px] text-slate-400 transition-all duration-200 hover:bg-white/[0.05] hover:text-white hover:translate-x-0.5"
+                                                                >
+                                                                    {s.label}
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
 
-                                        {/* E-Dönüşüm */}
-                                        <div>
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <FileText className="h-4 w-4 text-[#22d3ee]" strokeWidth={1.5} />
-                                                <span className="text-xs font-bold text-white/70">E-Dönüşüm</span>
-                                            </div>
-                                            <div className="space-y-0.5">
-                                                {['e-Fatura / e-İrsaliye', 'e-Arşiv / e-Defter', 'e-Bordro / e-SGK', 'e-İmza Portalı', 'Dijital Arşivleme'].map(s => (
-                                                    <Link key={s} href={`/${lang}/services`} className="block rounded-lg px-3 py-1.5 text-[13px] text-slate-400 transition-colors hover:bg-white/[0.04] hover:text-white">{s}</Link>
-                                                ))}
-                                            </div>
-                                        </div>
+                                        {/* RIGHT: HIGHLIGHTED AI CATEGORY + CTA */}
+                                        <div className="w-[240px] border-l border-white/[0.06] bg-gradient-to-b from-[#818cf8]/[0.04] to-transparent p-5 flex flex-col justify-between">
+                                            {/* AI Category */}
+                                            {(() => {
+                                                const aiCat = SERVICE_CATEGORIES[6];
+                                                const AiIcon = aiCat.icon;
+                                                return (
+                                                    <div>
+                                                        <div className="flex items-center gap-2.5 mb-3">
+                                                            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#818cf8]/25 to-[#a78bfa]/10 ring-1 ring-[#818cf8]/20 shadow-[0_0_20px_rgba(129,140,248,0.1)]">
+                                                                <AiIcon className="h-4 w-4 text-[#818cf8]" strokeWidth={1.8} />
+                                                            </div>
+                                                            <div>
+                                                                <span className="text-[11px] font-bold uppercase tracking-wider text-[#818cf8]/80">{aiCat.label}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="space-y-0">
+                                                            {aiCat.items.map(s => (
+                                                                <Link
+                                                                    key={s.label}
+                                                                    href={`/${lang}${s.href}`}
+                                                                    className="mega-item block rounded-lg px-2.5 py-[6px] text-[12.5px] text-slate-400 transition-all duration-200 hover:bg-[#818cf8]/[0.08] hover:text-white hover:translate-x-0.5"
+                                                                >
+                                                                    {s.label}
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })()}
 
-                                        {/* Tedarik Zinciri */}
-                                        <div>
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <Truck className="h-4 w-4 text-[#34d399]" strokeWidth={1.5} />
-                                                <span className="text-xs font-bold text-white/70">Tedarik Zinciri</span>
-                                            </div>
-                                            <div className="space-y-0.5">
-                                                {['Planlama', 'Üretim', 'Lojistik', 'Tedarikçi Yönetimi', 'Entegrasyon Çözümleri'].map(s => (
-                                                    <Link key={s} href={`/${lang}/services`} className="block rounded-lg px-3 py-1.5 text-[13px] text-slate-400 transition-colors hover:bg-white/[0.04] hover:text-white">{s}</Link>
-                                                ))}
-                                            </div>
-                                        </div>
-
-                                        {/* Teknoloji & Cloud */}
-                                        <div>
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <Settings className="h-4 w-4 text-[#a78bfa]" strokeWidth={1.5} />
-                                                <span className="text-xs font-bold text-white/70">Teknoloji & Cloud</span>
-                                            </div>
-                                            <div className="space-y-0.5">
-                                                {['S/4HANA & BTP', 'ABAP / RAP / CAP', 'SAP Fiori', 'Public & Private Cloud', 'AI / ML'].map(s => (
-                                                    <Link key={s} href={`/${lang}/services`} className="block rounded-lg px-3 py-1.5 text-[13px] text-slate-400 transition-colors hover:bg-white/[0.04] hover:text-white">{s}</Link>
-                                                ))}
-                                            </div>
+                                            {/* CTA at bottom */}
+                                            <Link
+                                                href={`/${lang}/services`}
+                                                className="group/cta mt-4 flex items-center justify-between rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm font-medium text-slate-300 transition-all duration-300 hover:bg-white/[0.07] hover:text-white hover:border-white/[0.15] hover:shadow-[0_0_20px_rgba(52,99,172,0.15)]"
+                                            >
+                                                <span className="text-[13px]">Tüm Hizmetler</span>
+                                                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                                            </Link>
                                         </div>
 
                                     </div>

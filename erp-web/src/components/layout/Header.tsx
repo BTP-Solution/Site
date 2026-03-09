@@ -176,17 +176,88 @@ export default function Header({ dict, lang }: HeaderProps) {
                             <ChevronDown className={`h-4 w-4 text-slate-500 transition-transform duration-400 ${expandedMobileSection === 'services' ? 'rotate-180 text-[#5b8fd4]' : ''}`} />
                         </button>
 
-                        <div className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'services' ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                        <div className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'services' ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                             }`}>
                             <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
-                            <Link href={`/${lang}/services#btp`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
-                                <Database className="h-3.5 w-3.5 text-slate-500" />
-                                <span className="font-medium text-sm">SAP BTP</span>
-                            </Link>
-                            <Link href={`/${lang}/services#cloud`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
-                                <Cloud className="h-3.5 w-3.5 text-slate-500" />
-                                <span className="font-medium text-sm">Cloud ERP</span>
-                            </Link>
+
+                            {/* SAP Danışmanlık */}
+                            <div className="px-5 pt-3 pb-1">
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#3463ac]/70">SAP Danışmanlık</span>
+                            </div>
+                            {[
+                                { label: 'SAP S/4HANA Danışmanlığı', href: '/services/sap-danismanlik/s4hana' },
+                                { label: 'SAP Uygulama Danışmanlığı', href: '/services/sap-danismanlik/uygulama' },
+                                { label: 'SAP Teknoloji Danışmanlığı', href: '/services/sap-danismanlik/teknoloji' },
+                                { label: 'Süreç Analizi ve İyileştirme', href: '/services/sap-danismanlik/surec-analizi' },
+                                { label: 'Proje ve Çözüm Mimari Desteği', href: '/services/sap-danismanlik/mimari-destek' },
+                                { label: 'Uzman Kaynak Desteği', href: '/services/sap-danismanlik/uzman-kaynak' },
+                            ].map(s => (
+                                <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                    <span className="font-medium text-[13px]">{s.label}</span>
+                                </Link>
+                            ))}
+
+                            {/* Tedarik Zinciri */}
+                            <div className="px-5 pt-3 pb-1">
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#34d399]/70">Tedarik Zinciri</span>
+                            </div>
+                            {['Planlama', 'Üretim', 'Lojistik', 'Satınalma Süreçleri', 'Tedarikçi Yönetimi', 'Depo ve Operasyon Yönetimi'].map(s => (
+                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                    <span className="font-medium text-[13px]">{s}</span>
+                                </Link>
+                            ))}
+
+                            {/* Teknoloji ve Yazılım */}
+                            <div className="px-5 pt-3 pb-1">
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#a78bfa]/70">Teknoloji ve Yazılım</span>
+                            </div>
+                            {['S/4HANA ve SAP BTP Çözümleri', 'ABAP Geliştirme', 'RAP / CAP Geliştirme', 'SAP Fiori Uygulamaları', 'SAPUI5 Arayüz Geliştirme'].map(s => (
+                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                    <span className="font-medium text-[13px]">{s}</span>
+                                </Link>
+                            ))}
+
+                            {/* Entegrasyon */}
+                            <div className="px-5 pt-3 pb-1">
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#f59e0b]/70">Entegrasyon Çözümleri</span>
+                            </div>
+                            {['API ve Sistem Entegrasyonları', 'SAP ve Non-SAP Entegrasyonları'].map(s => (
+                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                    <span className="font-medium text-[13px]">{s}</span>
+                                </Link>
+                            ))}
+
+                            {/* Bulut ve Altyapı */}
+                            <div className="px-5 pt-3 pb-1">
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#22d3ee]/70">Bulut ve Altyapı</span>
+                            </div>
+                            {['Public Cloud Çözümleri', 'Private Cloud Çözümleri', 'HANA Donanım ve Altyapı Danışmanlığı', 'Bulut Geçiş Hizmetleri', 'Sistem Modernizasyonu'].map(s => (
+                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                    <span className="font-medium text-[13px]">{s}</span>
+                                </Link>
+                            ))}
+
+                            {/* Dijital Dönüşüm */}
+                            <div className="px-5 pt-3 pb-1">
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#f472b6]/70">Dijital Dönüşüm</span>
+                            </div>
+                            {['Dijital Arşivleme', 'E-Dönüşüm Çözümleri', 'Doküman ve Süreç Dijitalleştirme', 'İş Akışı ve Onay Mekanizmaları', 'Kurumsal Süreç Otomasyonu'].map(s => (
+                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                    <span className="font-medium text-[13px]">{s}</span>
+                                </Link>
+                            ))}
+
+                            {/* Veri, Yapay Zeka */}
+                            <div className="px-5 pt-3 pb-1">
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#818cf8]/70">Veri & Yapay Zeka</span>
+                            </div>
+                            {['Veri Dönüşümü ve Veri Yönetimi', 'Raporlama ve Analitik Çözümleri', 'AI Destekli Süreçler', 'ML Tabanlı Uygulamalar', 'Karar Destek Çözümleri'].map(s => (
+                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                    <span className="font-medium text-[13px]">{s}</span>
+                                </Link>
+                            ))}
+
+                            <div className="h-3"></div>
                         </div>
                     </div>
 

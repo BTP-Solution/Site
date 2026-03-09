@@ -209,6 +209,51 @@ body {
 }
 
 /* ═══════════════════════════════════════════
+   MEGA DROPDOWN PANEL
+   ═══════════════════════════════════════════ */
+
+.mega-dropdown-panel {
+  animation: dropdown-reveal 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mega-item {
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mega-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 60%;
+  border-radius: 2px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mega-item:hover::before {
+  width: 2px;
+  background: var(--brand-blue);
+  box-shadow: 0 0 6px rgba(52, 99, 172, 0.4);
+}
+
+.mega-cat-group {
+  position: relative;
+}
+
+.mega-cat-group:not(:nth-child(3n))::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+}
+
+/* ═══════════════════════════════════════════
    CTA SHIMMER BUTTON
    ═══════════════════════════════════════════ */
 
