@@ -1,10 +1,14 @@
 import { type LucideIcon } from 'lucide-react';
 
+import Link from 'next/link';
+
 type CardItem = {
     icon: LucideIcon;
     title: string;
     description: string;
     tag?: string;          // optional "Çözer:" tag like APD page
+    href?: string;         // optional link
+    linkText?: string;     // optional link text
 };
 
 type ServiceCardsProps = {
@@ -156,23 +160,36 @@ export default function ServiceCards({
                                 {/* Hover glow */}
                                 <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: `${accentColor}15` }} />
 
-                                <div className="relative z-10">
+                                {card.href ? (
+                                    <Link href={card.href} className="absolute inset-0 z-20" aria-label={card.title} />
+                                ) : null}
+
+                                <div className="relative z-10 h-full flex flex-col">
                                     <div className="flex items-center gap-4 mb-4">
                                         <div className="w-11 h-11 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110" style={{ background: `${accentColor}12` }}>
                                             <Icon className="w-5 h-5" style={{ color: accentColor }} strokeWidth={1.8} />
                                         </div>
                                         <h3 className="text-base font-semibold text-slate-100">{card.title}</h3>
                                     </div>
-                                    <p className="text-sm text-slate-400 leading-relaxed">{card.description}</p>
+                                    <p className="flex-grow text-sm text-slate-400 leading-relaxed mb-4">{card.description}</p>
 
-                                    {card.tag && (
-                                        <div className="mt-5 pt-4 border-t border-white/[0.05]">
-                                            <p className="text-xs text-slate-500 font-medium tracking-wide uppercase">
-                                                <span className="mr-2" style={{ color: `${accentColor}` }}>✦</span>
-                                                {card.tag}
-                                            </p>
-                                        </div>
-                                    )}
+                                    <div className="mt-auto">
+                                        {card.tag && (
+                                            <div className="pt-4 border-t border-white/[0.05]">
+                                                <p className="text-xs text-slate-500 font-medium tracking-wide uppercase">
+                                                    <span className="mr-2" style={{ color: `${accentColor}` }}>✦</span>
+                                                    {card.tag}
+                                                </p>
+                                            </div>
+                                        )}
+                                        {card.href && card.linkText && (
+                                            <div className="pt-4 mt-4 border-t border-white/[0.05] flex justify-end">
+                                                <span className="text-sm font-medium transition-colors group-hover:underline" style={{ color: accentColor }}>
+                                                    {card.linkText} &rarr;
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
 
                                 {/* Bottom accent bar */}

@@ -13,28 +13,12 @@ const SERVICE_CATEGORIES = [
         key: 'sap',
         icon: Monitor,
         color: '#3463ac',
-        label: 'SAP Danışmanlık',
+        label: 'SAP Danışmanlık ve Uygulama Hizmetleri',
+        href: '/services/sap-consulting',
         items: [
-            { label: 'SAP S/4HANA Danışmanlığı', href: '/services/sap-danismanlik/s4hana' },
-            { label: 'SAP Uygulama Danışmanlığı', href: '/services/sap-danismanlik/uygulama' },
-            { label: 'SAP Teknoloji Danışmanlığı', href: '/services/sap-danismanlik/teknoloji' },
-            { label: 'Süreç Analizi ve İyileştirme', href: '/services/sap-danismanlik/surec-analizi' },
-            { label: 'Proje ve Çözüm Mimari Desteği', href: '/services/sap-danismanlik/mimari-destek' },
-            { label: 'Uzman Kaynak Desteği', href: '/services/sap-danismanlik/uzman-kaynak' },
-        ],
-    },
-    {
-        key: 'supply',
-        icon: Truck,
-        color: '#34d399',
-        label: 'Tedarik Zinciri Çözümleri',
-        items: [
-            { label: 'Planlama', href: '/services' },
-            { label: 'Üretim', href: '/services' },
-            { label: 'Lojistik', href: '/services' },
-            { label: 'Satınalma Süreçleri', href: '/services' },
-            { label: 'Tedarikçi Yönetimi', href: '/services' },
-            { label: 'Depo ve Operasyon Yönetimi', href: '/services' },
+            { label: 'Tedarik Zinciri, Üretim ve Lojistik', href: '/services/sap-consulting/supply-chain' },
+            { label: 'Süreç Analizi ve Proje Yönetimi', href: '/services/sap-consulting/process-analysis' },
+            { label: 'SAP Roll-out ve Destek Hizmetleri', href: '/services/sap-consulting/roll-out' },
         ],
     },
     {
@@ -43,11 +27,9 @@ const SERVICE_CATEGORIES = [
         color: '#a78bfa',
         label: 'Teknoloji ve Yazılım Geliştirme',
         items: [
-            { label: 'S/4HANA ve SAP BTP Çözümleri', href: '/services' },
-            { label: 'ABAP Geliştirme', href: '/services' },
-            { label: 'RAP / CAP Geliştirme', href: '/services' },
-            { label: 'SAP Fiori Uygulamaları', href: '/services' },
-            { label: 'SAPUI5 Arayüz Geliştirme', href: '/services' },
+            { label: 'SAP BTP Çözümleri', href: '/services' },
+            { label: 'ABAP, RAP / CAP Geliştirme', href: '/services' },
+            { label: 'SAP Fiori ve SAPUI5 Arayüzleri', href: '/services' },
         ],
     },
     {
@@ -57,7 +39,7 @@ const SERVICE_CATEGORIES = [
         label: 'Entegrasyon Çözümleri',
         items: [
             { label: 'API ve Sistem Entegrasyonları', href: '/services' },
-            { label: 'SAP ve Non-SAP Entegrasyonları', href: '/services' },
+            { label: 'SAP ve Non-SAP Sistem Entegrasyonları', href: '/services' },
         ],
     },
     {
@@ -66,24 +48,19 @@ const SERVICE_CATEGORIES = [
         color: '#22d3ee',
         label: 'Bulut ve Altyapı Çözümleri',
         items: [
-            { label: 'Public Cloud Çözümleri', href: '/services' },
-            { label: 'Private Cloud Çözümleri', href: '/services' },
+            { label: 'Public ve Private Cloud Çözümleri', href: '/services' },
+            { label: 'Bulut Geçiş ve Modernizasyon', href: '/services' },
             { label: 'HANA Donanım ve Altyapı Danışmanlığı', href: '/services' },
-            { label: 'Bulut Geçiş Hizmetleri', href: '/services' },
-            { label: 'Sistem Modernizasyonu', href: '/services' },
         ],
     },
     {
         key: 'digital',
         icon: Workflow,
         color: '#f472b6',
-        label: 'Dijital Dönüşüm Çözümleri',
+        label: 'Dijital Dönüşüm ve Otomasyon',
         items: [
-            { label: 'Dijital Arşivleme', href: '/services' },
-            { label: 'E-Dönüşüm Çözümleri', href: '/services' },
-            { label: 'Doküman ve Süreç Dijitalleştirme', href: '/services' },
-            { label: 'İş Akışı ve Onay Mekanizmaları', href: '/services' },
-            { label: 'Kurumsal Süreç Otomasyonu', href: '/services' },
+            { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services' },
+            { label: 'İş Akışı ve Kurumsal Süreç Otomasyonu', href: '/services' },
         ],
     },
     {
@@ -146,7 +123,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
 
                                         {/* LEFT: 3-COLUMN GRID */}
                                         <div className="flex-1 grid grid-cols-3 gap-0 p-5 pr-0">
-                                            {SERVICE_CATEGORIES.slice(0, 6).map((cat, ci) => {
+                                            {SERVICE_CATEGORIES.slice(0, 5).map((cat, ci) => {
                                                 const Icon = cat.icon;
                                                 return (
                                                     <div key={cat.key} className="mega-cat-group px-3 py-2">
@@ -158,7 +135,13 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                             >
                                                                 <Icon className="h-3.5 w-3.5" style={{ color: cat.color }} strokeWidth={1.8} />
                                                             </div>
-                                                            <span className="text-[11px] font-bold uppercase tracking-wider text-white/60">{cat.label}</span>
+                                                            {'href' in cat && cat.href ? (
+                                                                <Link href={`/${lang}${cat.href}`} className="text-[11px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors">
+                                                                    {cat.label}
+                                                                </Link>
+                                                            ) : (
+                                                                <span className="text-[11px] font-bold uppercase tracking-wider text-white/60">{cat.label}</span>
+                                                            )}
                                                         </div>
                                                         {/* Items */}
                                                         <div className="space-y-0">
@@ -181,7 +164,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                         <div className="w-[240px] border-l border-white/[0.06] bg-gradient-to-b from-[#818cf8]/[0.04] to-transparent p-5 flex flex-col justify-between">
                                             {/* AI Category */}
                                             {(() => {
-                                                const aiCat = SERVICE_CATEGORIES[6];
+                                                const aiCat = SERVICE_CATEGORIES[5];
                                                 const AiIcon = aiCat.icon;
                                                 return (
                                                     <div>

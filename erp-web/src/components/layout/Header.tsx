@@ -180,38 +180,25 @@ export default function Header({ dict, lang }: HeaderProps) {
                             }`}>
                             <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
 
-                            {/* SAP Danışmanlık */}
+                            {/* SAP Danışmanlık ve Uygulama Hizmetleri */}
                             <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#3463ac]/70">SAP Danışmanlık</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#3463ac]/70">SAP Danışmanlık ve Uygulama</span>
                             </div>
                             {[
-                                { label: 'SAP S/4HANA Danışmanlığı', href: '/services/sap-danismanlik/s4hana' },
-                                { label: 'SAP Uygulama Danışmanlığı', href: '/services/sap-danismanlik/uygulama' },
-                                { label: 'SAP Teknoloji Danışmanlığı', href: '/services/sap-danismanlik/teknoloji' },
-                                { label: 'Süreç Analizi ve İyileştirme', href: '/services/sap-danismanlik/surec-analizi' },
-                                { label: 'Proje ve Çözüm Mimari Desteği', href: '/services/sap-danismanlik/mimari-destek' },
-                                { label: 'Uzman Kaynak Desteği', href: '/services/sap-danismanlik/uzman-kaynak' },
+                                { label: 'Tedarik Zinciri, Üretim ve Lojistik', href: '/services/sap-consulting/supply-chain' },
+                                { label: 'Süreç Analizi ve Proje Yönetimi', href: '/services/sap-consulting/process-analysis' },
+                                { label: 'SAP Roll-out ve Destek Hizmetleri', href: '/services/sap-consulting/roll-out' },
                             ].map(s => (
                                 <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s.label}</span>
                                 </Link>
                             ))}
 
-                            {/* Tedarik Zinciri */}
-                            <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#34d399]/70">Tedarik Zinciri</span>
-                            </div>
-                            {['Planlama', 'Üretim', 'Lojistik', 'Satınalma Süreçleri', 'Tedarikçi Yönetimi', 'Depo ve Operasyon Yönetimi'].map(s => (
-                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
-                                    <span className="font-medium text-[13px]">{s}</span>
-                                </Link>
-                            ))}
-
                             {/* Teknoloji ve Yazılım */}
                             <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#a78bfa]/70">Teknoloji ve Yazılım</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#a78bfa]/70">Teknoloji ve Yazılım Geliştirme</span>
                             </div>
-                            {['S/4HANA ve SAP BTP Çözümleri', 'ABAP Geliştirme', 'RAP / CAP Geliştirme', 'SAP Fiori Uygulamaları', 'SAPUI5 Arayüz Geliştirme'].map(s => (
+                            {['SAP BTP Çözümleri', 'ABAP, RAP / CAP Geliştirme', 'SAP Fiori ve SAPUI5 Arayüzleri'].map(s => (
                                 <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s}</span>
                                 </Link>
@@ -221,7 +208,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                             <div className="px-5 pt-3 pb-1">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#f59e0b]/70">Entegrasyon Çözümleri</span>
                             </div>
-                            {['API ve Sistem Entegrasyonları', 'SAP ve Non-SAP Entegrasyonları'].map(s => (
+                            {['API ve Sistem Entegrasyonları', 'SAP ve Non-SAP Sistem Entegrasyonları'].map(s => (
                                 <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s}</span>
                                 </Link>
@@ -229,9 +216,9 @@ export default function Header({ dict, lang }: HeaderProps) {
 
                             {/* Bulut ve Altyapı */}
                             <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#22d3ee]/70">Bulut ve Altyapı</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#22d3ee]/70">Bulut ve Altyapı Çözümleri</span>
                             </div>
-                            {['Public Cloud Çözümleri', 'Private Cloud Çözümleri', 'HANA Donanım ve Altyapı Danışmanlığı', 'Bulut Geçiş Hizmetleri', 'Sistem Modernizasyonu'].map(s => (
+                            {['Public ve Private Cloud Çözümleri', 'Bulut Geçiş ve Modernizasyon', 'HANA Donanım ve Altyapı Danışmanlığı'].map(s => (
                                 <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s}</span>
                                 </Link>
@@ -239,9 +226,9 @@ export default function Header({ dict, lang }: HeaderProps) {
 
                             {/* Dijital Dönüşüm */}
                             <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#f472b6]/70">Dijital Dönüşüm</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#f472b6]/70">Dijital Dönüşüm ve Otomasyon</span>
                             </div>
-                            {['Dijital Arşivleme', 'E-Dönüşüm Çözümleri', 'Doküman ve Süreç Dijitalleştirme', 'İş Akışı ve Onay Mekanizmaları', 'Kurumsal Süreç Otomasyonu'].map(s => (
+                            {['E-Dönüşüm ve Dijital Arşivleme', 'İş Akışı ve Kurumsal Süreç Otomasyonu'].map(s => (
                                 <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s}</span>
                                 </Link>
