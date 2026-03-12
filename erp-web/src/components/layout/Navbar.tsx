@@ -41,10 +41,11 @@ const SERVICE_CATEGORIES = [
         icon: Blocks,
         color: '#f59e0b',
         label: 'Entegrasyon Çözümleri',
+        href: '/services/integration-solutions',
         items: [
             { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services/integration-solutions/e-donusum' },
-            { label: 'API ve Sistem Entegrasyonları', href: '/services' },
-            { label: 'SAP ve Non-SAP Sistem Entegrasyonları', href: '/services' },
+            { label: 'API ve Sistem Entegrasyonları', href: '/services/integration-solutions/api-integration' },
+            { label: 'SAP ve Non-SAP Sistem Entegrasyonları', href: '/services/integration-solutions/sap-nonsap' },
         ],
     },
     {

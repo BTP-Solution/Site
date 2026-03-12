@@ -217,8 +217,8 @@ export default function Header({ dict, lang }: HeaderProps) {
                             </div>
                             {[
                                 { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services/integration-solutions/e-donusum' },
-                                { label: 'API ve Sistem Entegrasyonları', href: '/services' },
-                                { label: 'SAP ve Non-SAP Sistem Entegrasyonları', href: '/services' },
+                                { label: 'API ve Sistem Entegrasyonları', href: '/services/integration-solutions/api-integration' },
+                                { label: 'SAP ve Non-SAP Sistem Entegrasyonları', href: '/services/integration-solutions/sap-nonsap' },
                             ].map(s => (
                                 <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s.label}</span>
