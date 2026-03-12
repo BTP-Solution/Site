@@ -5,7 +5,7 @@ import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
 import ServiceBenefits from '@/components/services/ServiceBenefits';
 import ServiceCta from '@/components/services/ServiceCta';
-import { Blocks, FileText, ArrowLeftRight, Link2 } from 'lucide-react';
+import { Blocks, FileText, ArrowLeftRight, Link2, Landmark } from 'lucide-react';
 
 export default function IntegrationSolutionsPage() {
     return (
@@ -74,6 +74,14 @@ export default function IntegrationSolutionsPage() {
                             description: 'SAP ile CRM, HR, MES, WMS ve üçüncü parti sistemler arasında güvenilir, gerçek zamanlı veri entegrasyonu sağlıyoruz.',
                             tag: 'SİSTEM ENTEGRASYONU',
                             href: '/services/integration-solutions/sap-nonsap',
+                            linkText: 'Detayları Gör'
+                        },
+                        {
+                            icon: Landmark,
+                            title: 'Banka ve Fintech Entegrasyonları',
+                            description: 'SAP sisteminizi bankalar ve fintech platformlarıyla entegre ederek ödeme, hesap ekstresi, DBS ve mutabakat süreçlerinizi otomatikleştiriyoruz.',
+                            tag: 'BANKA ENTEGRASYONU',
+                            href: '/services/integration-solutions/banka-fintech',
                             linkText: 'Detayları Gör'
                         },
                     ]}
