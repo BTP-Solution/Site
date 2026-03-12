@@ -198,9 +198,14 @@ export default function Header({ dict, lang }: HeaderProps) {
                             <div className="px-5 pt-3 pb-1">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#a78bfa]/70">Teknoloji ve Yazılım Geliştirme</span>
                             </div>
-                            {['SAP BTP Çözümleri', 'ABAP, RAP / CAP Geliştirme', 'SAP Fiori ve SAPUI5 Arayüzleri'].map(s => (
-                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
-                                    <span className="font-medium text-[13px]">{s}</span>
+                            {[
+                                { label: 'SAP BTP Çözümleri', href: '/services/tech-development/sap-btp' },
+                                { label: 'ABAP, RAP / CAP Geliştirme', href: '/services/tech-development/abap-rap-cap' },
+                                { label: 'SAP Fiori ve SAPUI5 Arayüzleri', href: '/services/tech-development/fiori-sapui5' },
+                                { label: 'Bulut Geçiş ve Modernizasyon', href: '/services/tech-development/cloud-migration' },
+                            ].map(s => (
+                                <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                    <span className="font-medium text-[13px]">{s.label}</span>
                                 </Link>
                             ))}
 

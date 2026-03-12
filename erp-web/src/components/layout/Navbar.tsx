@@ -26,10 +26,12 @@ const SERVICE_CATEGORIES = [
         icon: Code2,
         color: '#a78bfa',
         label: 'Teknoloji ve Yazılım Geliştirme',
+        href: '/services/tech-development',
         items: [
-            { label: 'SAP BTP Çözümleri', href: '/services' },
-            { label: 'ABAP, RAP / CAP Geliştirme', href: '/services' },
-            { label: 'SAP Fiori ve SAPUI5 Arayüzleri', href: '/services' },
+            { label: 'SAP BTP Çözümleri', href: '/services/tech-development/sap-btp' },
+            { label: 'ABAP, RAP / CAP Geliştirme', href: '/services/tech-development/abap-rap-cap' },
+            { label: 'SAP Fiori ve SAPUI5 Arayüzleri', href: '/services/tech-development/fiori-sapui5' },
+            { label: 'Bulut Geçiş ve Modernizasyon', href: '/services/tech-development/cloud-migration' },
         ],
     },
     {
@@ -49,7 +51,7 @@ const SERVICE_CATEGORIES = [
         label: 'Bulut ve Altyapı Çözümleri',
         items: [
             { label: 'Public ve Private Cloud Çözümleri', href: '/services' },
-            { label: 'Bulut Geçiş ve Modernizasyon', href: '/services' },
+            { label: 'Bulut Geçiş ve Modernizasyon', href: '/services/tech-development/cloud-migration' },
             { label: 'HANA Donanım ve Altyapı Danışmanlığı', href: '/services' },
         ],
     },
