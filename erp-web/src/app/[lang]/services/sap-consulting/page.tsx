@@ -6,7 +6,7 @@ import ServiceCards from '@/components/services/ServiceCards';
 import ServiceSteps from '@/components/services/ServiceSteps';
 import ServiceBenefits from '@/components/services/ServiceBenefits';
 import ServiceCta from '@/components/services/ServiceCta';
-import { Monitor, Briefcase, Search, Settings, Truck, RotateCw, Blocks, ShieldCheck, Zap, Coins } from 'lucide-react';
+import { Monitor, Briefcase, Search, Settings, Truck, RotateCw, Blocks, ShieldCheck, Zap, Coins, Users, BarChart3, ShoppingBag } from 'lucide-react';
 
 export default function SapConsultingPage() {
     return (
@@ -80,6 +80,30 @@ export default function SapConsultingPage() {
                             description: 'SAP FI/CO modülleriyle finansal süreçlerinizi dijitalleştiriyor, maliyet kontrolünü güçlendiriyor ve raporlama altyapınızı optimize ediyoruz.', 
                             tag: 'Finansal Yönetim',
                             href: '/services/sap-consulting/financial-solutions',
+                            linkText: 'Detayları Gör'
+                        },
+                        { 
+                            icon: Users, 
+                            title: 'İnsan Kaynakları Çözümleri', 
+                            description: 'SAP HCM ve SuccessFactors ile personel yönetimi, bordro ve yetenek yönetimi süreçlerinizi dijitalleştiriyoruz.', 
+                            tag: 'İnsan Kaynakları',
+                            href: '/services/sap-consulting/hr-solutions',
+                            linkText: 'Detayları Gör'
+                        },
+                        { 
+                            icon: BarChart3, 
+                            title: 'İş Zekası ve Veri Analitiği', 
+                            description: 'SAP Analytics Cloud ve BW ile verilerinizi görselleştiriyor, dashboard kurguluyoruz ve stratejik raporlama altyapısı oluşturuyoruz.', 
+                            tag: 'Analitik',
+                            href: '/services/sap-consulting/business-intelligence',
+                            linkText: 'Detayları Gör'
+                        },
+                        { 
+                            icon: ShoppingBag, 
+                            title: 'Müşteri Deneyimi ve Satış', 
+                            description: 'SAP CX/CRM ile pazarlama, satış, e-ticaret ve müşteri hizmetleri süreçlerinizi uçtan uca yönetiyoruz.', 
+                            tag: 'Müşteri Deneyimi',
+                            href: '/services/sap-consulting/customer-experience',
                             linkText: 'Detayları Gör'
                         },
                     ]}

@@ -189,6 +189,9 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 { label: 'Süreç Analizi ve Proje Yönetimi', href: '/services/sap-consulting/process-analysis' },
                                 { label: 'SAP Roll-out ve Destek Hizmetleri', href: '/services/sap-consulting/roll-out' },
                                 { label: 'Finansal Çözümler', href: '/services/sap-consulting/financial-solutions' },
+                                { label: 'İnsan Kaynakları Çözümleri', href: '/services/sap-consulting/hr-solutions' },
+                                { label: 'İş Zekası ve Veri Analitiği', href: '/services/sap-consulting/business-intelligence' },
+                                { label: 'Müşteri Deneyimi ve Satış', href: '/services/sap-consulting/customer-experience' },
                             ].map(s => (
                                 <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s.label}</span>

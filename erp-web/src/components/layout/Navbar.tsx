@@ -20,6 +20,9 @@ const SERVICE_CATEGORIES = [
             { label: 'Süreç Analizi ve Proje Yönetimi', href: '/services/sap-consulting/process-analysis' },
             { label: 'SAP Roll-out ve Destek Hizmetleri', href: '/services/sap-consulting/roll-out' },
             { label: 'Finansal Çözümler', href: '/services/sap-consulting/financial-solutions' },
+            { label: 'İnsan Kaynakları Çözümleri', href: '/services/sap-consulting/hr-solutions' },
+            { label: 'İş Zekası ve Veri Analitiği', href: '/services/sap-consulting/business-intelligence' },
+            { label: 'Müşteri Deneyimi ve Satış', href: '/services/sap-consulting/customer-experience' },
         ],
     },
     {
