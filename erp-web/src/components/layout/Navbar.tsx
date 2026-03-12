@@ -57,12 +57,12 @@ const SERVICE_CATEGORIES = [
         icon: Brain,
         color: '#818cf8',
         label: 'Veri, Yapay Zeka ve Akıllı Çözümler',
+        href: '/services/ai-data-solutions',
         items: [
-            { label: 'Veri Dönüşümü ve Veri Yönetimi', href: '/services' },
-            { label: 'Raporlama ve Analitik Çözümleri', href: '/services' },
-            { label: 'AI Destekli Süreçler', href: '/services' },
-            { label: 'ML Tabanlı Uygulamalar', href: '/services' },
-            { label: 'Karar Destek Çözümleri', href: '/services' },
+            { label: 'Veri Yönetimi ve Dönüşümü', href: '/services/ai-data-solutions/data-management' },
+            { label: 'İş Zekası ve Gelişmiş Analitik', href: '/services/ai-data-solutions/business-analytics' },
+            { label: 'Yapay Zeka ve Makine Öğrenimi', href: '/services/ai-data-solutions/ai-ml' },
+            { label: 'Akıllı İş Akışı ve Süreç Otomasyonu', href: '/services/ai-data-solutions/rpa-automation' },
         ],
     },
 ];

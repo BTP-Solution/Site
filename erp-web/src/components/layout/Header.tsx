@@ -233,9 +233,14 @@ export default function Header({ dict, lang }: HeaderProps) {
                             <div className="px-5 pt-3 pb-1">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#818cf8]/70">Veri & Yapay Zeka</span>
                             </div>
-                            {['Veri Dönüşümü ve Veri Yönetimi', 'Raporlama ve Analitik Çözümleri', 'AI Destekli Süreçler', 'ML Tabanlı Uygulamalar', 'Karar Destek Çözümleri'].map(s => (
-                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
-                                    <span className="font-medium text-[13px]">{s}</span>
+                            {[
+                                { label: 'Veri Yönetimi ve Dönüşümü', href: '/services/ai-data-solutions/data-management' },
+                                { label: 'İş Zekası ve Gelişmiş Analitik', href: '/services/ai-data-solutions/business-analytics' },
+                                { label: 'Yapay Zeka ve Makine Öğrenimi', href: '/services/ai-data-solutions/ai-ml' },
+                                { label: 'Akıllı İş Akışı ve Süreç Otomasyonu', href: '/services/ai-data-solutions/rpa-automation' },
+                            ].map(s => (
+                                <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                    <span className="font-medium text-[13px]">{s.label}</span>
                                 </Link>
                             ))}
 
