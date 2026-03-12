@@ -19,6 +19,7 @@ const SERVICE_CATEGORIES = [
             { label: 'Tedarik Zinciri, Üretim ve Lojistik', href: '/services/sap-consulting/supply-chain' },
             { label: 'Süreç Analizi ve Proje Yönetimi', href: '/services/sap-consulting/process-analysis' },
             { label: 'SAP Roll-out ve Destek Hizmetleri', href: '/services/sap-consulting/roll-out' },
+            { label: 'Finansal Çözümler', href: '/services/sap-consulting/financial-solutions' },
         ],
     },
     {

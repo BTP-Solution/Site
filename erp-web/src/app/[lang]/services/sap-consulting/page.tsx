@@ -6,7 +6,7 @@ import ServiceCards from '@/components/services/ServiceCards';
 import ServiceSteps from '@/components/services/ServiceSteps';
 import ServiceBenefits from '@/components/services/ServiceBenefits';
 import ServiceCta from '@/components/services/ServiceCta';
-import { Monitor, Briefcase, Search, Settings, Truck, RotateCw, Blocks, ShieldCheck, Zap } from 'lucide-react';
+import { Monitor, Briefcase, Search, Settings, Truck, RotateCw, Blocks, ShieldCheck, Zap, Coins } from 'lucide-react';
 
 export default function SapConsultingPage() {
     return (
@@ -72,6 +72,14 @@ export default function SapConsultingPage() {
                             description: 'Yeni lokasyon ve şirket katılımları için yaygınlaştırma projelerini yönetiyor, devreye alma sonrası kesintisiz destek sunuyoruz.', 
                             tag: 'Sürekli Gelişim',
                             href: '/services/sap-consulting/roll-out',
+                            linkText: 'Detayları Gör'
+                        },
+                        { 
+                            icon: Coins, 
+                            title: 'Finansal Çözümler', 
+                            description: 'SAP FI/CO modülleriyle finansal süreçlerinizi dijitalleştiriyor, maliyet kontrolünü güçlendiriyor ve raporlama altyapınızı optimize ediyoruz.', 
+                            tag: 'Finansal Yönetim',
+                            href: '/services/sap-consulting/financial-solutions',
                             linkText: 'Detayları Gör'
                         },
                     ]}
