@@ -5,7 +5,7 @@ import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
 import ServiceBenefits from '@/components/services/ServiceBenefits';
 import ServiceCta from '@/components/services/ServiceCta';
-import { Code2, Cloud, Layers, Palette, Server } from 'lucide-react';
+import { Code2, Cloud, Layers, Palette, Server, Workflow } from 'lucide-react';
 
 export default function TechDevelopmentPage() {
     return (
@@ -80,6 +80,14 @@ export default function TechDevelopmentPage() {
                             description: 'Mevcut altyapınızı daha esnek, güncel ve sürdürülebilir bulut mimarilerine taşıyoruz.',
                             tag: '✦ MİMARİ',
                             href: '/services/tech-development/cloud-migration',
+                            linkText: 'Detayları Gör'
+                        },
+                        {
+                            icon: Workflow,
+                            title: 'İş Akışı ve Süreç Otomasyonu',
+                            description: 'Manuel onay mekanizmalarını ve tekrarlayan süreçleri SAP tabanlı otomasyon araçlarıyla dijitalleştiriyoruz.',
+                            tag: '✦ OTOMASYON',
+                            href: '/services/tech-development/workflow-automation',
                             linkText: 'Detayları Gör'
                         },
                     ]}

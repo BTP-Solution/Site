@@ -33,6 +33,7 @@ const SERVICE_CATEGORIES = [
             { label: 'ABAP, RAP / CAP Geliştirme', href: '/services/tech-development/abap-rap-cap' },
             { label: 'SAP Fiori ve SAPUI5 Arayüzleri', href: '/services/tech-development/fiori-sapui5' },
             { label: 'Bulut Geçiş ve Modernizasyon', href: '/services/tech-development/cloud-migration' },
+            { label: 'İş Akışı ve Süreç Otomasyonu', href: '/services/tech-development/workflow-automation' },
         ],
     },
     {
@@ -63,7 +64,7 @@ const SERVICE_CATEGORIES = [
         label: 'Dijital Dönüşüm ve Otomasyon',
         items: [
             { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services' },
-            { label: 'İş Akışı ve Kurumsal Süreç Otomasyonu', href: '/services' },
+            { label: 'İş Akışı ve Kurumsal Süreç Otomasyonu', href: '/services/tech-development/workflow-automation' },
         ],
     },
     {
