@@ -42,6 +42,7 @@ const SERVICE_CATEGORIES = [
         color: '#f59e0b',
         label: 'Entegrasyon Çözümleri',
         items: [
+            { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services/integration-solutions/e-donusum' },
             { label: 'API ve Sistem Entegrasyonları', href: '/services' },
             { label: 'SAP ve Non-SAP Sistem Entegrasyonları', href: '/services' },
         ],
@@ -63,7 +64,7 @@ const SERVICE_CATEGORIES = [
         color: '#f472b6',
         label: 'Dijital Dönüşüm ve Otomasyon',
         items: [
-            { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services' },
+            { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services/integration-solutions/e-donusum' },
             { label: 'İş Akışı ve Kurumsal Süreç Otomasyonu', href: '/services/tech-development/workflow-automation' },
         ],
     },
