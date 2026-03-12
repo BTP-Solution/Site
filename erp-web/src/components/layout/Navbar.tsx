@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronDown, Cloud, Database, Link2, BarChart3, Monitor, FileText, Truck, Settings, FileCheck2, Code2, Blocks, Brain, Sparkles, ArrowRight, Cpu, Workflow, Archive, Zap, ShieldCheck } from 'lucide-react';
+import { ChevronDown, Database, Link2, BarChart3, Monitor, FileText, Truck, Settings, FileCheck2, Code2, Blocks, Brain, Sparkles, ArrowRight, Cpu, Archive, Zap, ShieldCheck } from 'lucide-react';
 
 type NavbarProps = {
     dict: any;
@@ -45,27 +45,6 @@ const SERVICE_CATEGORIES = [
             { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services/integration-solutions/e-donusum' },
             { label: 'API ve Sistem Entegrasyonları', href: '/services' },
             { label: 'SAP ve Non-SAP Sistem Entegrasyonları', href: '/services' },
-        ],
-    },
-    {
-        key: 'cloud',
-        icon: Cloud,
-        color: '#22d3ee',
-        label: 'Bulut ve Altyapı Çözümleri',
-        items: [
-            { label: 'Public ve Private Cloud Çözümleri', href: '/services' },
-            { label: 'Bulut Geçiş ve Modernizasyon', href: '/services/tech-development/cloud-migration' },
-            { label: 'HANA Donanım ve Altyapı Danışmanlığı', href: '/services' },
-        ],
-    },
-    {
-        key: 'digital',
-        icon: Workflow,
-        color: '#f472b6',
-        label: 'Dijital Dönüşüm ve Otomasyon',
-        items: [
-            { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services/integration-solutions/e-donusum' },
-            { label: 'İş Akışı ve Kurumsal Süreç Otomasyonu', href: '/services/tech-development/workflow-automation' },
         ],
     },
     {
@@ -128,7 +107,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
 
                                         {/* LEFT: 3-COLUMN GRID */}
                                         <div className="flex-1 grid grid-cols-3 gap-0 p-5 pr-0">
-                                            {SERVICE_CATEGORIES.slice(0, 5).map((cat, ci) => {
+                                            {SERVICE_CATEGORIES.slice(0, 3).map((cat, ci) => {
                                                 const Icon = cat.icon;
                                                 return (
                                                     <div key={cat.key} className="mega-cat-group px-3 py-2">
@@ -169,7 +148,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                         <div className="w-[240px] border-l border-white/[0.06] bg-gradient-to-b from-[#818cf8]/[0.04] to-transparent p-5 flex flex-col justify-between">
                                             {/* AI Category */}
                                             {(() => {
-                                                const aiCat = SERVICE_CATEGORIES[5];
+                                                const aiCat = SERVICE_CATEGORIES[3];
                                                 const AiIcon = aiCat.icon;
                                                 return (
                                                     <div>

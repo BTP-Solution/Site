@@ -225,29 +225,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 </Link>
                             ))}
 
-                            {/* Bulut ve Altyapı */}
-                            <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#22d3ee]/70">Bulut ve Altyapı Çözümleri</span>
-                            </div>
-                            {['Public ve Private Cloud Çözümleri', 'Bulut Geçiş ve Modernizasyon', 'HANA Donanım ve Altyapı Danışmanlığı'].map(s => (
-                                <Link key={s} href={`/${lang}/services`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
-                                    <span className="font-medium text-[13px]">{s}</span>
-                                </Link>
-                            ))}
-
-                            {/* Dijital Dönüşüm */}
-                            <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#f472b6]/70">Dijital Dönüşüm ve Otomasyon</span>
-                            </div>
-                            {[
-                                { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services/integration-solutions/e-donusum' },
-                                { label: 'İş Akışı ve Kurumsal Süreç Otomasyonu', href: '/services/tech-development/workflow-automation' },
-                            ].map(s => (
-                                <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
-                                    <span className="font-medium text-[13px]">{s.label}</span>
-                                </Link>
-                            ))}
-
                             {/* Veri, Yapay Zeka */}
                             <div className="px-5 pt-3 pb-1">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#818cf8]/70">Veri & Yapay Zeka</span>
