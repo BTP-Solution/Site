@@ -4,6 +4,7 @@ import '../globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieBanner from '@/components/ui/CookieBanner';
+import PageTransitionProvider from '@/components/layout/PageTransition';
 import { getDictionary, Locale } from '@/lib/i18n/getDictionary';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -26,12 +27,14 @@ export default async function RootLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased bg-white text-zinc-900 min-h-screen flex flex-col`}>
-        <Header dict={dictionary} lang={lang} />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer dict={dictionary} />
-        <CookieBanner dict={dictionary} />
+        <PageTransitionProvider>
+          <Header dict={dictionary} lang={lang} />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer dict={dictionary} />
+          <CookieBanner dict={dictionary} />
+        </PageTransitionProvider>
       </body>
     </html>
   );
