@@ -300,26 +300,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                 <span className="text-xs text-slate-500 transition-colors group-hover/item:text-slate-400">Smart posting document engine</span>
                                             </div>
                                         </TransitionLink>
-                                        <div className="mx-4 my-1 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
-                                        <TransitionLink href={`/${lang}/products#connector`} onClick={() => { closeDropdown(); }} className="group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all duration-250 hover:bg-white/[0.05] mega-content-item" style={{ animationDelay: '60ms' }}>
-                                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500/20 to-[#3463ac]/10 ring-1 ring-white/[0.06] transition-all duration-300 group-hover/item:from-purple-500/30 group-hover/item:to-[#3463ac]/20 group-hover/item:shadow-[0_0_16px_rgba(126,34,206,0.2)]">
-                                                <Link2 className="h-4.5 w-4.5 text-purple-400 transition-colors group-hover/item:text-purple-300" />
-                                            </div>
-                                            <div className="flex flex-col">
-                                                <span className="font-semibold text-white/90 transition-colors group-hover/item:text-white">BTP Connector</span>
-                                                <span className="text-xs text-slate-500 transition-colors group-hover/item:text-slate-400">Seamlessly link your legacy systems</span>
-                                            </div>
-                                        </TransitionLink>
-                                        <div className="mx-4 my-1 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
-                                        <TransitionLink href={`/${lang}/products#analytics`} onClick={() => { closeDropdown(); }} className="group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all duration-250 hover:bg-white/[0.05] mega-content-item" style={{ animationDelay: '120ms' }}>
-                                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500/20 to-[#3463ac]/10 ring-1 ring-white/[0.06] transition-all duration-300 group-hover/item:from-purple-500/30 group-hover/item:to-[#3463ac]/20 group-hover/item:shadow-[0_0_16px_rgba(126,34,206,0.2)]">
-                                                <BarChart3 className="h-4.5 w-4.5 text-purple-400 transition-colors group-hover/item:text-purple-300" />
-                                            </div>
-                                            <div className="flex flex-col">
-                                                <span className="font-semibold text-white/90 transition-colors group-hover/item:text-white">Data Analytics Suite</span>
-                                                <span className="text-xs text-slate-500 transition-colors group-hover/item:text-slate-400">Turn raw data into strategic assets</span>
-                                            </div>
-                                        </TransitionLink>
                                     </div>
                                 </div>
                             )}

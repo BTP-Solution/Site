@@ -271,14 +271,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 <FileCheck2 className="h-4 w-4 text-[#ff7700]" />
                                 <span className="font-medium text-sm">APD Automation</span>
                             </TransitionLink>
-                            <TransitionLink href={`/${lang}/products#connector`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
-                                <Link2 className="h-3.5 w-3.5 text-slate-500" />
-                                <span className="font-medium text-sm">BTP Connector</span>
-                            </TransitionLink>
-                            <TransitionLink href={`/${lang}/products#analytics`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
-                                <BarChart3 className="h-3.5 w-3.5 text-slate-500" />
-                                <span className="font-medium text-sm">Data Analytics Suite</span>
-                            </TransitionLink>
                         </div>
                     </div>
 
