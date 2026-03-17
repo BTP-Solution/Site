@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback, useEffect, useTransition } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, useTransition, useRef } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Image from 'next/image';
 
@@ -23,11 +23,20 @@ export default function PageTransitionProvider({ children }: { children: React.R
     const [isVisible, setIsVisible] = useState(false);
     const [isFadingOut, setIsFadingOut] = useState(false);
     const [targetPath, setTargetPath] = useState<string | null>(null);
+    const wasPendingRef = useRef(false);
+
+    // Track when isPending becomes true (navigation actually started)
+    useEffect(() => {
+        if (isPending) {
+            wasPendingRef.current = true;
+        }
+    }, [isPending]);
 
     const navigateWithTransition = useCallback((href: string) => {
         // Don't transition if already on the same page
         if (href === pathname) return;
 
+        wasPendingRef.current = false;
         setIsVisible(true);
         setIsFadingOut(false);
         setTargetPath(href);
@@ -40,10 +49,11 @@ export default function PageTransitionProvider({ children }: { children: React.R
         }, 300);
     }, [pathname, router, startTransition]);
 
-    // When navigation completes (isPending goes from true to false and we have a target)
+    // When navigation completes (isPending goes from true→false and we have a target)
     useEffect(() => {
-        if (!isPending && targetPath && isVisible) {
+        if (!isPending && wasPendingRef.current && targetPath && isVisible) {
             // Navigation complete — fade out the overlay
+            wasPendingRef.current = false;
             const timer = setTimeout(() => {
                 setIsFadingOut(true);
                 setTimeout(() => {

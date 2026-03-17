@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import TransitionLink from '@/components/ui/TransitionLink';
 import { usePathname } from 'next/navigation';
 import { Globe, Menu, X, ChevronRight, ChevronDown, Cloud, Database, Link2, BarChart3, Check, Sparkles, FileCheck2 } from 'lucide-react';
 import Navbar from './Navbar';
@@ -115,7 +116,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                     </div>
 
                     {/* CTA BUTTON — SHIMMER */}
-                    <Link
+                    <TransitionLink
                         href={`/${lang}/contact`}
                         className="cta-shimmer hidden sm:inline-flex h-10 items-center justify-center rounded-full px-6 text-sm font-semibold text-white shadow-[0_0_20px_rgba(52,99,172,0.25)] transition-all duration-300 hover:shadow-[0_4px_30px_rgba(52,99,172,0.4)] hover:-translate-y-0.5 focus-visible:outline-none"
                     >
@@ -123,7 +124,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                             <Sparkles className="h-3.5 w-3.5" />
                             {dict.navigation.getConsultation}
                         </span>
-                    </Link>
+                    </TransitionLink>
 
                     {/* MOBILE HAMBURGER */}
                     <button
@@ -193,9 +194,9 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 { label: 'İş Zekası ve Veri Analitiği', href: '/services/sap-consulting/business-intelligence' },
                                 { label: 'Müşteri Deneyimi ve Satış', href: '/services/sap-consulting/customer-experience' },
                             ].map(s => (
-                                <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                <TransitionLink key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s.label}</span>
-                                </Link>
+                                </TransitionLink>
                             ))}
 
                             {/* Teknoloji ve Yazılım */}
@@ -209,9 +210,9 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 { label: 'Bulut Geçiş ve Modernizasyon', href: '/services/tech-development/cloud-migration' },
                                 { label: 'İş Akışı ve Süreç Otomasyonu', href: '/services/tech-development/workflow-automation' },
                             ].map(s => (
-                                <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                <TransitionLink key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s.label}</span>
-                                </Link>
+                                </TransitionLink>
                             ))}
 
                             {/* Entegrasyon */}
@@ -224,9 +225,9 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 { label: 'SAP ve Non-SAP Sistem Entegrasyonları', href: '/services/integration-solutions/sap-nonsap' },
                                 { label: 'Banka ve Fintech Entegrasyonları', href: '/services/integration-solutions/banka-fintech' },
                             ].map(s => (
-                                <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                <TransitionLink key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s.label}</span>
-                                </Link>
+                                </TransitionLink>
                             ))}
 
                             {/* Veri, Yapay Zeka */}
@@ -239,9 +240,9 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 { label: 'Yapay Zeka ve Makine Öğrenimi', href: '/services/ai-data-solutions/ai-ml' },
                                 { label: 'Akıllı İş Akışı ve Süreç Otomasyonu', href: '/services/ai-data-solutions/rpa-automation' },
                             ].map(s => (
-                                <Link key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
+                                <TransitionLink key={s.label} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
                                     <span className="font-medium text-[13px]">{s.label}</span>
-                                </Link>
+                                </TransitionLink>
                             ))}
 
                             <div className="h-3"></div>
@@ -266,24 +267,24 @@ export default function Header({ dict, lang }: HeaderProps) {
                         <div className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'products' ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                             }`}>
                             <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
-                            <Link href={`/${lang}/products/apd`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
+                            <TransitionLink href={`/${lang}/products/apd`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
                                 <FileCheck2 className="h-4 w-4 text-[#ff7700]" />
                                 <span className="font-medium text-sm">APD Automation</span>
-                            </Link>
-                            <Link href={`/${lang}/products#connector`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
+                            </TransitionLink>
+                            <TransitionLink href={`/${lang}/products#connector`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
                                 <Link2 className="h-3.5 w-3.5 text-slate-500" />
                                 <span className="font-medium text-sm">BTP Connector</span>
-                            </Link>
-                            <Link href={`/${lang}/products#analytics`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
+                            </TransitionLink>
+                            <TransitionLink href={`/${lang}/products#analytics`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
                                 <BarChart3 className="h-3.5 w-3.5 text-slate-500" />
                                 <span className="font-medium text-sm">Data Analytics Suite</span>
-                            </Link>
+                            </TransitionLink>
                         </div>
                     </div>
 
                     {/* ABOUT */}
                     <div className={`flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden backdrop-blur-sm ${isMobileMenuOpen ? 'mobile-stagger-3' : ''}`}>
-                        <Link href={`/${lang}/about`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between p-5 w-full text-left group">
+                        <TransitionLink href={`/${lang}/about`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between p-5 w-full text-left group">
                             <div className="flex items-center gap-3">
                                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-white/[0.06] to-white/[0.02] ring-1 ring-white/[0.06]">
                                     <span className="text-sm">💡</span>
@@ -291,7 +292,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 <span className="font-semibold text-slate-200">{dict.navigation.about}</span>
                             </div>
                             <ChevronRight className="h-4 w-4 text-slate-500 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-white" />
-                        </Link>
+                        </TransitionLink>
                     </div>
 
                     {/* LANGUAGE ACCORDION (MOBILE) */}
@@ -336,7 +337,7 @@ export default function Header({ dict, lang }: HeaderProps) {
 
                     {/* MOBILE CTA */}
                     <div className={`mt-4 pb-6 ${isMobileMenuOpen ? 'mobile-stagger-5' : ''}`}>
-                        <Link
+                        <TransitionLink
                             href={`/${lang}/contact`}
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="cta-shimmer flex w-full h-14 items-center justify-center rounded-2xl px-6 text-base font-semibold text-white shadow-[0_0_30px_rgba(52,99,172,0.3)] transition-all"
@@ -345,7 +346,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 <Sparkles className="h-4 w-4" />
                                 {dict.navigation.getConsultation}
                             </span>
-                        </Link>
+                        </TransitionLink>
                     </div>
                 </div>
             </div>

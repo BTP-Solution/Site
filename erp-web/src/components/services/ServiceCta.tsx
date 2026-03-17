@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import TransitionLink from '@/components/ui/TransitionLink';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 type ServiceCtaProps = {
@@ -48,13 +48,13 @@ export default function ServiceCta({ title, subtitle, buttonText, buttonHref, fe
                         )}
 
                         <div className={`flex flex-wrap justify-center gap-4 ${!features ? 'mt-8' : ''}`}>
-                            <Link
+                            <TransitionLink
                                 href={buttonHref}
                                 className="cta-shimmer group inline-flex items-center gap-2.5 px-10 py-4 text-white rounded-xl font-semibold shadow-2xl hover:shadow-[0_8px_30px_rgba(52,99,172,0.3)] transition-shadow"
                             >
                                 {buttonText}
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                            </Link>
+                            </TransitionLink>
                         </div>
                     </div>
                 </div>

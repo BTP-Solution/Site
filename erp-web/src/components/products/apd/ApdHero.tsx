@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowRight, FileCheck2, FileScan } from 'lucide-react';
-import Link from 'next/link';
+import TransitionLink from '@/components/ui/TransitionLink';
 
 export default function ApdHero() {
     return (
@@ -33,12 +33,12 @@ export default function ApdHero() {
                             <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1" />
                             <div className="absolute inset-0 bg-gradient-to-r from-[#ff8c2b] to-[#e66a00] opacity-0 group-hover:opacity-100 transition-opacity" />
                         </button>
-                        <Link
+                        <TransitionLink
                             href="#tech-docs"
                             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-slate-700 hover:border-[#3463ac] text-slate-300 hover:text-white rounded-xl font-semibold transition-all"
                         >
                             Teknik Dokümantasyonu İncele
-                        </Link>
+                        </TransitionLink>
                     </div>
                 </div>
 

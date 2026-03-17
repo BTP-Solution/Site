@@ -1,10 +1,9 @@
 'use client';
 
-import Link from 'next/link';
+import TransitionLink from '@/components/ui/TransitionLink';
 import Image from 'next/image';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronDown, Database, Link2, BarChart3, Monitor, FileText, Truck, Settings, FileCheck2, Code2, Blocks, Brain, Sparkles, ArrowRight, Cpu, Archive, Zap, ShieldCheck } from 'lucide-react';
-import { usePageTransition } from './PageTransition';
 
 type NavbarProps = {
     dict: any;
@@ -77,7 +76,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
     const [isAnimatingOut, setIsAnimatingOut] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-    const { navigateWithTransition } = usePageTransition();
 
     /* ─── close with exit animation ─── */
     const closeDropdown = useCallback(() => {
@@ -89,12 +87,10 @@ export default function Navbar({ dict, lang }: NavbarProps) {
         }, 250);
     }, [openDropdown]);
 
-    /* ─── navigate with loading overlay ─── */
-    const handleNavigate = useCallback((e: React.MouseEvent, href: string) => {
-        e.preventDefault();
+    /* ─── navigate helper (close dropdown) ─── */
+    const handleNavigate = useCallback(() => {
         closeDropdown();
-        navigateWithTransition(href);
-    }, [closeDropdown, navigateWithTransition]);
+    }, [closeDropdown]);
 
     /* ─── toggle on click ─── */
     const toggleDropdown = (menu: 'services' | 'products') => {
@@ -148,7 +144,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
 
             {/* LOGO */}
             <div className="flex items-center">
-                <Link href={`/${lang}`} className="group relative transition-transform duration-300 hover:scale-105">
+                <TransitionLink href={`/${lang}`} className="group relative transition-transform duration-300 hover:scale-105">
                     <div className="absolute inset-0 rounded-xl bg-[#3463ac]/0 blur-xl transition-all duration-500 group-hover:bg-[#3463ac]/20"></div>
                     <Image
                         src="/btp_logo-2.png"
@@ -158,7 +154,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                         priority
                         className="relative h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(52,99,172,0.15)]"
                     />
-                </Link>
+                </TransitionLink>
             </div>
 
             {/* CENTERED NAV — ANIMATED GRADIENT BORDER CAPSULE */}
@@ -208,9 +204,9 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                     style={{ animationDelay: `${catIdx * 50}ms` }}
                                                 >
                                                     {/* Category Label */}
-                                                    <Link
+                                                    <TransitionLink
                                                         href={`/${lang}${cat.href}`}
-                                                        onClick={(e) => handleNavigate(e, `/${lang}${cat.href}`)}
+                                                        onClick={() => { closeDropdown(); }}
                                                         className="group/cat flex items-center gap-2 mb-3 pb-3 border-b transition-colors duration-200"
                                                         style={{ borderBottomColor: `${cat.color}15` }}
                                                     >
@@ -221,15 +217,15 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                             {cat.label}
                                                         </span>
                                                         <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all duration-200 group-hover/cat:opacity-60 group-hover/cat:translate-x-0" style={{ color: cat.color }} />
-                                                    </Link>
+                                                    </TransitionLink>
 
                                                     {/* Service Items */}
                                                     <div className="flex flex-col">
                                                         {cat.items.map((item, i) => (
-                                                            <Link
+                                                            <TransitionLink
                                                                 key={item.label}
                                                                 href={`/${lang}${item.href}`}
-                                                                onClick={(e) => handleNavigate(e, `/${lang}${item.href}`)}
+                                                                onClick={() => { closeDropdown(); }}
                                                                 className="mega-content-item group/item relative rounded-md py-2 pl-3 pr-2 text-[13px] text-slate-500 transition-all duration-150 hover:text-white hover:bg-white/[0.03]"
                                                                 style={{ animationDelay: `${catIdx * 50 + i * 30}ms` }}
                                                             >
@@ -239,7 +235,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                                     style={{ backgroundColor: cat.color }}
                                                                 />
                                                                 {item.label}
-                                                            </Link>
+                                                            </TransitionLink>
                                                         ))}
                                                     </div>
                                                 </div>
@@ -248,14 +244,14 @@ export default function Navbar({ dict, lang }: NavbarProps) {
 
                                         {/* BOTTOM CTA */}
                                         <div className="border-t border-white/[0.04] mx-5">
-                                            <Link
+                                            <TransitionLink
                                                 href={`/${lang}/services`}
-                                                onClick={(e) => handleNavigate(e, `/${lang}/services`)}
+                                                onClick={() => { closeDropdown(); }}
                                                 className="group/cta flex items-center gap-2 py-3.5 text-[12px] font-medium text-slate-500 transition-colors duration-200 hover:text-slate-300"
                                             >
                                                 <span>Tüm Hizmetleri Keşfedin</span>
                                                 <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
-                                            </Link>
+                                            </TransitionLink>
                                         </div>
                                     </div>
                                 </div>
@@ -295,7 +291,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">{dict.navigation.products}</span>
                                         </div>
 
-                                        <Link href={`/${lang}/products/apd`} onClick={(e) => handleNavigate(e, `/${lang}/products/apd`)} className="group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all duration-250 hover:bg-white/[0.05] mega-content-item" style={{ animationDelay: '0ms' }}>
+                                        <TransitionLink href={`/${lang}/products/apd`} onClick={() => { closeDropdown(); }} className="group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all duration-250 hover:bg-white/[0.05] mega-content-item" style={{ animationDelay: '0ms' }}>
                                             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#ff7700]/20 to-[#3463ac]/10 ring-1 ring-white/[0.06] transition-all duration-300 group-hover/item:from-[#ff7700]/30 group-hover/item:to-[#3463ac]/20 group-hover/item:shadow-[0_0_16px_rgba(255,119,0,0.2)]">
                                                 <FileCheck2 className="h-4.5 w-4.5 text-[#ff7700] transition-colors group-hover/item:text-[#ff8c2b]" />
                                             </div>
@@ -303,9 +299,9 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                 <span className="font-semibold text-white/90 transition-colors group-hover/item:text-white">APD Automation</span>
                                                 <span className="text-xs text-slate-500 transition-colors group-hover/item:text-slate-400">Smart posting document engine</span>
                                             </div>
-                                        </Link>
+                                        </TransitionLink>
                                         <div className="mx-4 my-1 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
-                                        <Link href={`/${lang}/products#connector`} onClick={(e) => handleNavigate(e, `/${lang}/products#connector`)} className="group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all duration-250 hover:bg-white/[0.05] mega-content-item" style={{ animationDelay: '60ms' }}>
+                                        <TransitionLink href={`/${lang}/products#connector`} onClick={() => { closeDropdown(); }} className="group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all duration-250 hover:bg-white/[0.05] mega-content-item" style={{ animationDelay: '60ms' }}>
                                             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500/20 to-[#3463ac]/10 ring-1 ring-white/[0.06] transition-all duration-300 group-hover/item:from-purple-500/30 group-hover/item:to-[#3463ac]/20 group-hover/item:shadow-[0_0_16px_rgba(126,34,206,0.2)]">
                                                 <Link2 className="h-4.5 w-4.5 text-purple-400 transition-colors group-hover/item:text-purple-300" />
                                             </div>
@@ -313,9 +309,9 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                 <span className="font-semibold text-white/90 transition-colors group-hover/item:text-white">BTP Connector</span>
                                                 <span className="text-xs text-slate-500 transition-colors group-hover/item:text-slate-400">Seamlessly link your legacy systems</span>
                                             </div>
-                                        </Link>
+                                        </TransitionLink>
                                         <div className="mx-4 my-1 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
-                                        <Link href={`/${lang}/products#analytics`} onClick={(e) => handleNavigate(e, `/${lang}/products#analytics`)} className="group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all duration-250 hover:bg-white/[0.05] mega-content-item" style={{ animationDelay: '120ms' }}>
+                                        <TransitionLink href={`/${lang}/products#analytics`} onClick={() => { closeDropdown(); }} className="group/item flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm text-slate-300 transition-all duration-250 hover:bg-white/[0.05] mega-content-item" style={{ animationDelay: '120ms' }}>
                                             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500/20 to-[#3463ac]/10 ring-1 ring-white/[0.06] transition-all duration-300 group-hover/item:from-purple-500/30 group-hover/item:to-[#3463ac]/20 group-hover/item:shadow-[0_0_16px_rgba(126,34,206,0.2)]">
                                                 <BarChart3 className="h-4.5 w-4.5 text-purple-400 transition-colors group-hover/item:text-purple-300" />
                                             </div>
@@ -323,7 +319,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                 <span className="font-semibold text-white/90 transition-colors group-hover/item:text-white">Data Analytics Suite</span>
                                                 <span className="text-xs text-slate-500 transition-colors group-hover/item:text-slate-400">Turn raw data into strategic assets</span>
                                             </div>
-                                        </Link>
+                                        </TransitionLink>
                                     </div>
                                 </div>
                             )}
@@ -331,12 +327,12 @@ export default function Navbar({ dict, lang }: NavbarProps) {
 
                         {/* ABOUT LINK */}
                         <div style={{ animation: 'float-in 0.5s cubic-bezier(0.16,1,0.3,1) 0.3s both' }}>
-                            <Link
+                            <TransitionLink
                                 href={`/${lang}/about`}
                                 className="nav-link-premium rounded-full px-5 py-2.5 text-sm font-medium text-slate-300 transition-all duration-300 hover:bg-white/[0.07] hover:text-white focus-visible:outline-none"
                             >
                                 {dict.navigation.about}
-                            </Link>
+                            </TransitionLink>
                         </div>
 
                     </div>

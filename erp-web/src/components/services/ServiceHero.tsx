@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import TransitionLink from '@/components/ui/TransitionLink';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import { type LucideIcon } from 'lucide-react';
 
@@ -72,7 +72,7 @@ export default function ServiceHero({
                 <span key={i} className="flex items-center gap-1.5">
                     {i > 0 && <ChevronRight className="h-3 w-3 text-slate-700" />}
                     {crumb.href ? (
-                        <Link href={crumb.href} className="text-slate-600 hover:text-slate-400 transition-colors">{crumb.label}</Link>
+                        <TransitionLink href={crumb.href} className="text-slate-600 hover:text-slate-400 transition-colors">{crumb.label}</TransitionLink>
                     ) : (
                         <span className="font-medium" style={{ color: `${accentColor}cc` }}>{crumb.label}</span>
                     )}
@@ -83,20 +83,20 @@ export default function ServiceHero({
 
     const CtaButtons = ({ centered = false }: { centered?: boolean }) => (
         <div className={`flex flex-wrap items-center gap-4 ${centered ? 'justify-center' : ''}`}>
-            <Link
+            <TransitionLink
                 href={ctaHref}
                 className="cta-shimmer group inline-flex items-center gap-2.5 px-8 py-4 text-white rounded-xl font-semibold text-sm shadow-2xl hover:shadow-[0_8px_30px_rgba(52,99,172,0.3)] transition-shadow"
             >
                 {ctaText}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </TransitionLink>
             {secondaryCtaText && secondaryCtaHref && (
-                <Link
+                <TransitionLink
                     href={secondaryCtaHref}
                     className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-sm border border-white/[0.08] text-slate-300 hover:bg-white/[0.04] hover:border-white/[0.15] transition-all"
                 >
                     {secondaryCtaText}
-                </Link>
+                </TransitionLink>
             )}
         </div>
     );

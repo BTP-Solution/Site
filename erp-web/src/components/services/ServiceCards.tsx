@@ -1,6 +1,6 @@
 import { type LucideIcon } from 'lucide-react';
 
-import Link from 'next/link';
+import TransitionLink from '@/components/ui/TransitionLink';
 
 type CardItem = {
     icon: LucideIcon;
@@ -161,7 +161,7 @@ export default function ServiceCards({
                                 <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: `${accentColor}15` }} />
 
                                 {card.href ? (
-                                    <Link href={card.href} className="absolute inset-0 z-20" aria-label={card.title} />
+                                    <TransitionLink href={card.href} className="absolute inset-0 z-20" aria-label={card.title} />
                                 ) : null}
 
                                 <div className="relative z-10 h-full flex flex-col">
