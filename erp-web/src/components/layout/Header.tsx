@@ -10,9 +10,6 @@ import Navbar from './Navbar';
 const SUPPORTED_LANGUAGES = [
     { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
     { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'ar', name: 'العربية', flag: '🇸🇦' }
 ];
 
 type HeaderProps = {
