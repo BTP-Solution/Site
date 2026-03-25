@@ -2,7 +2,7 @@
 
 import TransitionLink from '@/components/ui/TransitionLink';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import { type LucideIcon } from 'lucide-react';
+import iconMap from '@/lib/iconMap';
 
 type Breadcrumb = {
     label: string;
@@ -27,7 +27,7 @@ type ServiceHeroProps = {
     accentColor?: string;
     gradientFrom?: string;
     gradientTo?: string;
-    icon?: LucideIcon;
+    iconName?: string;
     stats?: StatItem[];
     variant?: 'default' | 'split' | 'centered';
 };
@@ -45,7 +45,7 @@ export default function ServiceHero({
     accentColor = '#3463ac',
     gradientFrom = '#3463ac',
     gradientTo = '#7e6fcf',
-    icon: HeroIcon,
+    iconName,
     stats,
     variant = 'default',
 }: ServiceHeroProps) {
@@ -130,11 +130,14 @@ export default function ServiceHero({
             <div className="absolute w-[22%] h-[22%] rounded-full" style={{ background: `linear-gradient(135deg, ${gradientFrom}10, ${gradientTo}05)` }} />
 
             {/* Center icon */}
-            {HeroIcon && (
-                <div className="relative z-10 flex items-center justify-center w-20 h-20 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-sm" style={{ background: `${gradientFrom}12` }}>
-                    <HeroIcon className="h-9 w-9" style={{ color: accentColor }} strokeWidth={1.5} />
-                </div>
-            )}
+            {iconName && iconMap[iconName] && (() => {
+                const HeroIcon = iconMap[iconName];
+                return (
+                    <div className="relative z-10 flex items-center justify-center w-20 h-20 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-sm" style={{ background: `${gradientFrom}12` }}>
+                        <HeroIcon className="h-9 w-9" style={{ color: accentColor }} strokeWidth={1.5} />
+                    </div>
+                );
+            })()}
 
             {/* Orbiting dots with glow */}
             <div className="absolute w-[66%] h-[66%] animate-spin-slow">
@@ -182,7 +185,7 @@ export default function ServiceHero({
 
                     {/* Badge */}
                     <div className="hero-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full border mb-8 mx-auto" style={{ borderColor: `${accentColor}30`, background: `${accentColor}08` }}>
-                        {HeroIcon && <HeroIcon className="h-3.5 w-3.5" style={{ color: accentColor }} strokeWidth={2} />}
+                        {iconName && iconMap[iconName] && (() => { const HI = iconMap[iconName]; return <HI className="h-3.5 w-3.5" style={{ color: accentColor }} strokeWidth={2} />; })()}
                         <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: `${accentColor}cc` }}>SAP Danışmanlık</span>
                     </div>
 

@@ -1,117 +1,37 @@
-'use client';
-
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
 import ServiceBenefits from '@/components/services/ServiceBenefits';
 import ServiceCta from '@/components/services/ServiceCta';
-import { CloudUpload, ArrowUpFromLine, RefreshCcw, ShieldCheck, Gauge } from 'lucide-react';
+import { getCloudMigrationContent } from '@/lib/i18n/services/techDevelopment';
 
-export default function CloudMigrationPage() {
+const CARD_ICON_NAMES = ['ArrowUpFromLine', 'RefreshCcw', 'ShieldCheck', 'Gauge'];
+
+export default async function CloudMigrationPage({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+    const t = getCloudMigrationContent(lang);
+
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
-            {/* HERO */}
             <ServiceHero
-                breadcrumbs={[
-                    { label: 'Anasayfa', href: '/' },
-                    { label: 'Hizmetlerimiz', href: '/services' },
-                    { label: 'Teknoloji ve Yazılım Geliştirme', href: '/services/tech-development' },
-                    { label: 'Bulut Geçiş ve Modernizasyon' },
-                ]}
-                title="Bulut Geçiş ve Modernizasyon"
-                highlightedWord="Bulut"
-                subtitle="Mevcut altyapınızı daha esnek, güncel ve sürdürülebilir bulut mimarilerine taşıyoruz."
-                description="Yerinde sistemlerin buluta geçişini planlıyor, modern altyapı senaryoları oluşturuyor ve operasyonel esnekliği artıran geçiş stratejileri geliştiriyoruz."
-                ctaText="Bulut Yol Haritası Çıkarın"
+                breadcrumbs={t.breadcrumbs}
+                title={t.title}
+                highlightedWord={t.highlightedWord}
+                subtitle={t.subtitle}
+                description={t.description}
+                ctaText={t.ctaText}
                 ctaHref="/contact"
-                icon={CloudUpload}
+                iconName="CloudUpload"
                 accentColor="#38bdf8"
                 gradientFrom="#38bdf8"
                 gradientTo="#e0f2fe"
-                stats={[
-                    { value: 'Hybrid', label: 'Esnek Mimari' },
-                    { value: 'DR', label: 'İş Sürekliliği' },
-                    { value: 'FinOps', label: 'Maliyet Yönetimi' },
-                ]}
+                stats={t.stats}
             />
-
-            {/* GİRİŞ */}
-            <ServiceIntro
-                paragraphs={[
-                    'Donanım yenileme döngüleri, veri merkezi yönetimi yükü ve ölçeklenme ihtiyaçları, birçok kurum için bulut geçişini kaçınılmaz hale getiriyor. Ancak bu geçişin kontrollü, güvenli ve iş sürekliliğini riske atmadan gerçekleştirilmesi büyük önem taşır.',
-                    'Public Cloud, Private Cloud ve hibrit senaryolarda deneyim sahibi ekibimizle, SAP altyapınızın buluta taşınmasını planlıyor, geçiş risklerini azaltmaya yardımcı oluyor ve operasyonel esnekliğinizi artırıyoruz.',
-                ]}
-            />
-
-            {/* HİZMET KARTLARI */}
-            <ServiceCards
-                sectionTitle="Modernizasyon Hizmetlerimiz"
-                subtitle="Altyapı geçişinden performans optimizasyonuna kadar kapsamlı destek"
-                variant="grid"
-                accentColor="#38bdf8"
-                cards={[
-                    {
-                        icon: ArrowUpFromLine,
-                        title: 'Buluta Taşıma (Lift & Shift)',
-                        description: 'Mevcut SAP mimarisinin uygun bulut altyapılarına taşınması. Kesinti süresini en aza indiren planlı geçiş stratejileri.',
-                        tag: 'GEÇİŞ'
-                    },
-                    {
-                        icon: RefreshCcw,
-                        title: 'Sistem Modernizasyonu',
-                        description: 'Eski altyapı, işletim sistemi ve veritabanı yapılarının güncellenmesi. HANA geçişi ve OS/DB modernizasyon projeleri.',
-                        tag: 'GÜNCELLEME'
-                    },
-                    {
-                        icon: ShieldCheck,
-                        title: 'Bulut Güvenliği ve Yedekleme',
-                        description: 'Güvenlik mimarisi, iş sürekliliği planlaması ve felaket kurtarma (DR) senaryolarının tasarlanması ve uygulanması.',
-                        tag: 'GÜVENLİK'
-                    },
-                    {
-                        icon: Gauge,
-                        title: 'Performans ve Kaynak Optimizasyonu',
-                        description: 'Altyapı kaynaklarının iş yüküne uygun şekilde yönetilmesi. FinOps yaklaşımıyla maliyet optimizasyonu ve kapasite planlaması.',
-                        tag: 'OPTİMİZASYON'
-                    },
-                ]}
-            />
-
-            {/* HANGİ GEÇİŞ SENARYOLARINDA DESTEK VERİYORUZ */}
-            <ServiceBenefits
-                sectionTitle="Hangi Geçiş Senaryolarında Destek Veriyoruz?"
-                variant="checks"
-                accentColor="#38bdf8"
-                items={[
-                    'On-premise sistemlerden cloud altyapılara geçiş',
-                    'Altyapı yenileme',
-                    'HANA modernizasyonu',
-                    'DR ve yedekleme planlaması',
-                    'Performans ve maliyet optimizasyonu',
-                ]}
-            />
-
-            {/* FAYDALAR */}
-            <ServiceBenefits
-                sectionTitle="Sağlanan Faydalar"
-                variant="pills"
-                accentColor="#38bdf8"
-                items={[
-                    'Altyapı yönetiminde esneklik',
-                    'Daha güncel ve sürdürülebilir sistem yapısı',
-                    'Yüksek erişilebilirlik hedefi',
-                    'İhtiyaca göre ölçeklenebilir kapasite yönetimi',
-                ]}
-            />
-
-            {/* CTA */}
-            <ServiceCta
-                title="Altyapınızı bulutun esnekliğiyle modernize edin."
-                subtitle="Bulut geçiş stratejinizi oluşturmak ve altyapı değerlendirmesi için uzmanlarımızla görüşün."
-                buttonText="Bulut Yol Haritası Çıkarın"
-                buttonHref="/contact"
-                features={['Altyapı Değerlendirmesi', 'TCO Analizi', 'Geçiş Yol Haritası']}
-            />
+            <ServiceIntro paragraphs={t.intro} />
+            <ServiceCards sectionTitle={t.cardsTitle} subtitle={t.cardsSubtitle} variant="grid" accentColor="#38bdf8" cards={t.cards.map((c, i) => ({ ...c, iconName: CARD_ICON_NAMES[i] }))} />
+            <ServiceBenefits sectionTitle={t.checksTitle} variant="checks" accentColor="#38bdf8" items={t.checks} />
+            <ServiceBenefits sectionTitle={t.benefitsTitle} variant="pills" accentColor="#38bdf8" items={t.benefits} />
+            <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
         </main>
     );
 }

@@ -1,115 +1,40 @@
-'use client';
-
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
 import ServiceBenefits from '@/components/services/ServiceBenefits';
 import ServiceCta from '@/components/services/ServiceCta';
-import { Blocks, FileText, ArrowLeftRight, Link2, Landmark } from 'lucide-react';
+import { getIntegrationSolutionsMainContent } from '@/lib/i18n/services/integrationSolutions';
 
-export default function IntegrationSolutionsPage() {
+const CARD_ICON_NAMES = ['FileCheck', 'Link2', 'ArrowLeftRight', 'Landmark'];
+
+export default async function IntegrationSolutionsPage({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+    const t = getIntegrationSolutionsMainContent(lang);
+
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
-            {/* HERO */}
             <ServiceHero
-                breadcrumbs={[
-                    { label: 'Anasayfa', href: '/' },
-                    { label: 'Hizmetlerimiz', href: '/services' },
-                    { label: 'Entegrasyon Çözümleri' },
-                ]}
-                title="Entegrasyon Çözümleri"
-                highlightedWord="Entegrasyon"
-                subtitle="Sistemlerinizi Birbirine Bağlayan Uçtan Uca Çözümler"
-                description="SAP ve SAP dışı sistemlerinizi birbirine entegre ediyor, e-dönüşüm süreçlerinizi dijitalleştiriyor ve API tabanlı modern entegrasyon mimarileri kuruyoruz."
-                ctaText="Entegrasyon İhtiyaçlarınızı Değerlendirelim"
+                breadcrumbs={t.breadcrumbs}
+                title={t.title}
+                highlightedWord={t.highlightedWord}
+                subtitle={t.subtitle}
+                description={t.description}
+                ctaText={t.ctaText}
                 ctaHref="/contact"
-                secondaryCtaText="Hizmetlerimizi İnceleyin"
+                secondaryCtaText={t.secondaryCtaText}
                 secondaryCtaHref="#hizmetler"
-                icon={Blocks}
+                iconName="Link2"
                 accentColor="#f59e0b"
                 gradientFrom="#f59e0b"
-                gradientTo="#ef4444"
-                stats={[
-                    { value: '50+', label: 'Entegrasyon Projesi' },
-                    { value: '7/24', label: 'Kesintisiz Veri Akışı' },
-                    { value: '%99.9', label: 'Sistem Erişilebilirliği' },
-                ]}
+                gradientTo="#fb923c"
+                stats={t.stats}
             />
-
-            {/* GİRİŞ */}
-            <ServiceIntro
-                paragraphs={[
-                    'Kurumsal yapılarda farklı sistemlerin bir arada çalışması kaçınılmazdır. Ancak bu sistemlerin birbirinden kopuk çalışması, veri tutarsızlıkları, süreç gecikmeleri ve operasyonel verimsizliklere neden olur. Entegrasyon, bu kopuklukları ortadan kaldırarak tüm iş süreçlerinin sorunsuz bir şekilde akmasını sağlar.',
-                    'SAP PI/PO, SAP CPI (Cloud Platform Integration), API Management ve modern entegrasyon araçlarıyla kurumunuzdaki tüm sistemleri birbirine bağlıyor, veri akışlarını otomatikleştiriyor ve dijital belge süreçlerinizi uçtan uca yönetiyoruz.',
-                ]}
-            />
-
-            {/* HİZMET KARTLARI */}
+            <ServiceIntro paragraphs={t.intro} />
             <div id="hizmetler">
-                <ServiceCards
-                    sectionTitle="Entegrasyon Hizmet Alanlarımız"
-                    subtitle="Dijital belge yönetiminden sistem entegrasyonuna kapsamlı çözümler"
-                    variant="grid"
-                    accentColor="#f59e0b"
-                    cards={[
-                        {
-                            icon: FileText,
-                            title: 'E-Dönüşüm ve Dijital Arşivleme',
-                            description: 'e-Fatura, e-İrsaliye, e-Arşiv, e-Defter ve tüm dijital belge süreçlerinizi SAP entegrasyonuyla GİB uyumlu şekilde yönetiyoruz.',
-                            tag: 'E-DÖNÜŞÜM',
-                            href: '/services/integration-solutions/e-donusum',
-                            linkText: 'Detayları Gör'
-                        },
-                        {
-                            icon: Link2,
-                            title: 'API ve Sistem Entegrasyonları',
-                            description: 'REST/SOAP API\'ler, web servisleri ve modern entegrasyon platformlarıyla sistemlerinizi birbirine bağlıyoruz.',
-                            tag: 'API ENTEGRASYONu',
-                            href: '/services/integration-solutions/api-integration',
-                            linkText: 'Detayları Gör'
-                        },
-                        {
-                            icon: ArrowLeftRight,
-                            title: 'SAP ve Non-SAP Sistem Entegrasyonları',
-                            description: 'SAP ile CRM, HR, MES, WMS ve üçüncü parti sistemler arasında güvenilir, gerçek zamanlı veri entegrasyonu sağlıyoruz.',
-                            tag: 'SİSTEM ENTEGRASYONU',
-                            href: '/services/integration-solutions/sap-nonsap',
-                            linkText: 'Detayları Gör'
-                        },
-                        {
-                            icon: Landmark,
-                            title: 'Banka ve Fintech Entegrasyonları',
-                            description: 'SAP sisteminizi bankalar ve fintech platformlarıyla entegre ederek ödeme, hesap ekstresi, DBS ve mutabakat süreçlerinizi otomatikleştiriyoruz.',
-                            tag: 'BANKA ENTEGRASYONU',
-                            href: '/services/integration-solutions/banka-fintech',
-                            linkText: 'Detayları Gör'
-                        },
-                    ]}
-                />
+                <ServiceCards sectionTitle={t.cardsTitle} subtitle={t.cardsSubtitle} variant="grid" accentColor="#f59e0b" cards={t.cards.map((c, i) => ({ ...c, iconName: CARD_ICON_NAMES[i] }))} />
             </div>
-
-            {/* NEDEN BİZ */}
-            <ServiceBenefits
-                sectionTitle="Neden Bizimle Çalışmalısınız?"
-                variant="pills"
-                accentColor="#f59e0b"
-                items={[
-                    'SAP PI/PO ve CPI Uzmanlığı',
-                    'Uçtan Uca Entegrasyon Mimarisi',
-                    'GİB Uyumlu E-Dönüşüm Deneyimi',
-                    'Gerçek Zamanlı Veri Akışı',
-                    'Ölçeklenebilir API Yönetimi',
-                ]}
-            />
-
-            {/* CTA */}
-            <ServiceCta
-                title="Sistemlerinizi birbirine bağlamaya hazır mısınız?"
-                subtitle="Uzman entegrasyon ekibimiz, kurumunuzun veri akışlarını optimize etmek ve süreçlerinizi otomatikleştirmek için yanınızda."
-                buttonText="Entegrasyon Danışmanlığı Alın"
-                buttonHref="/contact"
-                features={['Ücretsiz Entegrasyon Analizi', 'PoC Çalışması', 'SAP Sertifikalı Ekip']}
-            />
+            <ServiceBenefits sectionTitle={t.benefitsTitle} variant="checks" accentColor="#f59e0b" items={t.benefits} />
+            <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
         </main>
     );
 }

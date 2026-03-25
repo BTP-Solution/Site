@@ -1,9 +1,8 @@
-import { type LucideIcon } from 'lucide-react';
-
+import iconMap from '@/lib/iconMap';
 import TransitionLink from '@/components/ui/TransitionLink';
 
 type CardItem = {
-    icon: LucideIcon;
+    iconName: string;
     title: string;
     description: string;
     tag?: string;          // optional "Çözer:" tag like APD page
@@ -43,7 +42,7 @@ export default function ServiceCards({
     /* ═══ FEATURED: Large left + stacked right ═══ */
     if (variant === 'featured') {
         const [first, ...rest] = cards;
-        const FirstIcon = first.icon;
+        const FirstIcon = first.iconName ? iconMap[first.iconName] : null;
         return (
             <section className="w-full bg-[#0a1628]/50 py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
                 <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
@@ -58,7 +57,7 @@ export default function ServiceCards({
 
                             <div>
                                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 border border-white/[0.08] transition-transform duration-300 group-hover:scale-105" style={{ background: `linear-gradient(135deg, ${accentColor}20, ${accentColor}08)` }}>
-                                    <FirstIcon className="h-7 w-7" style={{ color: accentColor }} strokeWidth={1.5} />
+                                    {FirstIcon && <FirstIcon className="h-7 w-7" style={{ color: accentColor }} strokeWidth={1.5} />}
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">{first.title}</h3>
                                 <p className="text-sm text-slate-400 leading-relaxed">{first.description}</p>
@@ -80,12 +79,12 @@ export default function ServiceCards({
                         {/* Grid of remaining cards */}
                         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {rest.map((card, i) => {
-                                const Icon = card.icon;
+                                const Icon = card.iconName ? iconMap[card.iconName] : null;
                                 return (
                                     <div key={i} className="group relative bg-[#060d1a] border border-white/[0.05] rounded-xl p-5 hover:border-white/[0.12] transition-all duration-300 overflow-hidden">
                                         <div className="flex items-start gap-3.5">
                                             <div className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center transition-colors" style={{ background: `${accentColor}10` }}>
-                                                <Icon className="h-4.5 w-4.5" style={{ color: accentColor }} strokeWidth={1.8} />
+                                                {Icon && <Icon className="h-4.5 w-4.5" style={{ color: accentColor }} strokeWidth={1.8} />}
                                             </div>
                                             <div className="min-w-0">
                                                 <h3 className="text-sm font-semibold text-slate-200 mb-1.5">{card.title}</h3>
@@ -124,11 +123,11 @@ export default function ServiceCards({
                     {subtitle && <p className="text-slate-500 text-center text-sm mb-10">{subtitle}</p>}
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                         {cards.map((card, i) => {
-                            const Icon = card.icon;
+                            const Icon = card.iconName ? iconMap[card.iconName] : null;
                             return (
                                 <div key={i} className="group flex flex-col items-center text-center bg-[#060d1a]/60 border border-white/[0.04] rounded-xl p-5 hover:border-white/[0.1] hover:bg-[#060d1a]/80 transition-all duration-300">
                                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110" style={{ background: `${accentColor}10` }}>
-                                        <Icon className="h-5 w-5" style={{ color: accentColor }} strokeWidth={1.8} />
+                                        {Icon && <Icon className="h-5 w-5" style={{ color: accentColor }} strokeWidth={1.8} />}
                                     </div>
                                     <span className="text-xs font-medium text-slate-300">{card.title}</span>
                                 </div>
@@ -151,7 +150,7 @@ export default function ServiceCards({
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {cards.map((card, i) => {
-                        const Icon = card.icon;
+                        const Icon = card.iconName ? iconMap[card.iconName] : null;
                         return (
                             <div
                                 key={i}
@@ -167,7 +166,7 @@ export default function ServiceCards({
                                 <div className="relative z-10 h-full flex flex-col">
                                     <div className="flex items-center gap-4 mb-4">
                                         <div className="w-11 h-11 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110" style={{ background: `${accentColor}12` }}>
-                                            <Icon className="w-5 h-5" style={{ color: accentColor }} strokeWidth={1.8} />
+                                            {Icon && <Icon className="w-5 h-5" style={{ color: accentColor }} strokeWidth={1.8} />}
                                         </div>
                                         <h3 className="text-base font-semibold text-slate-100">{card.title}</h3>
                                     </div>

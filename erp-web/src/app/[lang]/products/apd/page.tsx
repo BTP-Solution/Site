@@ -8,7 +8,9 @@ import ApdScenarios from '@/components/products/apd/ApdScenarios';
 import ApdFAQ from '@/components/products/apd/ApdFAQ';
 import ApdFinalCta from '@/components/products/apd/ApdFinalCta';
 
-export default function ApdPage() {
+export default async function ApdPage({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+
     return (
         <main className="w-full flex flex-col items-center overflow-hidden bg-[#060d1a]">
             {/* Background ambient lighting */}
@@ -19,15 +21,15 @@ export default function ApdPage() {
             </div>
 
             <div className="relative z-10 w-full flex flex-col items-center">
-                <ApdHero />
-                <ApdPainPoints />
-                <ApdHowItWorks />
-                <ApdFeatureGrid />
-                <ApdBenefits />
-                <ApdWhyUs />
-                <ApdScenarios />
-                <ApdFAQ />
-                <ApdFinalCta />
+                <ApdHero lang={lang} />
+                <ApdPainPoints lang={lang} />
+                <ApdHowItWorks lang={lang} />
+                <ApdFeatureGrid lang={lang} />
+                <ApdBenefits lang={lang} />
+                <ApdWhyUs lang={lang} />
+                <ApdScenarios lang={lang} />
+                <ApdFAQ lang={lang} />
+                <ApdFinalCta lang={lang} />
             </div>
         </main>
     );

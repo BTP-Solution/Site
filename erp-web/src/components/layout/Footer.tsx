@@ -1,22 +1,9 @@
 import Image from 'next/image';
-import { MapPin, Mail, Phone, ArrowUpRight, Linkedin, Twitter, Github } from 'lucide-react';
+import { MapPin, Mail, Phone, ArrowUpRight, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
 
 type FooterProps = {
     dict: any;
-};
-
-const FOOTER_LINKS = {
-    services: [
-        { label: 'SAP Danışmanlığı', href: '/services/sap-consulting' },
-        { label: 'Teknoloji & Geliştirme', href: '/services/tech-development' },
-        { label: 'Entegrasyon Çözümleri', href: '/services/integration-solutions' },
-        { label: 'AI & Veri Çözümleri', href: '/services/ai-data-solutions' },
-    ],
-    company: [
-        { label: 'Hakkımızda', href: '/about' },
-        { label: 'Ürünlerimiz', href: '/products/apd' },
-    ],
 };
 
 const SOCIAL_LINKS = [
@@ -25,6 +12,18 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Footer({ dict }: FooterProps) {
+    const serviceLinks = [
+        { label: dict.footer.services?.sapConsulting || 'SAP Consulting', href: '/services/sap-consulting' },
+        { label: dict.footer.services?.techDev || 'Technology & Development', href: '/services/tech-development' },
+        { label: dict.footer.services?.integration || 'Integration Solutions', href: '/services/integration-solutions' },
+        { label: dict.footer.services?.aiData || 'AI & Data Solutions', href: '/services/ai-data-solutions' },
+    ];
+
+    const companyLinks = [
+        { label: dict.navigation.about, href: '/about' },
+        { label: dict.navigation.products, href: '/products/apd' },
+    ];
+
     return (
         <footer className="relative bg-[#060d1a] overflow-hidden">
             {/* Top gradient line */}
@@ -74,8 +73,8 @@ export default function Footer({ dict }: FooterProps) {
                     <div className="lg:col-span-3">
                         <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-5">{dict.navigation.services}</h4>
                         <ul className="space-y-3">
-                            {FOOTER_LINKS.services.map((link) => (
-                                <li key={link.label}>
+                            {serviceLinks.map((link) => (
+                                <li key={link.href}>
                                     <Link href={link.href} className="group flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200">
                                         <span>{link.label}</span>
                                         <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200 text-[#5b8fd4]" />
@@ -87,10 +86,10 @@ export default function Footer({ dict }: FooterProps) {
 
                     {/* Company Links */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-5">Şirket</h4>
+                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-5">{dict.footer.company || 'Company'}</h4>
                         <ul className="space-y-3">
-                            {FOOTER_LINKS.company.map((link) => (
-                                <li key={link.label}>
+                            {companyLinks.map((link) => (
+                                <li key={link.href}>
                                     <Link href={link.href} className="group flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200">
                                         <span>{link.label}</span>
                                         <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200 text-[#5b8fd4]" />
@@ -132,7 +131,7 @@ export default function Footer({ dict }: FooterProps) {
                         <div className="flex items-center gap-1 text-xs text-slate-600">
                             <span>Built with</span>
                             <span className="text-red-500/60 text-sm">♥</span>
-                            <span>in İstanbul</span>
+                            <span>{dict.footer.builtWith || 'in İstanbul'}</span>
                         </div>
                     </div>
                 </div>

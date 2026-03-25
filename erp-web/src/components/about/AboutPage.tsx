@@ -1,7 +1,6 @@
 'use client';
 
 import { Building2, Users, Target, Award, MapPin, Mail, Phone, ArrowRight, Sparkles, Globe, Cpu, Shield, Zap } from 'lucide-react';
-import Image from 'next/image';
 import TransitionLink from '@/components/ui/TransitionLink';
 
 type AboutPageProps = {
@@ -9,41 +8,13 @@ type AboutPageProps = {
     lang: string;
 };
 
-const STATS = [
-    { value: '50+', label: 'Tamamlanan Proje', icon: Target },
-    { value: '30+', label: 'Mutlu Müşteri', icon: Users },
-    { value: '4+', label: 'Yıllık Deneyim', icon: Award },
-    { value: '20+', label: 'Uzman Kadro', icon: Building2 },
-];
-
-const VALUES = [
-    {
-        icon: Cpu,
-        title: 'Teknoloji Odaklılık',
-        description: 'SAP ekosisteminde en güncel teknolojileri takip ediyor, müşterilerimize en iyi çözümleri sunuyoruz.',
-        color: '#3463ac',
-    },
-    {
-        icon: Shield,
-        title: 'Güvenilirlik',
-        description: 'Her projede şeffaf iletişim, zamanında teslimat ve kaliteli iş çıktısı ile güvene dayalı ilişkiler kuruyoruz.',
-        color: '#7e22ce',
-    },
-    {
-        icon: Zap,
-        title: 'Çeviklik',
-        description: 'Hızla değişen iş dünyasında esnek yaklaşımımız ile müşterilerimizin ihtiyaçlarına anında cevap veriyoruz.',
-        color: '#ff7700',
-    },
-    {
-        icon: Globe,
-        title: 'Global Vizyon',
-        description: 'Uluslararası standartlarda hizmet sunarak Türkiye\'den dünyaya açılan kurumsal çözümler geliştiriyoruz.',
-        color: '#10b981',
-    },
-];
+const VALUE_ICONS = [Cpu, Shield, Zap, Globe];
+const VALUE_COLORS = ['#3463ac', '#7e22ce', '#ff7700', '#10b981'];
+const STAT_ICONS = [Target, Users, Award, Building2];
 
 export default function AboutPage({ dict, lang }: AboutPageProps) {
+    const about = dict.about;
+
     return (
         <main className="w-full flex flex-col items-center overflow-hidden bg-[#060d1a]">
             {/* Background ambient lighting */}
@@ -60,19 +31,19 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl text-center">
                         <div className="inline-flex items-center gap-2 rounded-full border border-[#3463ac]/20 bg-[#3463ac]/5 px-4 py-1.5 mb-8" style={{ animation: 'float-in 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
                             <Building2 className="h-3.5 w-3.5 text-[#5b8fd4]" />
-                            <span className="text-xs font-semibold tracking-wider text-[#5b8fd4] uppercase">Hakkımızda</span>
+                            <span className="text-xs font-semibold tracking-wider text-[#5b8fd4] uppercase">{about.badge}</span>
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both' }}>
-                            Teknolojiyi{' '}
+                            {about.heroTitle1}{' '}
                             <span className="bg-gradient-to-r from-[#3463ac] via-[#7e22ce] to-[#3463ac] bg-clip-text text-transparent">
-                                Değere
+                                {about.heroTitle2}
                             </span>{' '}
-                            Dönüştürüyoruz
+                            {about.heroTitle3}
                         </h1>
 
                         <p className="mt-6 text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.35s both' }}>
-                            BTP Solution olarak SAP ekosisteminde uzmanlaşmış danışmanlık hizmetleri ve yapay zekâ destekli yenilikçi ürünlerle kurumsal iş süreçlerinizi dijital çağa taşıyoruz.
+                            {about.heroSubtitle}
                         </p>
                     </div>
                 </section>
@@ -81,17 +52,20 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                 <section className="w-full pb-20">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s both' }}>
-                            {STATS.map((stat, i) => (
-                                <div
-                                    key={stat.label}
-                                    className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 text-center hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-300"
-                                >
-                                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#3463ac]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                    <stat.icon className="h-6 w-6 text-[#5b8fd4] mx-auto mb-3 relative z-10" />
-                                    <div className="text-3xl sm:text-4xl font-bold text-white relative z-10">{stat.value}</div>
-                                    <div className="mt-1 text-sm text-slate-400 relative z-10">{stat.label}</div>
-                                </div>
-                            ))}
+                            {about.stats.map((stat: any, i: number) => {
+                                const Icon = STAT_ICONS[i];
+                                return (
+                                    <div
+                                        key={stat.label}
+                                        className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 text-center hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-300"
+                                    >
+                                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#3463ac]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        <Icon className="h-6 w-6 text-[#5b8fd4] mx-auto mb-3 relative z-10" />
+                                        <div className="text-3xl sm:text-4xl font-bold text-white relative z-10">{stat.value}</div>
+                                        <div className="mt-1 text-sm text-slate-400 relative z-10">{stat.label}</div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
@@ -102,18 +76,12 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                             <div>
                                 <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
-                                    Biz Kimiz?
+                                    {about.whoWeAre}
                                 </h2>
                                 <div className="mt-2 h-1 w-16 rounded-full bg-gradient-to-r from-[#3463ac] to-[#7e22ce]" />
-                                <p className="mt-8 text-slate-400 leading-relaxed text-[15px]">
-                                    BTP Solution, SAP ekosisteminde uzmanlaşmış bir teknoloji ve danışmanlık şirketidir. İstanbul merkezli ekibimiz, kurumsal müşterilerimize S/4HANA dönüşümü, SAP BTP entegrasyonları, ABAP/RAP/CAP geliştirme ve süreç otomasyonu alanlarında uçtan uca hizmet sunmaktadır.
-                                </p>
-                                <p className="mt-4 text-slate-400 leading-relaxed text-[15px]">
-                                    Yapay zekâ destekli ürünlerimiz ve yenilikçi entegrasyon çözümlerimizle, işletmelerin dijital dönüşüm yolculuğunda güvenilir iş ortağı olmayı hedefliyoruz. Her projede kalite, şeffaflık ve sürdürülebilirliği ön planda tutuyoruz.
-                                </p>
-                                <p className="mt-4 text-slate-400 leading-relaxed text-[15px]">
-                                    APD Automation gibi niş ürünlerimizle SAP süreçlerinde otomasyonu bir üst seviyeye taşırken, finansal çözümlerden tedarik zinciri yönetimine kadar geniş bir yelpazede değer katıyoruz.
-                                </p>
+                                <p className="mt-8 text-slate-400 leading-relaxed text-[15px]">{about.storyP1}</p>
+                                <p className="mt-4 text-slate-400 leading-relaxed text-[15px]">{about.storyP2}</p>
+                                <p className="mt-4 text-slate-400 leading-relaxed text-[15px]">{about.storyP3}</p>
                             </div>
                             <div className="relative">
                                 <div className="rounded-2xl border border-white/[0.06] bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-8 backdrop-blur-sm">
@@ -123,10 +91,8 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                                                 <Target className="h-5 w-5 text-[#5b8fd4]" />
                                             </div>
                                             <div>
-                                                <h3 className="font-semibold text-white">Misyonumuz</h3>
-                                                <p className="mt-1 text-sm text-slate-400 leading-relaxed">
-                                                    SAP teknolojilerini ve yapay zekâyı kullanarak kurumsal süreçleri dönüştürmek, müşterilerimize rekabet avantajı sağlamak ve dijital çağda sürdürülebilir büyümeyi mümkün kılmak.
-                                                </p>
+                                                <h3 className="font-semibold text-white">{about.mission}</h3>
+                                                <p className="mt-1 text-sm text-slate-400 leading-relaxed">{about.missionText}</p>
                                             </div>
                                         </div>
                                         <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
@@ -135,15 +101,12 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                                                 <Sparkles className="h-5 w-5 text-purple-400" />
                                             </div>
                                             <div>
-                                                <h3 className="font-semibold text-white">Vizyonumuz</h3>
-                                                <p className="mt-1 text-sm text-slate-400 leading-relaxed">
-                                                    Türkiye&apos;nin ve bölgenin lider SAP teknoloji partneri olarak, yapay zekâ ve inovasyon odaklı ürünleriyle global arenada tanınan bir teknoloji şirketi olmak.
-                                                </p>
+                                                <h3 className="font-semibold text-white">{about.vision}</h3>
+                                                <p className="mt-1 text-sm text-slate-400 leading-relaxed">{about.visionText}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {/* Glow effect */}
                                 <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#3463ac]/10 via-purple-500/5 to-[#3463ac]/10 blur-xl -z-10" />
                             </div>
                         </div>
@@ -154,32 +117,34 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                 <section className="w-full py-20 border-t border-white/[0.04]">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="text-center mb-14">
-                            <h2 className="text-3xl sm:text-4xl font-bold text-white">Değerlerimiz</h2>
+                            <h2 className="text-3xl sm:text-4xl font-bold text-white">{about.valuesTitle}</h2>
                             <div className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-[#3463ac] to-[#7e22ce] mx-auto" />
-                            <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
-                                İş yapış tarzımızı şekillendiren ve her projede rehberimiz olan temel değerlerimiz.
-                            </p>
+                            <p className="mt-4 text-slate-400 max-w-2xl mx-auto">{about.valuesSubtitle}</p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            {VALUES.map((val, i) => (
-                                <div
-                                    key={val.title}
-                                    className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 hover:border-white/[0.12] transition-all duration-300"
-                                >
-                                    <div className="absolute top-0 left-0 right-0 h-px rounded-full" style={{ background: `linear-gradient(90deg, transparent, ${val.color}30, transparent)` }} />
+                            {about.values.map((val: any, i: number) => {
+                                const Icon = VALUE_ICONS[i];
+                                const color = VALUE_COLORS[i];
+                                return (
                                     <div
-                                        className="flex h-12 w-12 items-center justify-center rounded-xl ring-1 transition-all duration-300"
-                                        style={{
-                                            background: `linear-gradient(135deg, ${val.color}15, ${val.color}05)`,
-                                            boxShadow: `0 0 0 1px ${val.color}20`,
-                                        }}
+                                        key={val.title}
+                                        className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 hover:border-white/[0.12] transition-all duration-300"
                                     >
-                                        <val.icon className="h-5 w-5" style={{ color: val.color }} />
+                                        <div className="absolute top-0 left-0 right-0 h-px rounded-full" style={{ background: `linear-gradient(90deg, transparent, ${color}30, transparent)` }} />
+                                        <div
+                                            className="flex h-12 w-12 items-center justify-center rounded-xl ring-1 transition-all duration-300"
+                                            style={{
+                                                background: `linear-gradient(135deg, ${color}15, ${color}05)`,
+                                                boxShadow: `0 0 0 1px ${color}20`,
+                                            }}
+                                        >
+                                            <Icon className="h-5 w-5" style={{ color }} />
+                                        </div>
+                                        <h3 className="mt-4 text-lg font-semibold text-white">{val.title}</h3>
+                                        <p className="mt-2 text-sm text-slate-400 leading-relaxed">{val.description}</p>
                                     </div>
-                                    <h3 className="mt-4 text-lg font-semibold text-white">{val.title}</h3>
-                                    <p className="mt-2 text-sm text-slate-400 leading-relaxed">{val.description}</p>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
@@ -188,19 +153,15 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                 <section className="w-full py-20 border-t border-white/[0.04]">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="text-center mb-14">
-                            <h2 className="text-3xl sm:text-4xl font-bold text-white">Neden BTP Solution?</h2>
+                            <h2 className="text-3xl sm:text-4xl font-bold text-white">{about.whyUsTitle}</h2>
                             <div className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-[#3463ac] to-[#7e22ce] mx-auto" />
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                            {[
-                                { title: 'SAP Uzmanlığı', desc: 'S/4HANA, BTP, ABAP RAP/CAP, Fiori ve tüm SAP modüllerinde derin uzmanlık.', icon: '🏆' },
-                                { title: 'Yenilikçi Ürünler', desc: 'APD Automation gibi yapay zekâ destekli, SAP ekosistemi üzerinde çalışan niş ürünler.', icon: '🚀' },
-                                { title: 'Uçtan Uca Çözüm', desc: 'Danışmanlıktan uygulamaya, entegrasyondan bakıma kadar tüm süreçlerde yanınızdayız.', icon: '🔗' },
-                            ].map((item) => (
+                            {about.whyUs.map((item: any) => (
                                 <div key={item.title} className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 text-center hover:border-white/[0.12] transition-all duration-300">
                                     <div className="text-3xl mb-4">{item.icon}</div>
                                     <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                                    <p className="mt-2 text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+                                    <p className="mt-2 text-sm text-slate-400 leading-relaxed">{item.description}</p>
                                 </div>
                             ))}
                         </div>
@@ -213,7 +174,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                             >
                                 <span className="relative z-10 flex items-center gap-2.5">
                                     <Sparkles className="h-4 w-4" />
-                                    Hizmetlerimizi Keşfedin
+                                    {about.discoverServices}
                                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                                 </span>
                             </TransitionLink>
@@ -225,11 +186,9 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                 <section className="w-full py-20 border-t border-white/[0.04]">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="text-center mb-14">
-                            <h2 className="text-3xl sm:text-4xl font-bold text-white">Bize Ulaşın</h2>
+                            <h2 className="text-3xl sm:text-4xl font-bold text-white">{about.contactTitle}</h2>
                             <div className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-[#3463ac] to-[#7e22ce] mx-auto" />
-                            <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
-                                Dijital dönüşüm yolculuğunuzda sizinle birlikte yürümek için sabırsızlanıyoruz.
-                            </p>
+                            <p className="mt-4 text-slate-400 max-w-2xl mx-auto">{about.contactSubtitle}</p>
                         </div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-10">
@@ -238,7 +197,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                                     <MapPin className="h-5 w-5 text-[#5b8fd4]" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-white">Adres</h3>
+                                    <h3 className="font-semibold text-white">{about.address}</h3>
                                     <p className="mt-1 text-sm text-slate-400 leading-relaxed">
                                         Ferahevler Mah. Önceler Sok.<br />
                                         No:33 D:2 Sarıyer / İstanbul
@@ -250,7 +209,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                                     <Mail className="h-5 w-5 text-purple-400" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-white">E-posta</h3>
+                                    <h3 className="font-semibold text-white">{about.email}</h3>
                                     <p className="mt-1 text-sm text-slate-400">info@btpsolution.com</p>
                                 </div>
                             </div>
@@ -259,7 +218,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                                     <Phone className="h-5 w-5 text-[#ff7700]" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-white">Telefon</h3>
+                                    <h3 className="font-semibold text-white">{about.phone}</h3>
                                     <p className="mt-1 text-sm text-slate-400">+90 554 725 11 87</p>
                                 </div>
                             </div>
@@ -275,7 +234,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                                 allowFullScreen
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
-                                title="BTP Solution Konum"
+                                title="BTP Solution"
                                 className="w-full"
                             />
                         </div>

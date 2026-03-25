@@ -1,134 +1,59 @@
-'use client';
-
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
 import ServiceSteps from '@/components/services/ServiceSteps';
 import ServiceBenefits from '@/components/services/ServiceBenefits';
 import ServiceCta from '@/components/services/ServiceCta';
-import { ShoppingBag, Megaphone, HeadphonesIcon, Store, Target, UserCircle } from 'lucide-react';
+import { getCustomerExperienceContent } from '@/lib/i18n/services/sapConsultingSub2';
 
-export default function CustomerExperiencePage() {
+const CARD_ICON_NAMES = ['Users', 'Megaphone', 'ShoppingCart', 'HeadphonesIcon', 'UserCircle', 'Database'];
+
+export default async function CustomerExperiencePage({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+    const t = getCustomerExperienceContent(lang);
+
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
-            {/* HERO */}
             <ServiceHero
-                breadcrumbs={[
-                    { label: 'Anasayfa', href: '/' },
-                    { label: 'Hizmetlerimiz', href: '/services' },
-                    { label: 'SAP Danışmanlık', href: '/services/sap-consulting' },
-                    { label: 'Müşteri Deneyimi ve Satış' },
-                ]}
-                title="Müşteri Deneyimi ve Satış"
-                highlightedWord="Müşteri Deneyimi"
-                subtitle="SAP CX ve CRM ile Müşteri Odaklı Dönüşüm"
-                description="Pazarlama, satış, e-ticaret ve müşteri hizmetleri süreçlerinizi SAP Customer Experience çözümleriyle entegre ve kişiselleştirilmiş bir deneyime dönüştürüyoruz."
-                ctaText="CX Çözümlerini Keşfedin"
+                breadcrumbs={t.breadcrumbs}
+                title={t.title}
+                highlightedWord={t.highlightedWord}
+                subtitle={t.subtitle}
+                description={t.description}
+                ctaText={t.ctaText}
                 ctaHref="#cozumler"
-                secondaryCtaText="Demo Talep Edin"
+                secondaryCtaText={t.secondaryCtaText}
                 secondaryCtaHref="/contact"
-                icon={ShoppingBag}
+                iconName="Users"
                 accentColor="#ec4899"
                 gradientFrom="#ec4899"
-                gradientTo="#f43f5e"
-                stats={[
-                    { value: 'CRM', label: 'Müşteri Yönetimi' },
-                    { value: 'CX', label: '360° Müşteri Görünümü' },
-                    { value: 'Omni', label: 'Kanal Bütünlüğü' },
-                ]}
+                gradientTo="#f97316"
+                stats={t.stats}
             />
-
-            {/* GİRİŞ */}
-            <ServiceIntro
-                paragraphs={[
-                    'Günümüzde müşteri beklentileri her zamankinden yüksek. Müşteriler, kişiselleştirilmiş deneyimler, hızlı yanıtlar ve tutarlı bir kanal deneyimi bekliyor. Bu beklentileri karşılayamayan işletmeler, müşteri sadakatini ve rekabet avantajını kaybetme riskiyle karşı karşıya.',
-                    'SAP Customer Experience (CX) portföyü — SAP Sales Cloud, SAP Marketing Cloud, SAP Commerce Cloud ve SAP Service Cloud — ile müşteri yolculuğunun her aşamasını dijitalleştiriyor, 360 derece müşteri görünümü sağlıyor ve satış performansınızı artırıyoruz.',
-                ]}
-            />
-
-            {/* ÇÖZÜM KARTLARI */}
+            <ServiceIntro paragraphs={t.intro} />
             <div id="cozumler">
                 <ServiceCards
-                    sectionTitle="Müşteri Deneyimi Çözümlerimiz"
-                    subtitle="Müşteri yolculuğunun her aşamasında değer yaratan çözümler"
+                    sectionTitle={t.cardsTitle}
+                    subtitle={t.cardsSubtitle}
                     variant="grid"
                     accentColor="#ec4899"
-                    cards={[
-                        {
-                            icon: Target,
-                            title: 'SAP Sales Cloud',
-                            description: 'Satış ekibinize 360° müşteri görünümü, fırsat yönetimi, teklif oluşturma ve satış tahmini araçlarıyla güç kazandırın.',
-                            tag: 'SATIŞ'
-                        },
-                        {
-                            icon: Megaphone,
-                            title: 'SAP Marketing Cloud',
-                            description: 'Hedef kitle segmentasyonu, kampanya yönetimi, lead puanlama ve çok kanallı pazarlama otomasyonu ile doğru müşteriye ulaşın.',
-                            tag: 'PAZARLAMA'
-                        },
-                        {
-                            icon: Store,
-                            title: 'SAP Commerce Cloud',
-                            description: 'B2B ve B2C e-ticaret platformu kurulumu, ürün katalog yönetimi, sipariş yönetimi ve kişiselleştirilmiş alışveriş deneyimi.',
-                            tag: 'E-TİCARET'
-                        },
-                        {
-                            icon: HeadphonesIcon,
-                            title: 'SAP Service Cloud',
-                            description: 'Müşteri hizmetleri yönetimi, ticket sistemi, SLA takibi, self-servis portallar ve omni-kanal destek altyapısı.',
-                            tag: 'MÜŞTERİ HİZMETLERİ'
-                        },
-                        {
-                            icon: UserCircle,
-                            title: 'SAP CRM ve 360° Müşteri Görünümü',
-                            description: 'Tüm müşteri etkileşim verilerini tek bir platformda toplayarak satış, servis ve pazarlama ekiplerine bütünsel müşteri profili sunun.',
-                            tag: 'CRM'
-                        },
-                        {
-                            icon: ShoppingBag,
-                            title: 'Müşteri Veri Platformu (CDP)',
-                            description: 'Farklı kanallardan gelen müşteri verilerini birleştirin, gerçek zamanlı segmentasyon yapın ve kişiselleştirilmiş deneyimler sunun.',
-                            tag: 'VERİ PLATFORMU'
-                        },
-                    ]}
+                    cards={t.cards.map((c, i) => ({ ...c, iconName: CARD_ICON_NAMES[i] }))}
                 />
             </div>
-
-            {/* ÇALIŞMA YAKLAŞIMI */}
             <ServiceSteps
-                sectionTitle="CX Dönüşüm Sürecimiz"
-                subtitle="Müşteri odaklı dijital dönüşüm adım adım"
+                sectionTitle={t.stepsTitle}
+                subtitle={t.stepsSubtitle}
                 variant="horizontal"
                 accentColor="#ec4899"
-                steps={[
-                    { title: 'Müşteri Yolculuğu Analizi', description: 'Mevcut müşteri deneyiminizi haritalandırır, iyileştirme fırsatlarını belirleriz.' },
-                    { title: 'CX Strateji ve Tasarım', description: 'Satış, pazarlama ve servis süreçlerinizi SAP CX modülleriyle tasarlarız.' },
-                    { title: 'Konfigürasyon ve Entegrasyon', description: 'CX çözümlerini SAP ERP ve üçüncü parti sistemlerle entegre ederiz.' },
-                    { title: 'Devreye Alma ve Optimizasyon', description: 'Canlı geçiş sonrası kullanıcı eğitimi, KPI takibi ve sürekli optimizasyon sağlarız.' },
-                ]}
+                steps={t.steps}
             />
-
-            {/* FAYDALAR */}
-            <ServiceBenefits
-                sectionTitle="CX Çözümlerinin Avantajları"
-                variant="pills"
-                accentColor="#ec4899"
-                items={[
-                    '360° müşteri görünümü ile kişiselleştirilmiş deneyim',
-                    'Satış dönüşüm oranlarında ölçülebilir artış',
-                    'Omni-kanal bütünlüğü ile tutarlı müşteri deneyimi',
-                    'Veri odaklı pazarlama ile ROI optimizasyonu',
-                    'Müşteri memnuniyeti ve sadakatinde artış',
-                ]}
-            />
-
-            {/* CTA */}
+            <ServiceBenefits sectionTitle={t.benefitsTitle} variant="pills" accentColor="#ec4899" items={t.benefits} />
             <ServiceCta
-                title="Müşteri deneyiminizi SAP CX ile dönüştürmeye hazır mısınız?"
-                subtitle="CX uzmanlarımız, müşteri odaklı dijital dönüşümünüz için yanınızda."
-                buttonText="CX Danışmanlığı Talep Edin"
+                title={t.ctaTitle}
+                subtitle={t.ctaSubtitle}
+                buttonText={t.ctaButton}
                 buttonHref="/contact"
-                features={['Müşteri Yolculuğu Analizi', 'CX Demo', 'Pilot Proje Desteği']}
+                features={t.ctaFeatures}
             />
         </main>
     );

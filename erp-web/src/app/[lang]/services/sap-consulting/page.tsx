@@ -1,147 +1,82 @@
-'use client';
-
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
 import ServiceSteps from '@/components/services/ServiceSteps';
 import ServiceBenefits from '@/components/services/ServiceBenefits';
 import ServiceCta from '@/components/services/ServiceCta';
-import { Monitor, Briefcase, Search, Settings, Truck, RotateCw, Blocks, ShieldCheck, Zap, Coins, Users, BarChart3, ShoppingBag } from 'lucide-react';
+import { getSapConsultingContent } from '@/lib/i18n/services/sapConsulting';
 
-export default function SapConsultingPage() {
+const CARD_ICON_NAMES = ['Truck', 'Search', 'RotateCw', 'Coins', 'Users', 'BarChart3', 'ShoppingBag'];
+const CARD_HREFS = [
+    '/services/sap-consulting/supply-chain',
+    '/services/sap-consulting/process-analysis',
+    '/services/sap-consulting/roll-out',
+    '/services/sap-consulting/financial-solutions',
+    '/services/sap-consulting/hr-solutions',
+    '/services/sap-consulting/business-intelligence',
+    '/services/sap-consulting/customer-experience',
+];
+
+export default async function SapConsultingPage({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+    const t = getSapConsultingContent(lang).main;
+
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
             <ServiceHero
-                breadcrumbs={[
-                    { label: 'Anasayfa', href: '/' },
-                    { label: 'Hizmetlerimiz', href: '/services' },
-                    { label: 'SAP Danışmanlık ve Uygulama Hizmetleri' },
-                ]}
-                title="SAP Danışmanlık ve Uygulama Hizmetleri"
-                highlightedWord="Danışmanlık"
-                subtitle="Sürdürülebilir ve Ölçeklenebilir SAP Çözümleri"
-                description="İş süreçlerinize tam uyumlu, sürdürülebilir ve ölçeklenebilir SAP çözümleriyle dijital dönüşümünüze yön veriyoruz."
-                ctaText="Projenizi Konuşalım"
+                breadcrumbs={t.breadcrumbs}
+                title={t.title}
+                highlightedWord={t.highlightedWord}
+                subtitle={t.subtitle}
+                description={t.description}
+                ctaText={t.ctaText}
                 ctaHref="/contact"
-                secondaryCtaText="Hizmetlerimizi İnceleyin"
+                secondaryCtaText={t.secondaryCtaText}
                 secondaryCtaHref="#hizmetler"
-                icon={Monitor}
+                iconName="Monitor"
                 accentColor="#3463ac"
                 gradientFrom="#3463ac"
                 gradientTo="#7e6fcf"
-                stats={[
-                    { value: '50+', label: 'Tamamlanan Proje' },
-                    { value: '30+', label: 'SAP Uzmanı' },
-                    { value: '%99', label: 'Müşteri Memnuniyeti' },
-                ]}
+                stats={t.stats}
             />
 
-            <ServiceIntro
-                paragraphs={[
-                    'Başarılı bir SAP projesi, yalnızca teknik bir sistem kurulumundan ibaret değildir. Kurumun mevcut iş yapış şekillerinin analiz edilmesi, doğru süreç tasarımı, eksiksiz bir operasyonel geçiş ve devreye alma sonrasında sağlanan sürdürülebilir destekle bir bütündür.',
-                    'Amacımız; kurumunuzun hedeflerini anlayarak, teknolojik altyapınızı iş süreçlerinizle en yüksek verimi sağlayacak şekilde entegre etmektir. Projelerinizi zamanında, bütçe dahilinde ve beklenen kalitede hayata geçiriyoruz.',
-                ]}
-            />
+            <ServiceIntro paragraphs={t.intro} />
 
             <div id="hizmetler">
                 <ServiceCards
-                    sectionTitle="Hizmet Alanlarımız"
-                    subtitle="SAP ekosisteminde uçtan uca uzmanlık desteği"
+                    sectionTitle={t.cardsTitle}
+                    subtitle={t.cardsSubtitle}
                     variant="grid"
                     accentColor="#3463ac"
-                    cards={[
-                        {
-                            icon: Truck, 
-                            title: 'Tedarik Zinciri, Üretim ve Lojistik', 
-                            description: 'Planlamadan sevkiyata kadar tüm operasyonel süreçlerinizi SAP standartlarında uçtan uca optimize ediyoruz.', 
-                            tag: 'Operasyonel Verimlilik',
-                            href: '/services/sap-consulting/supply-chain',
-                            linkText: 'Detayları Gör'
-                        },
-                        { 
-                            icon: Search, 
-                            title: 'Süreç Analizi ve Proje Yönetimi', 
-                            description: 'İş akışlarınızı şeffaflaştırıyor, iyileştirme alanlarını belirliyor ve geçiş projelerinizi uluslararası metodolojilerle yönetiyoruz.', 
-                            tag: 'Süreç Optimizasyonu',
-                            href: '/services/sap-consulting/process-analysis',
-                            linkText: 'Detayları Gör'
-                        },
-                        { 
-                            icon: RotateCw, 
-                            title: 'SAP Roll-out ve Destek Hizmetleri', 
-                            description: 'Yeni lokasyon ve şirket katılımları için yaygınlaştırma projelerini yönetiyor, devreye alma sonrası kesintisiz destek sunuyoruz.', 
-                            tag: 'Sürekli Gelişim',
-                            href: '/services/sap-consulting/roll-out',
-                            linkText: 'Detayları Gör'
-                        },
-                        { 
-                            icon: Coins, 
-                            title: 'Finansal Çözümler', 
-                            description: 'SAP FI/CO modülleriyle finansal süreçlerinizi dijitalleştiriyor, maliyet kontrolünü güçlendiriyor ve raporlama altyapınızı optimize ediyoruz.', 
-                            tag: 'Finansal Yönetim',
-                            href: '/services/sap-consulting/financial-solutions',
-                            linkText: 'Detayları Gör'
-                        },
-                        { 
-                            icon: Users, 
-                            title: 'İnsan Kaynakları Çözümleri', 
-                            description: 'SAP HCM ve SuccessFactors ile personel yönetimi, bordro ve yetenek yönetimi süreçlerinizi dijitalleştiriyoruz.', 
-                            tag: 'İnsan Kaynakları',
-                            href: '/services/sap-consulting/hr-solutions',
-                            linkText: 'Detayları Gör'
-                        },
-                        { 
-                            icon: BarChart3, 
-                            title: 'İş Zekası ve Veri Analitiği', 
-                            description: 'SAP Analytics Cloud ve BW ile verilerinizi görselleştiriyor, dashboard kurguluyoruz ve stratejik raporlama altyapısı oluşturuyoruz.', 
-                            tag: 'Analitik',
-                            href: '/services/sap-consulting/business-intelligence',
-                            linkText: 'Detayları Gör'
-                        },
-                        { 
-                            icon: ShoppingBag, 
-                            title: 'Müşteri Deneyimi ve Satış', 
-                            description: 'SAP CX/CRM ile pazarlama, satış, e-ticaret ve müşteri hizmetleri süreçlerinizi uçtan uca yönetiyoruz.', 
-                            tag: 'Müşteri Deneyimi',
-                            href: '/services/sap-consulting/customer-experience',
-                            linkText: 'Detayları Gör'
-                        },
-                    ]}
+                    cards={t.cards.map((card, i) => ({
+                        ...card,
+                        iconName: CARD_ICON_NAMES[i],
+                        href: CARD_HREFS[i],
+                    }))}
                 />
             </div>
 
             <ServiceSteps
-                sectionTitle="Çalışma Yaklaşımımız"
-                subtitle="Her projede planlı ve standart hizmet anlayışı"
+                sectionTitle={t.stepsTitle}
+                subtitle={t.stepsSubtitle}
                 variant="horizontal"
                 accentColor="#3463ac"
-                steps={[
-                    { title: 'Analiz ve Keşif', description: 'Mevcut durumun (As-Is) fotoğrafını çeker, ihtiyaçlarınızı belirleriz.' },
-                    { title: 'Tasarım (Blueprint)', description: 'SAP standartlarına en uygun, geleceğe dönük süreç mimarisini (To-Be) kurgularız.' },
-                    { title: 'Uygulama ve Test', description: 'Tasarlanan yapıyı sisteme uyarlar, kullanıcı kabul testleriyle (UAT) kaliteyi güvence altına alırız.' },
-                    { title: 'Devreye Alma ve Destek', description: 'Sorunsuz bir canlı kullanım geçişi (Go-Live) sağlar ve sürekli destek (Hypercare) ile yanınızda oluruz.' },
-                ]}
+                steps={t.steps}
             />
 
             <ServiceBenefits
-                sectionTitle="Neden Bizimle Çalışmalısınız?"
+                sectionTitle={t.benefitsTitle}
                 variant="pills"
                 accentColor="#3463ac"
-                items={[
-                    'Sürece Özel Yaklaşım',
-                    'Kanıtlanmış S/4HANA Uzmanlığı',
-                    'Kontrollü Şeffaf Yönetim',
-                    'Referanslı Proje Başarıları',
-                    'Güçlü Entegrasyon Yeteneği',
-                ]}
+                items={t.benefits}
             />
 
             <ServiceCta
-                title="SAP uygulama projeleriniz için doğru mimariyi birlikte kuralım."
-                subtitle="Uzman hedeflerimizle tanışın ve projenizi sürdürülebilir bir şekilde yapılandıralım."
-                buttonText="Uzmanlarımızla İletişime Geçin"
+                title={t.ctaTitle}
+                subtitle={t.ctaSubtitle}
+                buttonText={t.ctaButton}
                 buttonHref="/contact"
-                features={['Sektörel Uzmanlık', 'Proje Odaklı Yaklaşım', 'Uluslararası Standartlar']}
+                features={t.ctaFeatures}
             />
         </main>
     );

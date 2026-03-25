@@ -176,6 +176,55 @@
     "footer": {
         "description": "SAP ekosisteminde uzmanlaşmış danışmanlık ve yenilikçi ürün çözümleri.",
         "rights": "Tüm hakları saklıdır.",
-        "links": "Hızlı Bağlantılar"
+        "links": "Hızlı Bağlantılar",
+        "company": "Şirket",
+        "builtWith": "İstanbul'da",
+        "services": {
+            "sapConsulting": "SAP Danışmanlığı",
+            "techDev": "Teknoloji & Geliştirme",
+            "integration": "Entegrasyon Çözümleri",
+            "aiData": "AI & Veri Çözümleri"
+        }
+    },
+    "about": {
+        "badge": "Hakkımızda",
+        "heroTitle1": "Teknolojiyi",
+        "heroTitle2": "Değere",
+        "heroTitle3": "Dönüştürüyoruz",
+        "heroSubtitle": "BTP Solution olarak SAP ekosisteminde uzmanlaşmış danışmanlık hizmetleri ve yapay zekâ destekli yenilikçi ürünlerle kurumsal iş süreçlerinizi dijital çağa taşıyoruz.",
+        "stats": [
+            { "value": "50+", "label": "Tamamlanan Proje" },
+            { "value": "30+", "label": "Mutlu Müşteri" },
+            { "value": "4+", "label": "Yıllık Deneyim" },
+            { "value": "20+", "label": "Uzman Kadro" }
+        ],
+        "whoWeAre": "Biz Kimiz?",
+        "storyP1": "BTP Solution, SAP ekosisteminde uzmanlaşmış bir teknoloji ve danışmanlık şirketidir. İstanbul merkezli ekibimiz, kurumsal müşterilerimize S/4HANA dönüşümü, SAP BTP entegrasyonları, ABAP/RAP/CAP geliştirme ve süreç otomasyonu alanlarında uçtan uca hizmet sunmaktadır.",
+        "storyP2": "Yapay zekâ destekli ürünlerimiz ve yenilikçi entegrasyon çözümlerimizle, işletmelerin dijital dönüşüm yolculuğunda güvenilir iş ortağı olmayı hedefliyoruz. Her projede kalite, şeffaflık ve sürdürülebilirliği ön planda tutuyoruz.",
+        "storyP3": "APD Automation gibi niş ürünlerimizle SAP süreçlerinde otomasyonu bir üst seviyeye taşırken, finansal çözümlerden tedarik zinciri yönetimine kadar geniş bir yelpazede değer katıyoruz.",
+        "mission": "Misyonumuz",
+        "missionText": "SAP teknolojilerini ve yapay zekâyı kullanarak kurumsal süreçleri dönüştürmek, müşterilerimize rekabet avantajı sağlamak ve dijital çağda sürdürülebilir büyümeyi mümkün kılmak.",
+        "vision": "Vizyonumuz",
+        "visionText": "Türkiye'nin ve bölgenin lider SAP teknoloji partneri olarak, yapay zekâ ve inovasyon odaklı ürünleriyle global arenada tanınan bir teknoloji şirketi olmak.",
+        "valuesTitle": "Değerlerimiz",
+        "valuesSubtitle": "İş yapış tarzımızı şekillendiren ve her projede rehberimiz olan temel değerlerimiz.",
+        "values": [
+            { "title": "Teknoloji Odaklılık", "description": "SAP ekosisteminde en güncel teknolojileri takip ediyor, müşterilerimize en iyi çözümleri sunuyoruz." },
+            { "title": "Güvenilirlik", "description": "Her projede şeffaf iletişim, zamanında teslimat ve kaliteli iş çıktısı ile güvene dayalı ilişkiler kuruyoruz." },
+            { "title": "Çeviklik", "description": "Hızla değişen iş dünyasında esnek yaklaşımımız ile müşterilerimizin ihtiyaçlarına anında cevap veriyoruz." },
+            { "title": "Global Vizyon", "description": "Uluslararası standartlarda hizmet sunarak Türkiye'den dünyaya açılan kurumsal çözümler geliştiriyoruz." }
+        ],
+        "whyUsTitle": "Neden BTP Solution?",
+        "whyUs": [
+            { "title": "SAP Uzmanlığı", "description": "S/4HANA, BTP, ABAP RAP/CAP, Fiori ve tüm SAP modüllerinde derin uzmanlık.", "icon": "🏆" },
+            { "title": "Yenilikçi Ürünler", "description": "APD Automation gibi yapay zekâ destekli, SAP ekosistemi üzerinde çalışan niş ürünler.", "icon": "🚀" },
+            { "title": "Uçtan Uca Çözüm", "description": "Danışmanlıktan uygulamaya, entegrasyondan bakıma kadar tüm süreçlerde yanınızdayız.", "icon": "🔗" }
+        ],
+        "discoverServices": "Hizmetlerimizi Keşfedin",
+        "contactTitle": "Bize Ulaşın",
+        "contactSubtitle": "Dijital dönüşüm yolculuğunuzda sizinle birlikte yürümek için sabırsızlanıyoruz.",
+        "address": "Adres",
+        "email": "E-posta",
+        "phone": "Telefon"
     }
 }
