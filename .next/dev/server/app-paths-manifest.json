@@ -1,4 +1,6 @@
 {
   "/[lang]/page": "app/[lang]/page.js",
+  "/[lang]/services/integration-solutions/banka-fintech/page": "app/[lang]/services/integration-solutions/banka-fintech/page.js",
+  "/[lang]/services/sap-consulting/roll-out/page": "app/[lang]/services/sap-consulting/roll-out/page.js",
   "/[lang]/services/tech-development/abap-rap-cap/page": "app/[lang]/services/tech-development/abap-rap-cap/page.js"
 }
