@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo/metadata';
+import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
@@ -8,12 +11,26 @@ import { getWorkflowAutomationContent } from '@/lib/i18n/services/techDevelopmen
 
 const CARD_ICON_NAMES = ['GitBranch', 'Bot', 'Zap', 'Bell', 'FileCheck2', 'BarChart3'];
 
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const t = getWorkflowAutomationContent(lang);
+    return generateSeoMetadata({
+        lang,
+        path: '/services/tech-development/workflow-automation',
+        title: `${t.title} | BTP Solution`,
+        description: t.description,
+    });
+}
+
 export default async function WorkflowAutomationPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
     const t = getWorkflowAutomationContent(lang);
 
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
+            <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
+            <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/tech-development/workflow-automation" />
             <ServiceHero
                 breadcrumbs={t.breadcrumbs}
                 title={t.title}

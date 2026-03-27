@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo/metadata';
+import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
@@ -17,12 +20,26 @@ const CARD_HREFS = [
     '/services/sap-consulting/customer-experience',
 ];
 
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const t = getSapConsultingContent(lang).main;
+    return generateSeoMetadata({
+        lang,
+        path: '/services/sap-consulting',
+        title: `${t.title} | BTP Solution`,
+        description: t.description,
+    });
+}
+
 export default async function SapConsultingPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
     const t = getSapConsultingContent(lang).main;
 
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
+            <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
+            <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/sap-consulting" />
             <ServiceHero
                 breadcrumbs={t.breadcrumbs}
                 title={t.title}

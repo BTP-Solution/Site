@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo/metadata';
+import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
@@ -8,12 +11,26 @@ import { getSapBtpContent } from '@/lib/i18n/services/techDevelopment';
 
 const CARD_ICON_NAMES = ['Code', 'Layers', 'Workflow', 'Bot', 'Cloud', 'Database'];
 
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const t = getSapBtpContent(lang);
+    return generateSeoMetadata({
+        lang,
+        path: '/services/tech-development/sap-btp',
+        title: `${t.title} | BTP Solution`,
+        description: t.description,
+    });
+}
+
 export default async function SapBtpPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
     const t = getSapBtpContent(lang);
 
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
+            <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
+            <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/tech-development/sap-btp" />
             <ServiceHero
                 breadcrumbs={t.breadcrumbs}
                 title={t.title}

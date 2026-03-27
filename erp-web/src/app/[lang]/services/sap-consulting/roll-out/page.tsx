@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo/metadata';
+import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
@@ -6,12 +9,26 @@ import ServiceCta from '@/components/services/ServiceCta';
 import FaqItem from '@/components/services/FaqItem';
 import { getRollOutContent } from '@/lib/i18n/services/sapConsultingSub2';
 
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const t = getRollOutContent(lang);
+    return generateSeoMetadata({
+        lang,
+        path: '/services/sap-consulting/roll-out',
+        title: `${t.title} | BTP Solution`,
+        description: t.description,
+    });
+}
+
 export default async function RolloutPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
     const t = getRollOutContent(lang);
 
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
+            <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
+            <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/sap-consulting/roll-out" />
             <ServiceHero
                 breadcrumbs={t.breadcrumbs}
                 title={t.title}

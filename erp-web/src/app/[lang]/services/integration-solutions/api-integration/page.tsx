@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo/metadata';
+import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
@@ -8,12 +11,26 @@ import { getApiIntegrationContent } from '@/lib/i18n/services/integrationSolutio
 
 const CARD_ICON_NAMES = ['Globe', 'Webhook', 'RefreshCcw', 'Link2', 'ShieldCheck', 'Gauge'];
 
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const t = getApiIntegrationContent(lang);
+    return generateSeoMetadata({
+        lang,
+        path: '/services/integration-solutions/api-integration',
+        title: `${t.title} | BTP Solution`,
+        description: t.description,
+    });
+}
+
 export default async function ApiIntegrationPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
     const t = getApiIntegrationContent(lang);
 
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
+            <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
+            <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/integration-solutions/api-integration" />
             <ServiceHero
                 breadcrumbs={t.breadcrumbs}
                 title={t.title}

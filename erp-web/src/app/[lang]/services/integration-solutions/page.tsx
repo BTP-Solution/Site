@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo/metadata';
+import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
@@ -7,12 +10,26 @@ import { getIntegrationSolutionsMainContent } from '@/lib/i18n/services/integrat
 
 const CARD_ICON_NAMES = ['FileCheck', 'Link2', 'ArrowLeftRight', 'Landmark'];
 
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const t = getIntegrationSolutionsMainContent(lang);
+    return generateSeoMetadata({
+        lang,
+        path: '/services/integration-solutions',
+        title: `${t.title} | BTP Solution`,
+        description: t.description,
+    });
+}
+
 export default async function IntegrationSolutionsPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
     const t = getIntegrationSolutionsMainContent(lang);
 
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
+            <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
+            <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/integration-solutions" />
             <ServiceHero
                 breadcrumbs={t.breadcrumbs}
                 title={t.title}

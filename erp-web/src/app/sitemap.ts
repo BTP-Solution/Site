@@ -30,6 +30,7 @@ const pages = [
     '/services/ai-data-solutions/business-analytics',
     '/services/ai-data-solutions/data-management',
     '/services/ai-data-solutions/rpa-automation',
+    '/contact',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo/metadata';
+import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceIntro from '@/components/services/ServiceIntro';
 import ServiceCards from '@/components/services/ServiceCards';
@@ -7,12 +10,26 @@ import { getFioriSapui5Content } from '@/lib/i18n/services/techDevelopment';
 
 const CARD_ICON_NAMES = ['Settings', 'PencilRuler', 'Smartphone', 'Layout'];
 
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const t = getFioriSapui5Content(lang);
+    return generateSeoMetadata({
+        lang,
+        path: '/services/tech-development/fiori-sapui5',
+        title: `${t.title} | BTP Solution`,
+        description: t.description,
+    });
+}
+
 export default async function FioriSapui5Page({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
     const t = getFioriSapui5Content(lang);
 
     return (
         <main className="w-full flex flex-col bg-[#060d1a]">
+            <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
+            <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/tech-development/fiori-sapui5" />
             <ServiceHero
                 breadcrumbs={t.breadcrumbs}
                 title={t.title}
