@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "site",
+  "compatibility_date": "2025-09-27",
+  "observability": {
+    "enabled": true
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  // Override the self-reference binding to match the actual worker name ("site")
+  // instead of the package.json "name" field ("erp-web")
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "site"
+    }
+  ]
+}
