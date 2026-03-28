@@ -4,6 +4,7 @@ import '../globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieBanner from '@/components/ui/CookieBanner';
+import WhatsAppWidget from '@/components/ui/WhatsAppWidget';
 import PageTransitionProvider from '@/components/layout/PageTransition';
 import { getDictionary, Locale } from '@/lib/i18n/getDictionary';
 import { generateSeoMetadata } from '@/lib/seo/metadata';
@@ -53,6 +54,7 @@ export default async function RootLayout({
           </main>
           <Footer dict={dictionary} />
           <CookieBanner dict={dictionary} />
+          <WhatsAppWidget lang={lang} />
         </PageTransitionProvider>
       </body>
     </html>
