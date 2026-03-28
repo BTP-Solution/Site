@@ -185,6 +185,16 @@ function TransitionLink({ href, onClick, children, ...rest }) {
             onClick?.(e);
             return;
         }
+        // Same page: scroll to top instead of navigating
+        if (hrefString === pathname) {
+            e.preventDefault();
+            onClick?.(e);
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            return;
+        }
         e.preventDefault();
         onClick?.(e);
         navigateWithTransition(hrefString);
@@ -201,7 +211,7 @@ function TransitionLink({ href, onClick, children, ...rest }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/ui/TransitionLink.tsx",
-        lineNumber: 32,
+        lineNumber: 40,
         columnNumber: 9
     }, this);
 }
@@ -483,13 +493,13 @@ function Navbar({ dict, lang }) {
                                         columnNumber: 29
                                     }, this),
                                     (isServicesOpen || isAnimatingOut) && openDropdown === 'services' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: `absolute left-1/2 top-full pt-4 -translate-x-1/2 z-50 w-[1080px] ${isAnimatingOut ? 'mega-dropdown-exit' : 'mega-dropdown-enter'}`,
+                                        className: `absolute left-1/2 -translate-x-[25%] pt-4 z-50 w-[calc(100vw-2rem)] max-w-[1080px] ${isAnimatingOut ? 'mega-dropdown-exit' : 'mega-dropdown-enter'}`,
                                         onMouseEnter: ()=>{
                                             if (timeoutRef.current) clearTimeout(timeoutRef.current);
                                         },
                                         onMouseLeave: handleMouseLeave,
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "rounded-2xl border border-white/[0.06] bg-[#0c1222]/[0.97] backdrop-blur-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.6)] overflow-hidden",
+                                            className: "w-full rounded-2xl border border-white/[0.06] bg-[#0c1222]/[0.97] backdrop-blur-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.6)] overflow-hidden",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "h-px w-full bg-gradient-to-r from-transparent via-[#3463ac]/40 to-transparent"
@@ -910,7 +920,10 @@ function Header({ dict, lang }) {
                 className: `container relative mx-auto flex items-center justify-between px-4 sm:px-8 transition-all duration-400 ${isScrolled ? 'h-16' : 'h-24'}`,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex-1 pr-6",
+                        className: "flex-1 pr-6 relative z-50",
+                        onClick: ()=>{
+                            if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+                        },
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$layout$2f$Navbar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             dict: dict,
                             lang: lang
@@ -1031,9 +1044,11 @@ function Header({ dict, lang }) {
                                 lineNumber: 82,
                                 columnNumber: 21
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$TransitionLink$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                href: `/${lang}/contact`,
-                                className: "cta-shimmer hidden sm:inline-flex h-10 items-center justify-center rounded-full px-6 text-sm font-semibold text-white shadow-[0_0_20px_rgba(52,99,172,0.25)] transition-all duration-300 hover:shadow-[0_4px_30px_rgba(52,99,172,0.4)] hover:-translate-y-0.5 focus-visible:outline-none",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: ()=>document.querySelector('footer')?.scrollIntoView({
+                                        behavior: 'smooth'
+                                    }),
+                                className: "cta-shimmer hidden sm:inline-flex h-10 items-center justify-center rounded-full px-6 text-sm font-semibold text-white shadow-[0_0_20px_rgba(52,99,172,0.25)] transition-all duration-300 hover:shadow-[0_4px_30px_rgba(52,99,172,0.4)] hover:-translate-y-0.5 focus-visible:outline-none cursor-pointer",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "relative z-10 flex items-center gap-2",
                                     children: [
@@ -1178,7 +1193,7 @@ function Header({ dict, lang }) {
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: `flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'services' ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`,
+                                    className: `flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'services' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`,
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"
@@ -1687,10 +1702,14 @@ function Header({ dict, lang }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: `mt-4 pb-6 ${isMobileMenuOpen ? 'mobile-stagger-5' : ''}`,
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$TransitionLink$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                href: `/${lang}/contact`,
-                                onClick: ()=>setIsMobileMenuOpen(false),
-                                className: "cta-shimmer flex w-full h-14 items-center justify-center rounded-2xl px-6 text-base font-semibold text-white shadow-[0_0_30px_rgba(52,99,172,0.3)] transition-all",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: ()=>{
+                                    setIsMobileMenuOpen(false);
+                                    setTimeout(()=>document.querySelector('footer')?.scrollIntoView({
+                                            behavior: 'smooth'
+                                        }), 300);
+                                },
+                                className: "cta-shimmer flex w-full h-14 items-center justify-center rounded-2xl px-6 text-base font-semibold text-white shadow-[0_0_30px_rgba(52,99,172,0.3)] transition-all cursor-pointer",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "relative z-10 flex items-center gap-2",
                                     children: [
@@ -1698,14 +1717,14 @@ function Header({ dict, lang }) {
                                             className: "h-4 w-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/layout/Header.tsx",
-                                            lineNumber: 335,
+                                            lineNumber: 334,
                                             columnNumber: 33
                                         }, this),
                                         dict.navigation.getConsultation
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/layout/Header.tsx",
-                                    lineNumber: 334,
+                                    lineNumber: 333,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {

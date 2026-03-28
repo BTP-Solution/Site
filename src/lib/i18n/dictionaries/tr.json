@@ -226,5 +226,61 @@
         "address": "Adres",
         "email": "E-posta",
         "phone": "Telefon"
+    },
+    "servicesOverview": {
+        "badge": "Hizmetlerimiz",
+        "title": "Dijital Dönüşüm",
+        "titleHighlight": "Çözümlerimiz",
+        "description": "SAP danışmanlık, teknoloji geliştirme, entegrasyon ve yapay zeka çözümleriyle kurumsal dönüşümünüzü uçtan uca yönetiyoruz.",
+        "detailsLink": "Detayları Gör",
+        "ctaTitle": "Projeniz İçin Doğru Çözümü Birlikte Belirleyelim",
+        "ctaDescription": "Uzman ekibimiz, ihtiyaçlarınıza özel çözümler sunmak için yanınızda.",
+        "ctaButton": "Bize Ulaşın",
+        "categories": {
+            "sap": {
+                "title": "SAP Danışmanlık ve Uygulama Hizmetleri",
+                "description": "S/4HANA dönüşümü, modül implementasyonu ve kurumsal süreç optimizasyonu ile altyapınızı geleceğe hazırlıyoruz.",
+                "items": [
+                    { "title": "Tedarik Zinciri, Üretim ve Lojistik", "description": "SAP MM, SD, PP, WM/EWM modülleriyle tedarik zinciri optimizasyonu." },
+                    { "title": "Süreç Analizi ve Proje Yönetimi", "description": "İş süreçlerinizi analiz ederek dijital dönüşüm roadmap'i oluşturuyoruz." },
+                    { "title": "SAP Roll-out ve Destek Hizmetleri", "description": "Çok lokasyonlu projelerde roll-out ve sürekli destek hizmetleri." },
+                    { "title": "Finansal Çözümler", "description": "SAP FI/CO ile finansal planlama, raporlama ve konsolidasyon." },
+                    { "title": "İnsan Kaynakları Çözümleri", "description": "SAP SuccessFactors ve HCM ile İK süreçlerinin dijitalleştirilmesi." },
+                    { "title": "İş Zekası ve Veri Analitiği", "description": "SAP BW, Analytics Cloud ile veri odaklı karar alma süreçleri." },
+                    { "title": "Müşteri Deneyimi ve Satış", "description": "SAP CX/CRM ile 360° müşteri deneyimi yönetimi." }
+                ]
+            },
+            "tech": {
+                "title": "Teknoloji ve Yazılım Geliştirme",
+                "description": "SAP BTP, ABAP RAP/CAP, Fiori/SAPUI5 ve bulut teknolojileriyle modern çözümler geliştiriyoruz.",
+                "items": [
+                    { "title": "SAP BTP Çözümleri", "description": "Business Technology Platform üzerinde uygulama geliştirme ve entegrasyon." },
+                    { "title": "ABAP, RAP / CAP Geliştirme", "description": "Clean core prensibiyle modern ABAP ve CAP uygulamaları." },
+                    { "title": "SAP Fiori ve SAPUI5 Arayüzleri", "description": "Kullanıcı dostu, responsive SAP arayüz geliştirme." },
+                    { "title": "Bulut Geçiş ve Modernizasyon", "description": "On-premise sistemlerden bulut altyapısına güvenli geçiş." },
+                    { "title": "İş Akışı ve Süreç Otomasyonu", "description": "SAP Build Process Automation ile iş süreçlerinin otomatikleştirilmesi." }
+                ]
+            },
+            "integration": {
+                "title": "Entegrasyon Çözümleri",
+                "description": "SAP ve non-SAP sistemleri, bankalar, e-dönüşüm platformları ve üçüncü parti uygulamalarla entegrasyon.",
+                "items": [
+                    { "title": "E-Dönüşüm ve Dijital Arşivleme", "description": "e-Fatura, e-İrsaliye, e-Arşiv ve tüm e-dönüşüm süreçleri." },
+                    { "title": "API ve Sistem Entegrasyonları", "description": "REST, SOAP, OData tabanlı sistem entegrasyonları." },
+                    { "title": "SAP ve Non-SAP Sistem Entegrasyonları", "description": "Farklı ERP ve iş sistemleri arası veri akışı." },
+                    { "title": "Banka ve Fintech Entegrasyonları", "description": "Çoklu banka entegrasyonu, DBS ve ödeme sistemleri." }
+                ]
+            },
+            "ai": {
+                "title": "Veri, Yapay Zeka ve Akıllı Çözümler",
+                "description": "Veri yönetimi, iş zekası, yapay zeka ve akıllı otomasyon ile veriden değer yaratıyoruz.",
+                "items": [
+                    { "title": "Veri Yönetimi ve Dönüşümü", "description": "Master data yönetimi, veri kalitesi ve dönüşüm projeleri." },
+                    { "title": "İş Zekası ve Gelişmiş Analitik", "description": "SAP Analytics Cloud ve BW ile gelişmiş raporlama." },
+                    { "title": "Yapay Zeka ve Makine Öğrenimi", "description": "Talep tahmini, anomali tespiti ve akıllı karar destek sistemleri." },
+                    { "title": "Akıllı İş Akışı ve Süreç Otomasyonu", "description": "RPA ve AI destekli süreç otomasyonu çözümleri." }
+                ]
+            }
+        }
     }
 }

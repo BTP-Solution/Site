@@ -176,5 +176,61 @@
         "address": "Address",
         "email": "Email",
         "phone": "Phone"
+    },
+    "servicesOverview": {
+        "badge": "Our Services",
+        "title": "Digital Transformation",
+        "titleHighlight": "Solutions",
+        "description": "We manage your enterprise transformation end-to-end with SAP consulting, technology development, integration, and AI solutions.",
+        "detailsLink": "View Details",
+        "ctaTitle": "Let's Find the Right Solution for Your Project",
+        "ctaDescription": "Our expert team is ready to deliver customized solutions for your needs.",
+        "ctaButton": "Get in Touch",
+        "categories": {
+            "sap": {
+                "title": "SAP Consulting & Implementation",
+                "description": "S/4HANA transformation, module implementation, and enterprise process optimization to future-proof your infrastructure.",
+                "items": [
+                    { "title": "Supply Chain, Production & Logistics", "description": "Supply chain optimization with SAP MM, SD, PP, WM/EWM modules." },
+                    { "title": "Process Analysis & Project Management", "description": "Analyzing your business processes to create a digital transformation roadmap." },
+                    { "title": "SAP Roll-out & Support Services", "description": "Multi-location roll-out projects and continuous support services." },
+                    { "title": "Financial Solutions", "description": "Financial planning, reporting, and consolidation with SAP FI/CO." },
+                    { "title": "Human Resources Solutions", "description": "Digitalization of HR processes with SAP SuccessFactors and HCM." },
+                    { "title": "Business Intelligence & Analytics", "description": "Data-driven decision making with SAP BW and Analytics Cloud." },
+                    { "title": "Customer Experience & Sales", "description": "360° customer experience management with SAP CX/CRM." }
+                ]
+            },
+            "tech": {
+                "title": "Technology & Software Development",
+                "description": "Modern solutions with SAP BTP, ABAP RAP/CAP, Fiori/SAPUI5, and cloud technologies.",
+                "items": [
+                    { "title": "SAP BTP Solutions", "description": "Application development and integration on Business Technology Platform." },
+                    { "title": "ABAP, RAP / CAP Development", "description": "Modern ABAP and CAP applications with clean core principles." },
+                    { "title": "SAP Fiori & SAPUI5 Interfaces", "description": "User-friendly, responsive SAP interface development." },
+                    { "title": "Cloud Migration & Modernization", "description": "Secure migration from on-premise systems to cloud infrastructure." },
+                    { "title": "Workflow & Process Automation", "description": "Business process automation with SAP Build Process Automation." }
+                ]
+            },
+            "integration": {
+                "title": "Integration Solutions",
+                "description": "Integration with SAP and non-SAP systems, banks, e-transformation platforms, and third-party applications.",
+                "items": [
+                    { "title": "E-Transformation & Digital Archiving", "description": "e-Invoice, e-Dispatch, e-Archive, and all e-transformation processes." },
+                    { "title": "API & System Integrations", "description": "REST, SOAP, OData-based system integrations." },
+                    { "title": "SAP & Non-SAP System Integrations", "description": "Data flow between different ERP and business systems." },
+                    { "title": "Bank & Fintech Integrations", "description": "Multi-bank integration, DBS, and payment systems." }
+                ]
+            },
+            "ai": {
+                "title": "Data, AI & Smart Solutions",
+                "description": "Creating value from data with data management, business intelligence, AI, and smart automation.",
+                "items": [
+                    { "title": "Data Management & Transformation", "description": "Master data management, data quality, and transformation projects." },
+                    { "title": "Business Intelligence & Advanced Analytics", "description": "Advanced reporting with SAP Analytics Cloud and BW." },
+                    { "title": "Artificial Intelligence & Machine Learning", "description": "Demand forecasting, anomaly detection, and intelligent decision support systems." },
+                    { "title": "Smart Workflow & Process Automation", "description": "RPA and AI-powered process automation solutions." }
+                ]
+            }
+        }
     }
 }

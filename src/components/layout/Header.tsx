@@ -71,7 +71,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                     }`}
             >
                 {/* NAVBAR (LOGO + LINKS) */}
-                <div className="flex-1 pr-6">
+                <div className="flex-1 pr-6 relative z-50" onClick={() => { if (isMobileMenuOpen) setIsMobileMenuOpen(false); }}>
                     <Navbar dict={dict} lang={lang} />
                 </div>
 
@@ -113,15 +113,15 @@ export default function Header({ dict, lang }: HeaderProps) {
                     </div>
 
                     {/* CTA BUTTON — SHIMMER */}
-                    <TransitionLink
-                        href={`/${lang}/contact`}
-                        className="cta-shimmer hidden sm:inline-flex h-10 items-center justify-center rounded-full px-6 text-sm font-semibold text-white shadow-[0_0_20px_rgba(52,99,172,0.25)] transition-all duration-300 hover:shadow-[0_4px_30px_rgba(52,99,172,0.4)] hover:-translate-y-0.5 focus-visible:outline-none"
+                    <button
+                        onClick={() => document.querySelector('footer')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="cta-shimmer hidden sm:inline-flex h-10 items-center justify-center rounded-full px-6 text-sm font-semibold text-white shadow-[0_0_20px_rgba(52,99,172,0.25)] transition-all duration-300 hover:shadow-[0_4px_30px_rgba(52,99,172,0.4)] hover:-translate-y-0.5 focus-visible:outline-none cursor-pointer"
                     >
                         <span className="relative z-10 flex items-center gap-2">
                             <Sparkles className="h-3.5 w-3.5" />
                             {dict.navigation.getConsultation}
                         </span>
-                    </TransitionLink>
+                    </button>
 
                     {/* MOBILE HAMBURGER */}
                     <button
@@ -174,7 +174,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                             <ChevronDown className={`h-4 w-4 text-slate-500 transition-transform duration-400 ${expandedMobileSection === 'services' ? 'rotate-180 text-[#5b8fd4]' : ''}`} />
                         </button>
 
-                        <div className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'services' ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                        <div className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'services' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                             }`}>
                             <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
 
@@ -326,16 +326,15 @@ export default function Header({ dict, lang }: HeaderProps) {
 
                     {/* MOBILE CTA */}
                     <div className={`mt-4 pb-6 ${isMobileMenuOpen ? 'mobile-stagger-5' : ''}`}>
-                        <TransitionLink
-                            href={`/${lang}/contact`}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="cta-shimmer flex w-full h-14 items-center justify-center rounded-2xl px-6 text-base font-semibold text-white shadow-[0_0_30px_rgba(52,99,172,0.3)] transition-all"
+                        <button
+                            onClick={() => { setIsMobileMenuOpen(false); setTimeout(() => document.querySelector('footer')?.scrollIntoView({ behavior: 'smooth' }), 300); }}
+                            className="cta-shimmer flex w-full h-14 items-center justify-center rounded-2xl px-6 text-base font-semibold text-white shadow-[0_0_30px_rgba(52,99,172,0.3)] transition-all cursor-pointer"
                         >
                             <span className="relative z-10 flex items-center gap-2">
                                 <Sparkles className="h-4 w-4" />
                                 {dict.navigation.getConsultation}
                             </span>
-                        </TransitionLink>
+                        </button>
                     </div>
                 </div>
             </div>

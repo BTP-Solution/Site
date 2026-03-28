@@ -182,13 +182,13 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                             {/* ═══ MEGA DROPDOWN — 4-COLUMN GRID ═══ */}
                             {(isServicesOpen || isAnimatingOut) && openDropdown === 'services' && (
                                 <div
-                                    className={`absolute left-1/2 top-full pt-4 -translate-x-1/2 z-50 w-[1080px] ${
+                                    className={`absolute left-1/2 -translate-x-[25%] pt-4 z-50 w-[calc(100vw-2rem)] max-w-[1080px] ${
                                         isAnimatingOut ? 'mega-dropdown-exit' : 'mega-dropdown-enter'
                                     }`}
                                     onMouseEnter={() => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }}
                                     onMouseLeave={handleMouseLeave}
                                 >
-                                    <div className="rounded-2xl border border-white/[0.06] bg-[#0c1222]/[0.97] backdrop-blur-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.6)] overflow-hidden">
+                                    <div className="w-full rounded-2xl border border-white/[0.06] bg-[#0c1222]/[0.97] backdrop-blur-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.6)] overflow-hidden">
 
                                         {/* STATIC SUBTLE TOP ACCENT */}
                                         <div className="h-px w-full bg-gradient-to-r from-transparent via-[#3463ac]/40 to-transparent"></div>

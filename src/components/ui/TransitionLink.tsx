@@ -21,6 +21,14 @@ export default function TransitionLink({ href, onClick, children, ...rest }: Tra
                 return;
             }
 
+            // Same page: scroll to top instead of navigating
+            if (hrefString === pathname) {
+                e.preventDefault();
+                onClick?.(e);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
             e.preventDefault();
             onClick?.(e);
             navigateWithTransition(hrefString);
