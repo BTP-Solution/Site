@@ -1,13 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { Users } from 'lucide-react';
 
 // You can update this with your actual WhatsApp business number
 const WHATSAPP_NUMBER = '905547251187';
+// Update this with the actual Microsoft Teams email or user link
+const TEAMS_EMAIL = 'erdal.eser@btpsolution.com';
 
 export default function WhatsAppWidget({ lang }: { lang: string }) {
     const [mounted, setMounted] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
+    const [isWhatsAppHovered, setIsWhatsAppHovered] = useState(false);
+    const [isTeamsHovered, setIsTeamsHovered] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -20,29 +24,58 @@ export default function WhatsAppWidget({ lang }: { lang: string }) {
         : 'Hello, I would like to get information about BTP Solution services.';
 
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    const tooltipText = lang === 'tr' ? 'Bize Ulaşın' : 'Chat with Us';
+    const whatsappTooltip = lang === 'tr' ? 'Bize Ulaşın' : 'Chat with Us';
+
+    const teamsUrl = `https://teams.microsoft.com/l/chat/0/0?users=${TEAMS_EMAIL}`;
+    const teamsTooltip = lang === 'tr' ? 'Teams\'ten Ulaşın' : 'Chat on Teams';
 
     return (
         <div
-            className="fixed bottom-6 right-6 z-50 flex items-center justify-end"
+            className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
             style={{ animation: 'float-in 0.6s cubic-bezier(0.16,1,0.3,1) 1s both' }}
         >
+            {/* Teams Button */}
             <div
                 className="relative flex items-center justify-end group"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseEnter={() => setIsTeamsHovered(true)}
+                onMouseLeave={() => setIsTeamsHovered(false)}
             >
                 {/* Tooltip */}
                 <div
-                    className={`absolute right-full mr-4 bg-white text-slate-800 text-sm font-semibold py-2 px-4 rounded-xl shadow-xl whitespace-nowrap transition-all duration-300 origin-right ${isHovered ? 'scale-100 opacity-100' : 'scale-90 opacity-0 pointer-events-none'
+                    className={`absolute right-full mr-4 bg-white text-slate-800 text-sm font-semibold py-2 px-4 rounded-xl shadow-xl whitespace-nowrap transition-all duration-300 origin-right ${isTeamsHovered ? 'scale-100 opacity-100' : 'scale-90 opacity-0 pointer-events-none'
                         }`}
                 >
-                    {tooltipText}
+                    {teamsTooltip}
+                    <div className="absolute top-1/2 -translate-y-1/2 right-[-5px] w-3 h-3 bg-white rotate-45" />
+                </div>
+
+                <a
+                    href={teamsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative flex items-center justify-center w-12 h-12 bg-[#6264A7] text-white rounded-full shadow-[0_8px_20px_-5px_rgba(98,100,167,0.5)] hover:shadow-[0_12px_25px_-5px_rgba(98,100,167,0.6)] hover:-translate-y-1 transition-all duration-300 group-hover:bg-[#50528c]"
+                    aria-label="Microsoft Teams Support"
+                >
+                    <Users className="w-5 h-5 relative z-10" />
+                </a>
+            </div>
+
+            {/* Main WhatsApp Button */}
+            <div
+                className="relative flex items-center justify-end group"
+                onMouseEnter={() => setIsWhatsAppHovered(true)}
+                onMouseLeave={() => setIsWhatsAppHovered(false)}
+            >
+                {/* Tooltip */}
+                <div
+                    className={`absolute right-full mr-4 bg-white text-slate-800 text-sm font-semibold py-2 px-4 rounded-xl shadow-xl whitespace-nowrap transition-all duration-300 origin-right ${isWhatsAppHovered ? 'scale-100 opacity-100' : 'scale-90 opacity-0 pointer-events-none'
+                        }`}
+                >
+                    {whatsappTooltip}
                     {/* Inner Triangle pointer */}
                     <div className="absolute top-1/2 -translate-y-1/2 right-[-5px] w-3 h-3 bg-white rotate-45" />
                 </div>
 
-                {/* Main WhatsApp Button */}
                 <a
                     href={whatsappUrl}
                     target="_blank"
