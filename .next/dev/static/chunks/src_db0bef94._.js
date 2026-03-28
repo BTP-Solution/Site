@@ -187,11 +187,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$iconMap$2e$ts_
 ;
 function ServiceHero(t0) {
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(125);
-    if ($[0] !== "c63826b8498f9a2188ce7f5964548cb1f014ceb9a80517665233ef30defb49a2") {
+    if ($[0] !== "3e247642fc60b72bb461b96c0b79002b85b7143bd49b77923400780c6ad1547c") {
         for(let $i = 0; $i < 125; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "c63826b8498f9a2188ce7f5964548cb1f014ceb9a80517665233ef30defb49a2";
+        $[0] = "3e247642fc60b72bb461b96c0b79002b85b7143bd49b77923400780c6ad1547c";
     }
     const { breadcrumbs, title, highlightedWord, subtitle, description, ctaText, ctaHref, secondaryCtaText, secondaryCtaHref, accentColor: t1, gradientFrom: t2, gradientTo: t3, iconName, stats, variant: t4 } = t0;
     const accentColor = t1 === undefined ? "#3463ac" : t1;

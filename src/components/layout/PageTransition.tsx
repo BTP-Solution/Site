@@ -25,7 +25,6 @@ export default function PageTransitionProvider({ children }: { children: React.R
     const [targetPath, setTargetPath] = useState<string | null>(null);
     const wasPendingRef = useRef(false);
 
-    // Track when isPending becomes true (navigation actually started)
     useEffect(() => {
         if (isPending) {
             wasPendingRef.current = true;
@@ -33,7 +32,7 @@ export default function PageTransitionProvider({ children }: { children: React.R
     }, [isPending]);
 
     const navigateWithTransition = useCallback((href: string) => {
-        // Don't transition if already on the same page
+
         if (href === pathname) return;
 
         wasPendingRef.current = false;
@@ -41,7 +40,6 @@ export default function PageTransitionProvider({ children }: { children: React.R
         setIsFadingOut(false);
         setTargetPath(href);
 
-        // Small delay to let the overlay animate in, then navigate
         setTimeout(() => {
             startTransition(() => {
                 router.push(href);
@@ -49,10 +47,9 @@ export default function PageTransitionProvider({ children }: { children: React.R
         }, 300);
     }, [pathname, router, startTransition]);
 
-    // When navigation completes (isPending goes from true→false and we have a target)
     useEffect(() => {
         if (!isPending && wasPendingRef.current && targetPath && isVisible) {
-            // Navigation complete — fade out the overlay
+
             wasPendingRef.current = false;
             const timer = setTimeout(() => {
                 setIsFadingOut(true);
@@ -70,14 +67,13 @@ export default function PageTransitionProvider({ children }: { children: React.R
         <PageTransitionContext.Provider value={{ navigateWithTransition, isTransitioning: isVisible }}>
             {children}
 
-            {/* LOADING OVERLAY */}
             {isVisible && (
                 <div
                     className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-slate-950/90 backdrop-blur-xl ${
                         isFadingOut ? 'page-transition-out' : 'page-transition-in'
                     }`}
                 >
-                    {/* Logo */}
+                    
                     <div className="page-transition-logo mb-8">
                         <Image
                             src="/btp_logo-2.png"
@@ -89,7 +85,6 @@ export default function PageTransitionProvider({ children }: { children: React.R
                         />
                     </div>
 
-                    {/* Progress bar */}
                     <div className="w-48 h-[2px] rounded-full bg-white/[0.06] overflow-hidden">
                         <div
                             className={`h-full rounded-full bg-gradient-to-r from-[#3463ac] to-[#7e22ce] ${

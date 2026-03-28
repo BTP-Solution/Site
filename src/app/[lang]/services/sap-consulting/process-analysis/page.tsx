@@ -10,7 +10,6 @@ import { getProcessAnalysisContent } from '@/lib/i18n/services/processAnalysis';
 
 const CARD_ICON_NAMES = ['Map', 'LayoutList', 'Target', 'UserCheck'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getProcessAnalysisContent(lang);

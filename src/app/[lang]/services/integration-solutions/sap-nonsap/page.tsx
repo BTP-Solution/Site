@@ -11,7 +11,6 @@ import { getSapNonSapContent } from '@/lib/i18n/services/integrationSolutions';
 
 const CARD_ICON_NAMES = ['Users', 'Factory', 'Database', 'ShoppingCart', 'Landmark', 'Workflow'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getSapNonSapContent(lang);

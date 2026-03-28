@@ -10,7 +10,6 @@ import { getCloudMigrationContent } from '@/lib/i18n/services/techDevelopment';
 
 const CARD_ICON_NAMES = ['ArrowUpFromLine', 'RefreshCcw', 'ShieldCheck', 'Gauge'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getCloudMigrationContent(lang);

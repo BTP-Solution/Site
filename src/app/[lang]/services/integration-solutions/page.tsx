@@ -10,7 +10,6 @@ import { getIntegrationSolutionsMainContent } from '@/lib/i18n/services/integrat
 
 const CARD_ICON_NAMES = ['FileCheck', 'Link2', 'ArrowLeftRight', 'Landmark'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getIntegrationSolutionsMainContent(lang);

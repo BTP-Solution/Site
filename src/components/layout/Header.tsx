@@ -34,7 +34,7 @@ export default function Header({ dict, lang }: HeaderProps) {
         const handleScroll = () => {
             const y = window.scrollY;
             setIsScrolled(prev => {
-                // Hysteresis: shrink at 50px, restore at 10px
+
                 if (!prev && y > 50) return true;
                 if (prev && y < 10) return false;
                 return prev;
@@ -45,7 +45,6 @@ export default function Header({ dict, lang }: HeaderProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Lock body scroll when mobile menu is open
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = 'hidden';
@@ -70,15 +69,13 @@ export default function Header({ dict, lang }: HeaderProps) {
                 className={`container relative mx-auto flex items-center justify-between px-4 sm:px-8 transition-all duration-400 ${isScrolled ? 'h-16' : 'h-24'
                     }`}
             >
-                {/* NAVBAR (LOGO + LINKS) */}
-                <div className="flex-1 pr-6 relative z-50" onClick={() => { if (isMobileMenuOpen) setIsMobileMenuOpen(false); }}>
+                
+                <div className="flex-1 pr-6 z-50" onClick={() => { if (isMobileMenuOpen) setIsMobileMenuOpen(false); }}>
                     <Navbar dict={dict} lang={lang} />
                 </div>
 
-                {/* ACTIONS & LANG TOGGLE */}
                 <div className="flex items-center justify-end gap-3 w-auto shrink-0">
 
-                    {/* LANGUAGE SWITCHER (DESKTOP) */}
                     <div className="hidden sm:flex group relative items-center">
                         <button className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 backdrop-blur-md text-sm font-medium text-slate-400 transition-all duration-300 hover:bg-white/[0.08] hover:text-white hover:border-white/[0.15] hover:shadow-[0_0_20px_rgba(52,99,172,0.12)] focus-visible:outline-none">
                             <Globe className="h-4 w-4" />
@@ -86,7 +83,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                             <ChevronDown className="h-3.5 w-3.5 opacity-40 transition-transform duration-300 group-hover:rotate-180 group-hover:opacity-80" />
                         </button>
 
-                        {/* LANGUAGE DROPDOWN */}
                         <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-52 z-50">
                             <div className="dropdown-panel flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-slate-950/95 backdrop-blur-2xl shadow-[0_20px_60px_-12px_rgba(0,0,0,0.6)] ring-1 ring-white/[0.05] p-1.5 max-h-64 overflow-y-auto custom-scrollbar">
                                 <div className="mb-1 px-3 pt-2 pb-1">
@@ -112,7 +108,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                         </div>
                     </div>
 
-                    {/* CTA BUTTON — SHIMMER */}
                     <button
                         onClick={() => document.querySelector('footer')?.scrollIntoView({ behavior: 'smooth' })}
                         className="cta-shimmer hidden sm:inline-flex h-10 items-center justify-center rounded-full px-6 text-sm font-semibold text-white shadow-[0_0_20px_rgba(52,99,172,0.25)] transition-all duration-300 hover:shadow-[0_4px_30px_rgba(52,99,172,0.4)] hover:-translate-y-0.5 focus-visible:outline-none cursor-pointer"
@@ -123,7 +118,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                         </span>
                     </button>
 
-                    {/* MOBILE HAMBURGER */}
                     <button
                         onClick={() => {
                             setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -144,9 +138,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                 </div>
             </div>
 
-            {/* ═══════════════════════════════════════════
-               MOBILE MENU OVERLAY
-               ═══════════════════════════════════════════ */}
             <div
                 className={`absolute left-0 w-full bg-slate-950 backdrop-blur-3xl z-40 lg:hidden overflow-y-auto custom-scrollbar transition-all duration-500 ${isMobileMenuOpen
                     ? 'opacity-100 visible'
@@ -159,7 +150,6 @@ export default function Header({ dict, lang }: HeaderProps) {
             >
                 <div className="flex flex-col px-6 py-8 gap-4">
 
-                    {/* SERVICES ACCORDION */}
                     <div className={`flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden backdrop-blur-sm ${isMobileMenuOpen ? 'mobile-stagger-1' : ''}`}>
                         <button
                             onClick={() => toggleSection('services')}
@@ -178,7 +168,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                             }`}>
                             <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
 
-                            {/* SAP Danışmanlık ve Uygulama Hizmetleri */}
                             <div className="px-5 pt-3 pb-1">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#3463ac]/70">SAP Danışmanlık ve Uygulama</span>
                             </div>
@@ -196,7 +185,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 </TransitionLink>
                             ))}
 
-                            {/* Teknoloji ve Yazılım */}
                             <div className="px-5 pt-3 pb-1">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#a78bfa]/70">Teknoloji ve Yazılım Geliştirme</span>
                             </div>
@@ -212,7 +200,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 </TransitionLink>
                             ))}
 
-                            {/* Entegrasyon */}
                             <div className="px-5 pt-3 pb-1">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#f59e0b]/70">Entegrasyon Çözümleri</span>
                             </div>
@@ -227,7 +214,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                                 </TransitionLink>
                             ))}
 
-                            {/* Veri, Yapay Zeka */}
                             <div className="px-5 pt-3 pb-1">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#818cf8]/70">Veri & Yapay Zeka</span>
                             </div>
@@ -246,7 +232,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                         </div>
                     </div>
 
-                    {/* PRODUCTS ACCORDION */}
                     <div className={`flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden backdrop-blur-sm ${isMobileMenuOpen ? 'mobile-stagger-2' : ''}`}>
                         <button
                             onClick={() => toggleSection('products')}
@@ -271,7 +256,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                         </div>
                     </div>
 
-                    {/* ABOUT */}
                     <div className={`flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden backdrop-blur-sm ${isMobileMenuOpen ? 'mobile-stagger-3' : ''}`}>
                         <TransitionLink href={`/${lang}/about`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between p-5 w-full text-left group">
                             <div className="flex items-center gap-3">
@@ -284,7 +268,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                         </TransitionLink>
                     </div>
 
-                    {/* LANGUAGE ACCORDION (MOBILE) */}
                     <div className={`flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden backdrop-blur-sm ${isMobileMenuOpen ? 'mobile-stagger-4' : ''}`}>
                         <button
                             onClick={() => toggleSection('language')}
@@ -324,7 +307,6 @@ export default function Header({ dict, lang }: HeaderProps) {
                         </div>
                     </div>
 
-                    {/* MOBILE CTA */}
                     <div className={`mt-4 pb-6 ${isMobileMenuOpen ? 'mobile-stagger-5' : ''}`}>
                         <button
                             onClick={() => { setIsMobileMenuOpen(false); setTimeout(() => document.querySelector('footer')?.scrollIntoView({ behavior: 'smooth' }), 300); }}

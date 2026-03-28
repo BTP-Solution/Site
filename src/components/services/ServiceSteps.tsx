@@ -72,7 +72,6 @@ export default function ServiceSteps({
         );
     }
 
-    /* Default: left-aligned timeline */
     return (
         <section className="w-full bg-[#060d1a] py-24 px-4 sm:px-6 lg:px-8 relative">
             <div className="max-w-4xl mx-auto">

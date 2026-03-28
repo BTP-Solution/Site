@@ -8,7 +8,7 @@ const dictionaries = {
 export type Locale = keyof typeof dictionaries;
 
 export const getDictionary = async (locale: string) => {
-    // Gracefully fallback to Turkish (default) if dictionary not found
+
     if (!dictionaries[locale as Locale]) {
         return dictionaries['tr']();
     }

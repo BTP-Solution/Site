@@ -11,7 +11,6 @@ import { getWorkflowAutomationContent } from '@/lib/i18n/services/techDevelopmen
 
 const CARD_ICON_NAMES = ['GitBranch', 'Bot', 'Zap', 'Bell', 'FileCheck2', 'BarChart3'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getWorkflowAutomationContent(lang);

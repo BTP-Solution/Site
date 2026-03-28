@@ -320,7 +320,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
             columnNumber: 13
         }, this);
     };
-    /* ─── Abstract Visual ─── */ const OrbitalVisual = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    const OrbitalVisual = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "relative w-full aspect-square flex items-center justify-center",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -330,21 +330,21 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 124,
+                    lineNumber: 123,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "absolute w-[88%] h-[88%] rounded-full border border-white/[0.03]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 127,
+                    lineNumber: 125,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "absolute w-[66%] h-[66%] rounded-full border border-white/[0.05]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 128,
+                    lineNumber: 126,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -354,7 +354,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 129,
+                    lineNumber: 127,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -364,7 +364,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 130,
+                    lineNumber: 128,
                     columnNumber: 13
                 }, this),
                 iconName && __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$iconMap$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"][iconName] && (()=>{
@@ -382,12 +382,12 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                             strokeWidth: 1.5
                         }, void 0, false, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 137,
+                            lineNumber: 134,
                             columnNumber: 25
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                        lineNumber: 136,
+                        lineNumber: 133,
                         columnNumber: 21
                     }, this);
                 })(),
@@ -401,12 +401,12 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                        lineNumber: 144,
+                        lineNumber: 140,
                         columnNumber: 17
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 143,
+                    lineNumber: 139,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -419,21 +419,21 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                        lineNumber: 147,
+                        lineNumber: 143,
                         columnNumber: 17
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 146,
+                    lineNumber: 142,
                     columnNumber: 13
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/services/ServiceHero.tsx",
-            lineNumber: 122,
+            lineNumber: 121,
             columnNumber: 9
         }, this);
-    /* ─── Retro grid background ─── */ const RetroGrid = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    const RetroGrid = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "absolute bottom-0 left-0 right-0 h-[40%] overflow-hidden pointer-events-none",
             style: {
                 perspective: '400px'
@@ -452,23 +452,23 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 155,
+                    lineNumber: 150,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "absolute inset-0 bg-gradient-to-b from-[#060d1a] via-[#060d1a]/60 to-transparent"
                 }, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 168,
+                    lineNumber: 163,
                     columnNumber: 13
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/services/ServiceHero.tsx",
-            lineNumber: 154,
+            lineNumber: 149,
             columnNumber: 9
         }, this);
-    /* ═══ VARIANT: CENTERED ═══ */ if (variant === 'centered') {
+    if (variant === 'centered') {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
             className: "relative w-full min-h-[80vh] flex flex-col items-center justify-center overflow-hidden bg-[#060d1a]",
             children: [
@@ -482,7 +482,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                             }
                         }, void 0, false, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 178,
+                            lineNumber: 172,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -492,18 +492,18 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                             }
                         }, void 0, false, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 179,
+                            lineNumber: 173,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 177,
+                    lineNumber: 171,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(RetroGrid, {}, void 0, false, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 181,
+                    lineNumber: 175,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -511,7 +511,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(BreadcrumbNav, {}, void 0, false, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 184,
+                            lineNumber: 178,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -531,7 +531,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                         strokeWidth: 2
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                        lineNumber: 188,
+                                        lineNumber: 181,
                                         columnNumber: 105
                                     }, this);
                                 })(),
@@ -543,13 +543,13 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                     children: "SAP Danışmanlık"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                    lineNumber: 189,
+                                    lineNumber: 182,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 187,
+                            lineNumber: 180,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -557,7 +557,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                             children: renderTitle()
                         }, void 0, false, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 192,
+                            lineNumber: 185,
                             columnNumber: 21
                         }, this),
                         subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -570,7 +570,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                    lineNumber: 198,
+                                    lineNumber: 191,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -581,7 +581,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                     children: subtitle
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                    lineNumber: 199,
+                                    lineNumber: 192,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -591,13 +591,13 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                    lineNumber: 200,
+                                    lineNumber: 193,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 197,
+                            lineNumber: 190,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -605,37 +605,37 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                             children: description
                         }, void 0, false, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 204,
+                            lineNumber: 197,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CtaButtons, {
                             centered: true
                         }, void 0, false, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 208,
+                            lineNumber: 201,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(StatsRow, {
                             centered: true
                         }, void 0, false, {
                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                            lineNumber: 209,
+                            lineNumber: 202,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                    lineNumber: 183,
+                    lineNumber: 177,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/services/ServiceHero.tsx",
-            lineNumber: 175,
+            lineNumber: 169,
             columnNumber: 13
         }, this);
     }
-    /* ═══ VARIANT: DEFAULT / SPLIT ═══ */ return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         className: "relative w-full min-h-[90vh] flex items-center overflow-hidden bg-[#060d1a]",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -648,7 +648,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                        lineNumber: 220,
+                        lineNumber: 212,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -658,25 +658,25 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                        lineNumber: 221,
+                        lineNumber: 213,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute bottom-[-10%] left-[25%] w-[30%] h-[25%] rounded-full blur-[100px] animate-orb-3 bg-[#ff7700]/[0.03]"
                     }, void 0, false, {
                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                        lineNumber: 222,
+                        lineNumber: 214,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/services/ServiceHero.tsx",
-                lineNumber: 219,
+                lineNumber: 211,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(RetroGrid, {}, void 0, false, {
                 fileName: "[project]/src/components/services/ServiceHero.tsx",
-                lineNumber: 224,
+                lineNumber: 216,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -684,7 +684,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(BreadcrumbNav, {}, void 0, false, {
                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                        lineNumber: 227,
+                        lineNumber: 219,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -708,7 +708,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                                lineNumber: 233,
+                                                lineNumber: 225,
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -719,13 +719,13 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                                 children: "SAP Danışmanlık"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                                lineNumber: 234,
+                                                lineNumber: 226,
                                                 columnNumber: 29
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                        lineNumber: 232,
+                                        lineNumber: 224,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -733,7 +733,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                         children: renderTitle()
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 229,
                                         columnNumber: 25
                                     }, this),
                                     subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -746,7 +746,7 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                                lineNumber: 243,
+                                                lineNumber: 235,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -757,13 +757,13 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                                 children: subtitle
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                                lineNumber: 244,
+                                                lineNumber: 236,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                        lineNumber: 242,
+                                        lineNumber: 234,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -771,60 +771,60 @@ function ServiceHero({ breadcrumbs, title, highlightedWord, subtitle, descriptio
                                         children: description
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                        lineNumber: 248,
+                                        lineNumber: 240,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "pt-2",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CtaButtons, {}, void 0, false, {
                                             fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                            lineNumber: 253,
+                                            lineNumber: 245,
                                             columnNumber: 29
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                        lineNumber: 252,
+                                        lineNumber: 244,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(StatsRow, {}, void 0, false, {
                                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                        lineNumber: 256,
+                                        lineNumber: 248,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                lineNumber: 230,
+                                lineNumber: 222,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "lg:col-span-2 hidden lg:block",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(OrbitalVisual, {}, void 0, false, {
                                     fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                    lineNumber: 261,
+                                    lineNumber: 252,
                                     columnNumber: 25
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/services/ServiceHero.tsx",
-                                lineNumber: 260,
+                                lineNumber: 251,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/services/ServiceHero.tsx",
-                        lineNumber: 229,
+                        lineNumber: 221,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/services/ServiceHero.tsx",
-                lineNumber: 226,
+                lineNumber: 218,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/services/ServiceHero.tsx",
-        lineNumber: 217,
+        lineNumber: 209,
         columnNumber: 9
     }, this);
 }

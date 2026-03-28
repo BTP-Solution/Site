@@ -10,7 +10,6 @@ import { getTechDevelopmentMainContent } from '@/lib/i18n/services/techDevelopme
 
 const CARD_ICON_NAMES = ['Cloud', 'Code', 'Palette', 'CloudUpload', 'Workflow'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getTechDevelopmentMainContent(lang);

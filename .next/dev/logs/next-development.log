@@ -282,3 +282,66 @@
 [04:25:08.061] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [04:26:40.125] Server  LOG     ✓ Compiled in 94ms
 [04:27:06.043] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:32:45.952] Server  LOG     ✓ Compiled in 1802ms
+[04:32:46.070] Browser ERROR   ./src/components/layout/Navbar.tsx:87:18
+Parsing ecmascript source code failed
+  85 |             </div>
+  86 |
+> 87 |             <div className="absolute left-1/2 top-1/2 hidden lg:flex -translate-x-1/2 -translate-y-1/2" ref={dropdownRef}>
+     |                  ^^^^^^^^^
+  88 |                 <div className="navbar-capsule-border shadow-[0_4px_30px_-8px_rgba(52,99,172,0.2)]">
+  89 |                     <div className="navbar-capsule-inner flex items-center gap-0.5 px-2 py-1.5">
+  90 |
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/Navbar.tsx [Client Component Browser]
+    ./src/components/layout/Header.tsx [Client Component Browser]
+    ./src/components/layout/Header.tsx [Server Component]
+    ./src/app/[lang]/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/Navbar.tsx [Client Component SSR]
+    ./src/components/layout/Header.tsx [Client Component SSR]
+    ./src/components/layout/Header.tsx [Server Component]
+    ./src/app/[lang]/layout.tsx [Server Component]
+[04:32:59.171] Server  LOG     ✓ Compiled in 112ms
+[04:32:59.273] Browser ERROR   ./src/components/layout/Navbar.tsx:87:18
+Parsing ecmascript source code failed
+  85 |             </div>
+  86 |
+> 87 |             <div className="hidden lg:flex flex-1 justify-center xl:pl-0 pl-8" ref={dropdownRef}>
+     |                  ^^^^^^^^^
+  88 |                 <div className="navbar-capsule-border shadow-[0_4px_30px_-8px_rgba(52,99,172,0.2)]">
+  89 |                     <div className="navbar-capsule-inner flex items-center gap-0.5 px-2 py-1.5">
+  90 |
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/Navbar.tsx [Client Component Browser]
+    ./src/components/layout/Header.tsx [Client Component Browser]
+    ./src/components/layout/Header.tsx [Server Component]
+    ./src/app/[lang]/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/Navbar.tsx [Client Component SSR]
+    ./src/components/layout/Header.tsx [Client Component SSR]
+    ./src/components/layout/Header.tsx [Server Component]
+    ./src/app/[lang]/layout.tsx [Server Component]
+[04:33:42.004] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/components/layout/PageTransition.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[04:33:42.021] Server  LOG     ✓ Compiled in 1362ms
+[04:33:42.458] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:33:55.640] Server  LOG     ✓ Compiled in 244ms
+[04:34:51.387] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/components/layout/PageTransition.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[04:34:51.954] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:36:12.319] Server  LOG     ✓ Compiled in 119ms
+[04:36:12.642] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:36:25.554] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:39:42.756] Server  LOG     ✓ Compiled in 541ms
+[04:39:44.396] Server  LOG     ✓ Compiled in 174ms
+[04:40:28.998] Server  LOG     ✓ Compiled in 148ms
+[04:41:15.998] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

@@ -10,7 +10,6 @@ import { getSupplyChainContent } from '@/lib/i18n/services/supplyChain';
 
 const CARD_ICON_NAMES = ['ShoppingCart', 'BarChart2', 'Settings', 'Warehouse', 'Box', 'ClipboardCheck'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getSupplyChainContent(lang);

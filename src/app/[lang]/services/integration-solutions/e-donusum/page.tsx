@@ -11,7 +11,6 @@ import { getEDonusumContent } from '@/lib/i18n/services/integrationSolutions';
 
 const CARD_ICON_NAMES = ['FileCheck', 'FileText', 'Archive', 'BookOpen', 'Receipt', 'ShieldCheck'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getEDonusumContent(lang);

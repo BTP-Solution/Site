@@ -26,7 +26,6 @@ export default function ServiceCards({
     variant = 'grid',
 }: ServiceCardsProps) {
 
-    /* ═══ Section header ═══ */
     const SectionHeader = () => (
         <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
@@ -39,7 +38,6 @@ export default function ServiceCards({
         </div>
     );
 
-    /* ═══ FEATURED: Large left + stacked right ═══ */
     if (variant === 'featured') {
         const [first, ...rest] = cards;
         const FirstIcon = first.iconName ? iconMap[first.iconName] : null;
@@ -50,9 +48,9 @@ export default function ServiceCards({
                     <SectionHeader />
 
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-                        {/* Featured hero card */}
+                        
                         <div className="lg:col-span-2 group relative bg-gradient-to-br from-[#060d1a] to-[#0a1628] border border-white/[0.06] rounded-2xl p-8 lg:p-10 hover:border-white/[0.15] transition-all duration-500 overflow-hidden flex flex-col justify-between">
-                            {/* Corner glow */}
+                            
                             <div className="absolute top-0 right-0 w-40 h-40 rounded-full blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100" style={{ background: `${accentColor}15` }} />
 
                             <div>
@@ -72,11 +70,9 @@ export default function ServiceCards({
                                 </div>
                             )}
 
-                            {/* Bottom accent bar */}
                             <div className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: `linear-gradient(90deg, ${accentColor}, transparent)` }} />
                         </div>
 
-                        {/* Grid of remaining cards */}
                         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {rest.map((card, i) => {
                                 const Icon = card.iconName ? iconMap[card.iconName] : null;
@@ -109,7 +105,6 @@ export default function ServiceCards({
         );
     }
 
-    /* ═══ COMPACT: Icon badges ═══ */
     if (variant === 'compact') {
         return (
             <section className="w-full bg-[#0a1628]/30 py-20 px-4 sm:px-6 lg:px-8 relative">
@@ -139,7 +134,6 @@ export default function ServiceCards({
         );
     }
 
-    /* ═══ DEFAULT: Full 3-column grid ═══ */
     return (
         <section className="w-full bg-[#0a1628]/50 py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
@@ -156,7 +150,7 @@ export default function ServiceCards({
                                 key={i}
                                 className="group relative bg-[#060d1a] border border-white/[0.05] rounded-2xl p-6 transition-all duration-300 hover:border-white/[0.12] overflow-hidden"
                             >
-                                {/* Hover glow */}
+                                
                                 <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: `${accentColor}15` }} />
 
                                 {card.href ? (
@@ -191,7 +185,6 @@ export default function ServiceCards({
                                     </div>
                                 </div>
 
-                                {/* Bottom accent bar */}
                                 <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: `linear-gradient(90deg, ${accentColor}, transparent)` }} />
                             </div>
                         );

@@ -10,7 +10,6 @@ import { getFioriSapui5Content } from '@/lib/i18n/services/techDevelopment';
 
 const CARD_ICON_NAMES = ['Settings', 'PencilRuler', 'Smartphone', 'Layout'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getFioriSapui5Content(lang);

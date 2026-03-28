@@ -15,13 +15,11 @@ export default function TransitionLink({ href, onClick, children, ...rest }: Tra
         (e: React.MouseEvent<HTMLAnchorElement>) => {
             const hrefString = typeof href === 'string' ? href : href.pathname || '';
 
-            // Let hash-only links and same-page hash links work normally
             if (hrefString.startsWith('#') || (hrefString.includes('#') && hrefString.split('#')[0] === pathname)) {
                 onClick?.(e);
                 return;
             }
 
-            // Same page: scroll to top instead of navigating
             if (hrefString === pathname) {
                 e.preventDefault();
                 onClick?.(e);

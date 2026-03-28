@@ -117,19 +117,16 @@ export default function ServiceHero({
         );
     };
 
-    /* ─── Abstract Visual ─── */
     const OrbitalVisual = () => (
         <div className="relative w-full aspect-square flex items-center justify-center">
-            {/* Ambient glow behind the visual */}
+            
             <div className="absolute inset-[10%] rounded-full blur-[80px]" style={{ background: `${accentColor}08` }} />
 
-            {/* Concentric rings */}
             <div className="absolute w-[88%] h-[88%] rounded-full border border-white/[0.03]" />
             <div className="absolute w-[66%] h-[66%] rounded-full border border-white/[0.05]" />
             <div className="absolute w-[44%] h-[44%] rounded-full border-2 border-dashed animate-spin-slow" style={{ borderColor: `${gradientFrom}25` }} />
             <div className="absolute w-[22%] h-[22%] rounded-full" style={{ background: `linear-gradient(135deg, ${gradientFrom}10, ${gradientTo}05)` }} />
 
-            {/* Center icon */}
             {iconName && iconMap[iconName] && (() => {
                 const HeroIcon = iconMap[iconName];
                 return (
@@ -139,7 +136,6 @@ export default function ServiceHero({
                 );
             })()}
 
-            {/* Orbiting dots with glow */}
             <div className="absolute w-[66%] h-[66%] animate-spin-slow">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full" style={{ background: accentColor, boxShadow: `0 0 16px ${accentColor}80, 0 0 32px ${accentColor}30` }} />
             </div>
@@ -149,7 +145,6 @@ export default function ServiceHero({
         </div>
     );
 
-    /* ─── Retro grid background ─── */
     const RetroGrid = () => (
         <div className="absolute bottom-0 left-0 right-0 h-[40%] overflow-hidden pointer-events-none" style={{ perspective: '400px' }}>
             <div
@@ -164,16 +159,15 @@ export default function ServiceHero({
                     backgroundSize: '50px 50px',
                 }}
             />
-            {/* Fade-out overlay */}
+            
             <div className="absolute inset-0 bg-gradient-to-b from-[#060d1a] via-[#060d1a]/60 to-transparent" />
         </div>
     );
 
-    /* ═══ VARIANT: CENTERED ═══ */
     if (variant === 'centered') {
         return (
             <section className="relative w-full min-h-[80vh] flex flex-col items-center justify-center overflow-hidden bg-[#060d1a]">
-                {/* Ambient orbs */}
+                
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-[10%] left-[15%] w-[30%] h-[30%] rounded-full blur-[120px] animate-orb-1" style={{ background: `${gradientFrom}10` }} />
                     <div className="absolute top-[30%] right-[10%] w-[25%] h-[35%] rounded-full blur-[120px] animate-orb-2" style={{ background: `${gradientTo}08` }} />
@@ -183,7 +177,6 @@ export default function ServiceHero({
                 <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 text-center">
                     <BreadcrumbNav />
 
-                    {/* Badge */}
                     <div className="hero-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full border mb-8 mx-auto" style={{ borderColor: `${accentColor}30`, background: `${accentColor}08` }}>
                         {iconName && iconMap[iconName] && (() => { const HI = iconMap[iconName]; return <HI className="h-3.5 w-3.5" style={{ color: accentColor }} strokeWidth={2} />; })()}
                         <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: `${accentColor}cc` }}>SAP Danışmanlık</span>
@@ -212,10 +205,9 @@ export default function ServiceHero({
         );
     }
 
-    /* ═══ VARIANT: DEFAULT / SPLIT ═══ */
     return (
         <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden bg-[#060d1a]">
-            {/* Ambient orbs */}
+            
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-[-5%] left-[-8%] w-[35%] h-[40%] rounded-full blur-[120px] animate-orb-1" style={{ background: `${gradientFrom}0d` }} />
                 <div className="absolute top-[25%] right-[-5%] w-[28%] h-[45%] rounded-full blur-[120px] animate-orb-2" style={{ background: `${gradientTo}08` }} />
@@ -228,7 +220,7 @@ export default function ServiceHero({
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
                     <div className="lg:col-span-3 flex flex-col items-start gap-5">
-                        {/* Badge */}
+                        
                         <div className="hero-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full border" style={{ borderColor: `${accentColor}30`, background: `${accentColor}08` }}>
                             <span className="flex w-2 h-2 rounded-full animate-pulse" style={{ background: accentColor, boxShadow: `0 0 8px ${accentColor}` }} />
                             <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: `${accentColor}cc` }}>SAP Danışmanlık</span>
@@ -256,7 +248,6 @@ export default function ServiceHero({
                         <StatsRow />
                     </div>
 
-                    {/* Right visual */}
                     <div className="lg:col-span-2 hidden lg:block">
                         <OrbitalVisual />
                     </div>

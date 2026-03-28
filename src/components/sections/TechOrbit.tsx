@@ -80,7 +80,7 @@ export default function TechOrbit({ dict }: TechOrbitProps) {
 
     return (
         <section className="relative bg-[#050b15] py-16 sm:py-24 overflow-hidden">
-            {/* Ambient */}
+            
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse,_rgba(52,99,172,0.04)_0%,_transparent_70%)] pointer-events-none"></div>
 
             <div className="container mx-auto px-4 sm:px-8">
@@ -94,7 +94,7 @@ export default function TechOrbit({ dict }: TechOrbitProps) {
                 </div>
 
                 <div className="mx-auto max-w-5xl">
-                    {/* Category tabs */}
+                    
                     <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
                         {CATEGORIES.map((cat) => {
                             const Icon = cat.icon;
@@ -116,17 +116,15 @@ export default function TechOrbit({ dict }: TechOrbitProps) {
                         })}
                     </div>
 
-                    {/* Active category content */}
                     {CATEGORIES.map((cat) => {
                         if (cat.id !== active) return null;
                         return (
                             <div key={cat.id} className="animate-fade-in">
                                 <div className="relative rounded-3xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm p-6 sm:p-8 overflow-hidden">
-                                    {/* Accent glow */}
+                                    
                                     <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full blur-[80px] opacity-30 pointer-events-none"
                                         style={{ background: cat.accent }}></div>
 
-                                    {/* Header */}
                                     <div className="flex items-center gap-3 mb-6">
                                         <div className="flex h-10 w-10 items-center justify-center rounded-xl ring-1 ring-white/[0.06]"
                                             style={{ background: `${cat.accent}15` }}>
@@ -138,7 +136,6 @@ export default function TechOrbit({ dict }: TechOrbitProps) {
                                         </div>
                                     </div>
 
-                                    {/* Service pills */}
                                     <div className="flex flex-wrap gap-2">
                                         {cat.items.map((item, i) => (
                                             <span

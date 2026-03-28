@@ -10,7 +10,6 @@ type NavbarProps = {
     lang: string;
 };
 
-/* ─── service categories data ─── */
 const SERVICE_CATEGORIES = [
     {
         key: 'sap',
@@ -71,13 +70,12 @@ const SERVICE_CATEGORIES = [
 ];
 
 export default function Navbar({ dict, lang }: NavbarProps) {
-    /* ─── state ─── */
+    
     const [openDropdown, setOpenDropdown] = useState<'services' | 'products' | null>(null);
     const [isAnimatingOut, setIsAnimatingOut] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-    /* ─── close with exit animation ─── */
     const closeDropdown = useCallback(() => {
         if (openDropdown === null) return;
         setIsAnimatingOut(true);
@@ -87,12 +85,10 @@ export default function Navbar({ dict, lang }: NavbarProps) {
         }, 250);
     }, [openDropdown]);
 
-    /* ─── navigate helper (close dropdown) ─── */
     const handleNavigate = useCallback(() => {
         closeDropdown();
     }, [closeDropdown]);
 
-    /* ─── toggle on click ─── */
     const toggleDropdown = (menu: 'services' | 'products') => {
         if (openDropdown === menu && !isAnimatingOut) {
             closeDropdown();
@@ -102,7 +98,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
         }
     };
 
-    /* ─── hover open with delay ─── */
     const handleMouseEnter = (menu: 'services' | 'products') => {
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
         setIsAnimatingOut(false);
@@ -116,7 +111,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
         }, 200);
     };
 
-    /* ─── click outside to close ─── */
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -127,7 +121,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [closeDropdown]);
 
-    /* ─── ESC to close ─── */
     useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
             if (e.key === 'Escape') closeDropdown();
@@ -142,7 +135,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
     return (
         <nav className="flex w-full items-center justify-between py-2">
 
-            {/* LOGO */}
             <div className="flex items-center">
                 <TransitionLink href={`/${lang}`} className="group relative transition-transform duration-300 hover:scale-105">
                     <div className="absolute inset-0 rounded-xl bg-[#3463ac]/0 blur-xl transition-all duration-500 group-hover:bg-[#3463ac]/20"></div>
@@ -157,12 +149,10 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                 </TransitionLink>
             </div>
 
-            {/* CENTERED NAV — ANIMATED GRADIENT BORDER CAPSULE */}
             <div className="absolute left-1/2 top-1/2 hidden lg:flex -translate-x-1/2 -translate-y-1/2" ref={dropdownRef}>
                 <div className="navbar-capsule-border shadow-[0_4px_30px_-8px_rgba(52,99,172,0.2)]">
                     <div className="navbar-capsule-inner flex items-center gap-0.5 px-2 py-1.5">
 
-                        {/* SERVICES DROPDOWN */}
                         <div
                             className="relative"
                             style={{ animation: 'float-in 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}
@@ -179,7 +169,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                 <ChevronDown className={`h-3.5 w-3.5 transition-all duration-400 ${isServicesOpen ? 'rotate-180 opacity-100' : 'opacity-40'}`} />
                             </button>
 
-                            {/* ═══ MEGA DROPDOWN — 4-COLUMN GRID ═══ */}
                             {(isServicesOpen || isAnimatingOut) && openDropdown === 'services' && (
                                 <div
                                     className={`absolute left-1/2 -translate-x-[25%] pt-4 z-50 w-[calc(100vw-2rem)] max-w-[1080px] ${
@@ -190,10 +179,8 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                 >
                                     <div className="w-full rounded-2xl border border-white/[0.06] bg-[#0c1222]/[0.97] backdrop-blur-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.6)] overflow-hidden">
 
-                                        {/* STATIC SUBTLE TOP ACCENT */}
                                         <div className="h-px w-full bg-gradient-to-r from-transparent via-[#3463ac]/40 to-transparent"></div>
 
-                                        {/* 4-COLUMN GRID */}
                                         <div className="grid grid-cols-4 gap-0 px-2 py-6">
                                             {SERVICE_CATEGORIES.map((cat, catIdx) => (
                                                 <div
@@ -203,7 +190,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                     }`}
                                                     style={{ animationDelay: `${catIdx * 50}ms` }}
                                                 >
-                                                    {/* Category Label */}
+                                                    
                                                     <TransitionLink
                                                         href={`/${lang}${cat.href}`}
                                                         onClick={() => { closeDropdown(); }}
@@ -219,7 +206,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                         <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all duration-200 group-hover/cat:opacity-60 group-hover/cat:translate-x-0" style={{ color: cat.color }} />
                                                     </TransitionLink>
 
-                                                    {/* Service Items */}
                                                     <div className="flex flex-col">
                                                         {cat.items.map((item, i) => (
                                                             <TransitionLink
@@ -229,7 +215,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                                 className="mega-content-item group/item relative rounded-md py-2 pl-3 pr-2 text-[13px] text-slate-500 transition-all duration-150 hover:text-white hover:bg-white/[0.03]"
                                                                 style={{ animationDelay: `${catIdx * 50 + i * 30}ms` }}
                                                             >
-                                                                {/* Left accent bar on hover */}
+                                                                
                                                                 <span
                                                                     className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 rounded-full transition-all duration-200 group-hover/item:h-4"
                                                                     style={{ backgroundColor: cat.color }}
@@ -242,7 +228,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                             ))}
                                         </div>
 
-                                        {/* BOTTOM CTA */}
                                         <div className="border-t border-white/[0.04] mx-5">
                                             <TransitionLink
                                                 href={`/${lang}/services`}
@@ -258,7 +243,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                             )}
                         </div>
 
-                        {/* PRODUCTS DROPDOWN */}
                         <div
                             className="relative"
                             style={{ animation: 'float-in 0.5s cubic-bezier(0.16,1,0.3,1) 0.2s both' }}
@@ -275,7 +259,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                 <ChevronDown className={`h-3.5 w-3.5 transition-all duration-400 ${isProductsOpen ? 'rotate-180 opacity-100' : 'opacity-40'}`} />
                             </button>
 
-                            {/* PRODUCTS DROPDOWN */}
                             {(isProductsOpen || isAnimatingOut) && openDropdown === 'products' && (
                                 <div
                                     className={`absolute left-1/2 top-full pt-4 -translate-x-1/2 w-[340px] z-50 ${
@@ -305,7 +288,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                             )}
                         </div>
 
-                        {/* ABOUT LINK */}
                         <div style={{ animation: 'float-in 0.5s cubic-bezier(0.16,1,0.3,1) 0.3s both' }}>
                             <TransitionLink
                                 href={`/${lang}/about`}
@@ -319,7 +301,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                 </div>
             </div>
 
-            {/* SPACER */}
             <div className="flex w-32"></div>
 
         </nav>

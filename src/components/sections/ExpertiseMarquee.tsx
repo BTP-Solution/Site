@@ -4,7 +4,6 @@ type ExpertiseMarqueeProps = {
     dict: any;
 };
 
-/* ── Top Row: SAP Functional Modules ── */
 const MODULE_ROW = [
     { icon: '◆', name: 'SD' },
     { icon: '▲', name: 'MM' },
@@ -20,7 +19,6 @@ const MODULE_ROW = [
     { icon: '■', name: 'CS' },
 ];
 
-/* ── Bottom Row: Technology & Cloud Platforms ── */
 const TECH_ROW = [
     { icon: '●', name: 'SAP S/4HANA' },
     { icon: '◆', name: 'SAP BTP' },
@@ -43,11 +41,11 @@ function MarqueeRow({ items, reverse = false, label }: { items: typeof MODULE_RO
 
     return (
         <div className="relative overflow-hidden">
-            {/* Row label */}
+            
             <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden sm:block">
                 <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600/40 [writing-mode:vertical-lr] rotate-180">{label}</span>
             </div>
-            {/* Fade edges */}
+            
             <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#060d1a] to-transparent z-[3]"></div>
             <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#060d1a] to-transparent z-[3]"></div>
             <div className={`flex gap-4 whitespace-nowrap ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}>

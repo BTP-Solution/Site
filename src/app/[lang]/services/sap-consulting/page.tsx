@@ -20,7 +20,6 @@ const CARD_HREFS = [
     '/services/sap-consulting/customer-experience',
 ];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getSapConsultingContent(lang).main;

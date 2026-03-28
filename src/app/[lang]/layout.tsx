@@ -12,7 +12,6 @@ import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
-
 export async function generateMetadata({
   params,
 }: {

@@ -11,7 +11,6 @@ import { getAiMlContent } from '@/lib/i18n/services/aiDataSolutions';
 
 const CARD_ICON_NAMES = ['TrendingUp', 'FileSearch', 'Brain', 'Image', 'Sparkles', 'Settings'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getAiMlContent(lang);

@@ -13,13 +13,13 @@ type ServiceCtaProps = {
 export default function ServiceCta({ title, subtitle, buttonText, buttonHref, features, accentColor = '#3463ac' }: ServiceCtaProps) {
     return (
         <section className="w-full bg-gradient-to-b from-[#060d1a] to-[#0a1628] py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            {/* Ambient glows */}
+            
             <div className="absolute top-[-10%] right-[-5%] w-[35%] h-[50%] rounded-full blur-[120px] pointer-events-none" style={{ background: `${accentColor}08` }} />
             <div className="absolute bottom-[-10%] left-[-5%] w-[25%] h-[40%] rounded-full blur-[100px] pointer-events-none bg-[#ff7700]/[0.04]" />
 
             <div className="max-w-4xl mx-auto relative z-10">
                 <div className="bg-black/30 backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 sm:p-14 shadow-2xl overflow-hidden relative">
-                    {/* Top gradient line */}
+                    
                     <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(90deg, transparent, ${accentColor}60, transparent)` }} />
 
                     <div className="text-center">

@@ -11,7 +11,6 @@ import { getRpaAutomationContent } from '@/lib/i18n/services/aiDataSolutions';
 
 const CARD_ICON_NAMES = ['FileInput', 'Bot', 'ClipboardCheck', 'Mail', 'Repeat', 'Workflow'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getRpaAutomationContent(lang);

@@ -11,7 +11,6 @@ import { getFinancialSolutionsContent } from '@/lib/i18n/services/sapConsultingS
 
 const CARD_ICON_NAMES = ['BookOpen', 'LineChart', 'Landmark', 'PiggyBank', 'FileBarChart', 'ShieldCheck'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getFinancialSolutionsContent(lang);

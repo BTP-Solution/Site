@@ -1,4 +1,4 @@
-// i18n content for AI & Data Solutions pages
+
 
 export const aiDataSolutionsMain = {
   tr: {

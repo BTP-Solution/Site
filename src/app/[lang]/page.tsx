@@ -16,7 +16,7 @@ export default async function Home({
     <>
       <Hero dict={dictionary} lang={lang} />
       <BentoGrid dict={dictionary} />
-      {/* <ClientLogos dict={dictionary} /> */}
+      
       <CtaSection dict={dictionary} lang={lang} />
     </>
   );

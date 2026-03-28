@@ -1,4 +1,4 @@
-// i18n content for Tech Development pages
+
 
 export const techDevelopmentMain = {
   tr: {

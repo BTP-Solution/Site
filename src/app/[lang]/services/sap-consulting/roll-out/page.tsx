@@ -9,7 +9,6 @@ import ServiceCta from '@/components/services/ServiceCta';
 import FaqItem from '@/components/services/FaqItem';
 import { getRollOutContent } from '@/lib/i18n/services/sapConsultingSub2';
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getRollOutContent(lang);
@@ -52,7 +51,6 @@ export default async function RolloutPage({ params }: { params: Promise<{ lang: 
                 cards={t.cards.map((c, i) => ({ ...c, iconName: ['Globe2', 'Building2', 'Database', 'HeadphonesIcon'][i] }))}
             />
 
-            {/* FAQ */}
             <section className="w-full bg-[#0a1628]/30 py-24 px-4 sm:px-6 lg:px-8 relative">
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
                 <div className="max-w-4xl mx-auto relative z-10">

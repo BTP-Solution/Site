@@ -70,7 +70,7 @@ export default function Hero({ dict, lang }: HeroProps) {
             className="relative overflow-hidden bg-[#060d1a] min-h-[95vh] flex items-center pt-24 pb-16"
             onMouseMove={handleMouseMove}
         >
-            {/* Interactive Spotlight */}
+            
             <div
                 className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
                 style={{
@@ -78,14 +78,12 @@ export default function Hero({ dict, lang }: HeroProps) {
                 }}
             />
 
-            {/* Premium Retro Grid */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden [mask-image:linear-gradient(to_bottom,black_10%,transparent_90%)] opacity-30">
                 <div
                     className="absolute inset-0 -top-[50px] bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px] [transform-origin:50%_0%] animate-retro-grid border-t border-white/[0.02]"
                 ></div>
             </div>
 
-            {/* Ambient Base Orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <div className="absolute top-[-10%] right-[10%] h-[500px] w-[500px] rounded-full bg-[#3463ac]/15 blur-[120px] animate-orb-1"></div>
                 <div className="absolute bottom-[-10%] left-[10%] h-[500px] w-[500px] rounded-full bg-purple-600/10 blur-[120px] animate-orb-2"></div>
@@ -94,7 +92,6 @@ export default function Hero({ dict, lang }: HeroProps) {
             <div className="container relative mx-auto px-4 sm:px-8 z-10 pt-12 md:pt-20">
                 <div className="mx-auto max-w-5xl text-center flex flex-col items-center">
 
-                    {/* Animated Pre-title Badge */}
                     <div
                         className="hero-badge mb-8 flex items-center gap-2 rounded-full border border-[#3463ac]/40 bg-white/[0.03] backdrop-blur-md px-4 py-1.5 text-sm font-medium text-slate-300"
                         style={{ animationDelay: '0s', animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0s both, badge-glow 4s ease-in-out infinite' }}
@@ -103,12 +100,10 @@ export default function Hero({ dict, lang }: HeroProps) {
                         <span>Yeni Nesil SAP ve AI Çözümleri</span>
                     </div>
 
-                    {/* Main Headline */}
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 leading-[1.1] pb-2" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
                         {dict.hero.title}
                     </h1>
 
-                    {/* Morphing accent line */}
                     <div className="mt-5 flex items-center justify-center gap-3" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both' }}>
                         <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#3463ac]/50"></span>
                         <span
@@ -119,12 +114,10 @@ export default function Hero({ dict, lang }: HeroProps) {
                         <span className="h-px w-8 bg-gradient-to-l from-transparent to-purple-500/50"></span>
                     </div>
 
-                    {/* Subtitle */}
                     <p className="mx-auto mt-8 max-w-2xl text-lg sm:text-xl text-slate-400 font-light leading-relaxed" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both' }}>
                         {dict.hero.subtitle}
                     </p>
 
-                    {/* CTA Buttons */}
                     <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s both' }}>
                         <TransitionLink
                             href={`/${lang}/services`}
@@ -143,7 +136,6 @@ export default function Hero({ dict, lang }: HeroProps) {
                         </TransitionLink>
                     </div>
 
-                    {/* Animated Counter Stats Dock */}
                     <div className="mt-20 w-full max-w-4xl mx-auto rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md p-6 sm:p-8" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.7s both' }}>
                         <div className="grid grid-cols-1 divide-y divide-white/5 sm:grid-cols-3 sm:divide-y-0 sm:divide-x sm:divide-white/5">
                             {dict.hero.stats.map((stat: any, i: number) => (
@@ -159,7 +151,6 @@ export default function Hero({ dict, lang }: HeroProps) {
                 </div>
             </div>
 
-            {/* Scroll indicator */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40" style={{ animation: 'float-in 1s cubic-bezier(0.16,1,0.3,1) 1.2s both' }}>
                 <div className="h-8 w-5 rounded-full border border-white/30 flex justify-center pt-1.5">
                     <div className="h-2 w-1 rounded-full bg-white/60 animate-scroll-dot"></div>

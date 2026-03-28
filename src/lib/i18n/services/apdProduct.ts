@@ -1,4 +1,4 @@
-// i18n content for APD product page
+
 
 export const apdContent = {
   tr: {

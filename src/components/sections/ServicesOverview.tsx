@@ -124,9 +124,8 @@ export default function ServicesOverview({ dict, lang }: ServicesOverviewProps) 
     return (
         <main ref={sectionRef} className="w-full bg-[#060d1a] min-h-screen">
 
-            {/* ═══ HERO SECTION ═══ */}
             <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
-                {/* Background effects */}
+                
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(52,99,172,0.15)_0%,_transparent_60%)]" />
                 <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
                 <div className="absolute top-40 right-1/4 w-80 h-80 bg-[#3463ac]/5 rounded-full blur-3xl" />
@@ -154,7 +153,6 @@ export default function ServicesOverview({ dict, lang }: ServicesOverviewProps) 
                 </div>
             </section>
 
-            {/* ═══ SERVICE CATEGORIES ═══ */}
             <section className="relative pb-28 sm:pb-36">
                 <div className="container mx-auto px-4 sm:px-8">
                     <div className="flex flex-col gap-16 lg:gap-20">
@@ -168,7 +166,7 @@ export default function ServicesOverview({ dict, lang }: ServicesOverviewProps) 
                                     className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                                     style={{ transitionDelay: `${300 + catIdx * 150}ms` }}
                                 >
-                                    {/* Category Header */}
+                                    
                                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-8">
                                         <div
                                             className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${cat.gradient} ring-1 ring-white/[0.06]`}
@@ -188,7 +186,6 @@ export default function ServicesOverview({ dict, lang }: ServicesOverviewProps) 
                                         </div>
                                     </div>
 
-                                    {/* Service Cards Grid */}
                                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                                         {cat.items.map((item, i) => {
                                             const ItemIcon = ICON_MAP[item.icon];
@@ -199,7 +196,7 @@ export default function ServicesOverview({ dict, lang }: ServicesOverviewProps) 
                                                     href={`/${lang}${item.href}`}
                                                     className="group relative flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/[0.1] hover:shadow-lg"
                                                 >
-                                                    {/* Hover glow */}
+                                                    
                                                     <div
                                                         className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                                                         style={{ background: `radial-gradient(circle at 30% 0%, ${cat.color}08 0%, transparent 60%)` }}
@@ -236,7 +233,6 @@ export default function ServicesOverview({ dict, lang }: ServicesOverviewProps) 
                 </div>
             </section>
 
-            {/* ═══ BOTTOM CTA ═══ */}
             <section className="relative py-20 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(52,99,172,0.1)_0%,_transparent_60%)]" />
                 <div className={`container relative mx-auto px-4 sm:px-8 text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '800ms' }}>

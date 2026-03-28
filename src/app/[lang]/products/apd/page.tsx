@@ -13,7 +13,7 @@ export default async function ApdPage({ params }: { params: Promise<{ lang: stri
 
     return (
         <main className="w-full flex flex-col items-center overflow-hidden bg-[#060d1a]">
-            {/* Background ambient lighting */}
+            
             <div className="fixed inset-0 pointer-events-none z-0">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#3463ac]/10 blur-[120px]" />
                 <div className="absolute top-[20%] right-[-10%] w-[30%] h-[50%] rounded-full bg-purple-900/10 blur-[120px]" />

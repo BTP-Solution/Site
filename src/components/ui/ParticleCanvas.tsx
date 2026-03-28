@@ -16,13 +16,11 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        // Constants for colors
         const CORE_COLOR = '#c084fc';
         const FRAG_COLORS = ['#3463ac', '#7e22ce', '#a855f7', '#60a5fa', '#ffffff'];
 
         let animationFrameId: number;
 
-        // Define objects
         let core = {
             x: canvas.width / 2,
             y: canvas.height / 2,
@@ -60,14 +58,14 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
                 canvas.height = parent.clientHeight;
                 core.x = canvas.width / 2;
                 core.y = canvas.height / 2;
-                // Give it a kick start
+
                 core.vx = (Math.random() - 0.5) * 4; // Slower reset kick
                 core.vy = (Math.random() - 0.5) * 4; // Slower reset kick
             }
         };
 
         window.addEventListener('resize', resize);
-        // Initial setup
+
         const p = canvas.parentElement;
         if (p) {
             canvas.width = p.clientWidth;
@@ -77,15 +75,13 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
         }
 
         const animate = () => {
-            // Draw dark background with trail effect
+
             ctx.fillStyle = 'rgba(10, 22, 40, 0.2)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Update core
             core.x += core.vx;
             core.y += core.vy;
 
-            // Core collision logic
             let hit = false;
             let explosionX = core.x;
             let explosionY = core.y;
@@ -116,11 +112,10 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
 
             if (hit) {
                 spawnExplosion(explosionX, explosionY);
-                // slight scatter on bounce, but much softer
+
                 core.vx += (Math.random() - 0.5) * 0.4;
                 core.vy += (Math.random() - 0.5) * 0.4;
 
-                // Speed limit
                 const speed = Math.sqrt(core.vx * core.vx + core.vy * core.vy);
                 if (speed > 2.5) {
                     core.vx = (core.vx / speed) * 2.5;
@@ -128,7 +123,6 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
                 }
             }
 
-            // Draw core
             ctx.beginPath();
             ctx.arc(core.x, core.y, core.radius, 0, Math.PI * 2);
             ctx.fillStyle = CORE_COLOR;
@@ -136,7 +130,6 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
             ctx.shadowColor = CORE_COLOR;
             ctx.fill();
 
-            // Update and draw fragments
             for (let i = fragments.length - 1; i >= 0; i--) {
                 const f = fragments[i];
                 f.x += f.vx;
@@ -158,7 +151,6 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
                 }
             }
 
-            // Reset context globals
             ctx.globalAlpha = 1;
             ctx.shadowBlur = 0;
 

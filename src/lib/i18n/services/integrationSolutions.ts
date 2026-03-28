@@ -1,4 +1,4 @@
-// i18n content for Integration Solutions pages
+
 
 export const integrationSolutionsMain = {
   tr: {

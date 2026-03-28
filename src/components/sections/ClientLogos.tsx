@@ -20,7 +20,7 @@ export default function ClientLogos({ dict }: ClientLogosProps) {
 
     return (
         <section className="relative overflow-hidden bg-gradient-to-b from-[#060d1a] to-[#0a1628] py-14 border-y border-white/[0.02]">
-            {/* Fade edges */}
+            
             <div className="absolute left-0 top-0 bottom-0 w-32 sm:w-48 bg-gradient-to-r from-[#060d1a] to-transparent z-[5]"></div>
             <div className="absolute right-0 top-0 bottom-0 w-32 sm:w-48 bg-gradient-to-l from-[#0a1628] to-transparent z-[5]"></div>
 

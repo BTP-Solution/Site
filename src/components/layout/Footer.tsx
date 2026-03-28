@@ -26,18 +26,15 @@ export default function Footer({ dict }: FooterProps) {
 
     return (
         <footer className="relative bg-[#060d1a] overflow-hidden">
-            {/* Top gradient line */}
+            
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3463ac]/40 to-transparent" />
 
-            {/* Ambient lighting */}
             <div className="absolute bottom-0 left-[10%] w-[30%] h-[60%] rounded-full bg-[#3463ac]/5 blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 right-[10%] w-[25%] h-[50%] rounded-full bg-purple-900/5 blur-[100px] pointer-events-none" />
 
-            {/* Main Footer Content */}
             <div className="relative container mx-auto px-4 sm:px-8 pt-16 pb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
 
-                    {/* Brand Column */}
                     <div className="lg:col-span-4 space-y-6">
                         <div className="flex items-center gap-3">
                             <Image
@@ -52,7 +49,6 @@ export default function Footer({ dict }: FooterProps) {
                             {dict.footer.description}
                         </p>
 
-                        {/* Social Links */}
                         <div className="flex items-center gap-3 pt-2">
                             {SOCIAL_LINKS.map((social) => (
                                 <a
@@ -69,7 +65,6 @@ export default function Footer({ dict }: FooterProps) {
                         </div>
                     </div>
 
-                    {/* Services Links */}
                     <div className="lg:col-span-3">
                         <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-5">{dict.navigation.services}</h4>
                         <ul className="space-y-3">
@@ -84,7 +79,6 @@ export default function Footer({ dict }: FooterProps) {
                         </ul>
                     </div>
 
-                    {/* Company Links */}
                     <div className="lg:col-span-2">
                         <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-5">{dict.footer.company || 'Company'}</h4>
                         <ul className="space-y-3">
@@ -99,7 +93,6 @@ export default function Footer({ dict }: FooterProps) {
                         </ul>
                     </div>
 
-                    {/* Contact Info */}
                     <div className="lg:col-span-3">
                         <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-5">{dict.navigation.contact}</h4>
                         <div className="space-y-4">
@@ -122,7 +115,6 @@ export default function Footer({ dict }: FooterProps) {
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
                 <div className="mt-14 pt-6 border-t border-white/[0.04]">
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                         <p className="text-xs text-slate-600">

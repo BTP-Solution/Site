@@ -49,7 +49,6 @@ export default function ServiceBenefits({
         );
     }
 
-    /* Default: check icons */
     return (
         <section className="w-full bg-[#0a1628]/30 py-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">

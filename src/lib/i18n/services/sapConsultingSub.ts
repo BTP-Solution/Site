@@ -1,5 +1,4 @@
-// Sub-page translations for SAP Consulting
-// Each sub-page has tr/en content objects
+
 
 export const financialSolutions = {
   tr: {

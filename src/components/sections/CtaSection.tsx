@@ -10,20 +10,17 @@ export default function CtaSection({ dict, lang }: CtaSectionProps) {
     return (
         <section className="relative py-24 sm:py-32 bg-[#0a1628]">
             <div className="container relative mx-auto px-4 sm:px-8 z-10">
-                {/* Massive Glass Card */}
+                
                 <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0c1829] via-[#122040] to-[#1a0b2e] border border-white/10 shadow-[0_0_80px_-20px_rgba(52,99,172,0.3)] px-6 py-20 sm:p-24 group hover:shadow-[0_0_100px_-20px_rgba(126,34,206,0.3)] transition-shadow duration-700 w-full">
 
-                    {/* Floating orbs securely inside card */}
                     <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] bg-[radial-gradient(circle,_rgba(52,99,172,0.25)_0%,_transparent_70%)] pointer-events-none animate-orb-1 group-hover:scale-125 transition-transform duration-1000"></div>
                     <div className="absolute bottom-[0%] right-[10%] w-[350px] h-[350px] bg-[radial-gradient(circle,_rgba(126,34,206,0.2)_0%,_transparent_70%)] pointer-events-none animate-orb-2 group-hover:scale-125 transition-transform duration-1000"></div>
 
-                    {/* Dot pattern */}
                     <div className="absolute inset-0 opacity-[0.05]" style={{
                         backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)',
                         backgroundSize: '24px 24px'
                     }}></div>
 
-                    {/* Content */}
                     <div className="relative z-10 mx-auto max-w-3xl text-center">
                         <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]">
                             {dict.cta.title}

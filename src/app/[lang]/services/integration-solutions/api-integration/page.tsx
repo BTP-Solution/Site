@@ -11,7 +11,6 @@ import { getApiIntegrationContent } from '@/lib/i18n/services/integrationSolutio
 
 const CARD_ICON_NAMES = ['Globe', 'Webhook', 'RefreshCcw', 'Link2', 'ShieldCheck', 'Gauge'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getApiIntegrationContent(lang);

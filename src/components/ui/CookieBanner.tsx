@@ -8,12 +8,12 @@ export default function CookieBanner({ dict }: { dict: any }) {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Check if user already accepted cookies
+
         const consent = Cookies.get('btp-cookie-consent');
         if (!consent) {
             setIsVisible(true);
         } else {
-            // Track visit analytics since they consented
+
             trackVisit();
         }
     }, []);

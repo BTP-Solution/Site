@@ -11,7 +11,6 @@ import { getCustomerExperienceContent } from '@/lib/i18n/services/sapConsultingS
 
 const CARD_ICON_NAMES = ['Users', 'Megaphone', 'ShoppingCart', 'HeadphonesIcon', 'UserCircle', 'Database'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getCustomerExperienceContent(lang);

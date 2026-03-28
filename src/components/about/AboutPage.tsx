@@ -17,7 +17,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
 
     return (
         <main className="w-full flex flex-col items-center overflow-hidden bg-[#060d1a]">
-            {/* Background ambient lighting */}
+            
             <div className="fixed inset-0 pointer-events-none z-0">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#3463ac]/10 blur-[120px]" />
                 <div className="absolute top-[20%] right-[-10%] w-[30%] h-[50%] rounded-full bg-purple-900/10 blur-[120px]" />
@@ -26,7 +26,6 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
 
             <div className="relative z-10 w-full flex flex-col items-center">
 
-                {/* ─── HERO SECTION ─── */}
                 <section className="relative w-full pt-36 pb-20 sm:pt-44 sm:pb-28">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl text-center">
                         <div className="inline-flex items-center gap-2 rounded-full border border-[#3463ac]/20 bg-[#3463ac]/5 px-4 py-1.5 mb-8" style={{ animation: 'float-in 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
@@ -48,7 +47,6 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                     </div>
                 </section>
 
-                {/* ─── STATS SECTION ─── */}
                 <section className="w-full pb-20">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s both' }}>
@@ -70,7 +68,6 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                     </div>
                 </section>
 
-                {/* ─── ABOUT STORY ─── */}
                 <section className="w-full py-20 border-t border-white/[0.04]">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -113,7 +110,6 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                     </div>
                 </section>
 
-                {/* ─── VALUES ─── */}
                 <section className="w-full py-20 border-t border-white/[0.04]">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="text-center mb-14">
@@ -149,7 +145,6 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                     </div>
                 </section>
 
-                {/* ─── WHY US ─── */}
                 <section className="w-full py-20 border-t border-white/[0.04]">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="text-center mb-14">
@@ -166,7 +161,6 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                             ))}
                         </div>
 
-                        {/* CTA */}
                         <div className="mt-14 text-center">
                             <TransitionLink
                                 href={`/${lang}/services`}
@@ -182,7 +176,6 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                     </div>
                 </section>
 
-                {/* ─── CONTACT & MAP ─── */}
                 <section className="w-full py-20 border-t border-white/[0.04]">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="text-center mb-14">
@@ -224,7 +217,6 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                             </div>
                         </div>
 
-                        {/* Google Maps Embed */}
                         <div className="rounded-2xl border border-white/[0.06] overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12024.28929574569!2d29.0163!3d41.1072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5bfc4b3c9e7%3A0xc40f78c2e76ec4a6!2sFerahevler%2C%20Sar%C4%B1yer%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str"

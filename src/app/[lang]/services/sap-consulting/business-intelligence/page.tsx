@@ -11,7 +11,6 @@ import { getBusinessIntelligenceContent } from '@/lib/i18n/services/sapConsultin
 
 const CARD_ICON_NAMES = ['LayoutDashboard', 'Database', 'PieChart', 'TrendingUp', 'FileSpreadsheet', 'BarChart3'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getBusinessIntelligenceContent(lang);

@@ -1,4 +1,4 @@
-// Sub-page translations for SAP Consulting (roll-out, business-intelligence, customer-experience, hr-solutions)
+
 
 export const rollOut = {
   tr: {

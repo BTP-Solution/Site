@@ -10,7 +10,6 @@ import { getAiDataSolutionsMainContent } from '@/lib/i18n/services/aiDataSolutio
 
 const CARD_ICON_NAMES = ['Database', 'BarChart3', 'Brain', 'Workflow'];
 
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const t = getAiDataSolutionsMainContent(lang);
