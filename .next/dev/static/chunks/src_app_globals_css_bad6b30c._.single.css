@@ -497,10 +497,6 @@
     inset: 10%;
   }
 
-  .inset-x-0 {
-    inset-inline: calc(var(--spacing) * 0);
-  }
-
   .start {
     inset-inline-start: var(--spacing);
   }
@@ -1178,10 +1174,6 @@
     max-height: calc(var(--spacing) * 96);
   }
 
-  .max-h-\[600px\] {
-    max-height: 600px;
-  }
-
   .max-h-\[2000px\] {
     max-height: 2000px;
   }
@@ -1414,10 +1406,6 @@
     width: 800px;
   }
 
-  .w-\[1080px\] {
-    width: 1080px;
-  }
-
   .w-\[calc\(100vw-2rem\)\] {
     width: calc(100vw - 2rem);
   }
@@ -1468,10 +1456,6 @@
 
   .max-w-\[1080px\] {
     max-width: 1080px;
-  }
-
-  .max-w-\[calc\(100vw-2rem\)\] {
-    max-width: calc(100vw - 2rem);
   }
 
   .max-w-lg {

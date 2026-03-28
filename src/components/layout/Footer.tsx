@@ -131,7 +131,7 @@ export default function Footer({ dict }: FooterProps) {
                         <div className="flex items-center gap-1 text-xs text-slate-600">
                             <span>Built with</span>
                             <span className="text-red-500/60 text-sm">♥</span>
-                            <span>{dict.footer.builtWith || 'in İstanbul'}</span>
+
                         </div>
                     </div>
                 </div>

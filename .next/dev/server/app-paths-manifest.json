@@ -1,14 +1,3 @@
 {
-  "/[lang]/about/page": "app/[lang]/about/page.js",
-  "/[lang]/page": "app/[lang]/page.js",
-  "/[lang]/services/ai-data-solutions/data-management/page": "app/[lang]/services/ai-data-solutions/data-management/page.js",
-  "/[lang]/services/integration-solutions/banka-fintech/page": "app/[lang]/services/integration-solutions/banka-fintech/page.js",
-  "/[lang]/services/integration-solutions/e-donusum/page": "app/[lang]/services/integration-solutions/e-donusum/page.js",
-  "/[lang]/services/page": "app/[lang]/services/page.js",
-  "/[lang]/services/sap-consulting/customer-experience/page": "app/[lang]/services/sap-consulting/customer-experience/page.js",
-  "/[lang]/services/sap-consulting/page": "app/[lang]/services/sap-consulting/page.js",
-  "/[lang]/services/sap-consulting/supply-chain/page": "app/[lang]/services/sap-consulting/supply-chain/page.js",
-  "/[lang]/services/tech-development/abap-rap-cap/page": "app/[lang]/services/tech-development/abap-rap-cap/page.js",
-  "/[lang]/services/tech-development/cloud-migration/page": "app/[lang]/services/tech-development/cloud-migration/page.js",
-  "/_not-found/page": "app/_not-found/page.js"
+  "/[lang]/page": "app/[lang]/page.js"
 }
