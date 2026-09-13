@@ -27,7 +27,7 @@ export default async function SapNonSapPage({ params }: { params: Promise<{ lang
     const t = getSapNonSapContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/integration-solutions/sap-nonsap" />
             <ServiceHero
@@ -53,6 +53,6 @@ export default async function SapNonSapPage({ params }: { params: Promise<{ lang
             <ServiceSteps sectionTitle={t.stepsTitle} subtitle={t.stepsSubtitle} variant="horizontal" accentColor="#f59e0b" steps={t.steps} />
             <ServiceBenefits sectionTitle={t.benefitsTitle} variant="pills" accentColor="#f59e0b" items={t.benefits} />
             <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
-        </main>
+        </div>
     );
 }

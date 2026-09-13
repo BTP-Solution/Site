@@ -1,8 +1,9 @@
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 import TransitionLink from '@/components/ui/TransitionLink';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 type CtaSectionProps = {
-    dict: any;
+    dict: Dictionary;
     lang: string;
 };
 

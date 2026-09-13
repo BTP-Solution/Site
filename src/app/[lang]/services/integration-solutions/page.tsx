@@ -26,7 +26,7 @@ export default async function IntegrationSolutionsPage({ params }: { params: Pro
     const t = getIntegrationSolutionsMainContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/integration-solutions" />
             <ServiceHero
@@ -51,6 +51,6 @@ export default async function IntegrationSolutionsPage({ params }: { params: Pro
             </div>
             <ServiceBenefits sectionTitle={t.benefitsTitle} variant="checks" accentColor="#f59e0b" items={t.benefits} />
             <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
-        </main>
+        </div>
     );
 }

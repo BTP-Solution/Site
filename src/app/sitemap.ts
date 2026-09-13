@@ -5,6 +5,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://btpsolution.com';
 const pages = [
     '',
     '/about',
+    '/services',
     '/products/apd',
     '/services/sap-consulting',
     '/services/sap-consulting/financial-solutions',
@@ -40,7 +41,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         for (const lang of ['tr', 'en']) {
             entries.push({
                 url: `${SITE_URL}/${lang}${page}`,
-                lastModified: new Date(),
                 changeFrequency: page === '' ? 'weekly' : 'monthly',
                 priority: page === '' ? 1 : page === '/about' ? 0.8 : 0.7,
                 alternates: {

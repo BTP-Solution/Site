@@ -27,7 +27,7 @@ export default async function BusinessAnalyticsPage({ params }: { params: Promis
     const t = getBusinessAnalyticsContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/ai-data-solutions/business-analytics" />
             <ServiceHero
@@ -53,6 +53,6 @@ export default async function BusinessAnalyticsPage({ params }: { params: Promis
             <ServiceSteps sectionTitle={t.stepsTitle} subtitle={t.stepsSubtitle} variant="horizontal" accentColor="#818cf8" steps={t.steps} />
             <ServiceBenefits sectionTitle={t.benefitsTitle} variant="pills" accentColor="#818cf8" items={t.benefits} />
             <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
-        </main>
+        </div>
     );
 }

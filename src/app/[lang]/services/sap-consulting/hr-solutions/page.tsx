@@ -27,7 +27,7 @@ export default async function HrSolutionsPage({ params }: { params: Promise<{ la
     const t = getHrSolutionsContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/sap-consulting/hr-solutions" />
             <ServiceHero
@@ -71,6 +71,6 @@ export default async function HrSolutionsPage({ params }: { params: Promise<{ la
                 buttonHref="/contact"
                 features={t.ctaFeatures}
             />
-        </main>
+        </div>
     );
 }

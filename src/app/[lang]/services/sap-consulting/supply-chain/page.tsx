@@ -25,7 +25,7 @@ export default async function SupplyChainPage({ params }: { params: Promise<{ la
     const { lang } = await params;
     const t = getSupplyChainContent(lang);
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/sap-consulting/supply-chain" />
             <ServiceHero breadcrumbs={t.breadcrumbs} title={t.title} highlightedWord={t.highlightedWord}
@@ -36,6 +36,6 @@ export default async function SupplyChainPage({ params }: { params: Promise<{ la
                 cards={t.cards.map((c, i) => ({ ...c, iconName: CARD_ICON_NAMES[i] }))} />
             <ServiceBenefits sectionTitle={t.benefitsTitle} variant="pills" accentColor="#34d399" items={t.benefits} />
             <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
-        </main>
+        </div>
     );
 }

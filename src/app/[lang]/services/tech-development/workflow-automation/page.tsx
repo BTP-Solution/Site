@@ -27,7 +27,7 @@ export default async function WorkflowAutomationPage({ params }: { params: Promi
     const t = getWorkflowAutomationContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/tech-development/workflow-automation" />
             <ServiceHero
@@ -53,6 +53,6 @@ export default async function WorkflowAutomationPage({ params }: { params: Promi
             <ServiceSteps sectionTitle={t.stepsTitle} subtitle={t.stepsSubtitle} variant="horizontal" accentColor="#f472b6" steps={t.steps} />
             <ServiceBenefits sectionTitle={t.benefitsTitle} variant="pills" accentColor="#f472b6" items={t.benefits} />
             <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
-        </main>
+        </div>
     );
 }

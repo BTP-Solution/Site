@@ -29,16 +29,16 @@ export default function ApdHero({ lang }: { lang: string }) {
                     </p>
 
                     <div className="flex flex-wrap items-center gap-4 pt-4">
-                        <button className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#ff7700] text-white rounded-xl font-semibold overflow-hidden transition-transform active:scale-95 hover:shadow-[0_0_20px_rgba(255,119,0,0.3)]">
+                        <a href="#contact-form" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#ff7700] text-white rounded-xl font-semibold overflow-hidden transition-transform active:scale-95 hover:shadow-[0_0_20px_rgba(255,119,0,0.3)]">
                             <span className="relative z-10">{t.ctaPrimary}</span>
                             <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1" />
                             <div className="absolute inset-0 bg-gradient-to-r from-[#ff8c2b] to-[#e66a00] opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </button>
+                        </a>
                         <TransitionLink
-                            href="#tech-docs"
+                            href="#apd-features"
                             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-slate-700 hover:border-[#3463ac] text-slate-300 hover:text-white rounded-xl font-semibold transition-all"
                         >
-                            {t.ctaSecondary}
+                            {lang === 'en' ? 'Explore Technical Features' : 'Teknik Özellikleri İncele'}
                         </TransitionLink>
                     </div>
                 </div>

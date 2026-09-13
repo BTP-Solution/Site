@@ -26,7 +26,7 @@ export default async function FioriSapui5Page({ params }: { params: Promise<{ la
     const t = getFioriSapui5Content(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/tech-development/fiori-sapui5" />
             <ServiceHero
@@ -48,6 +48,6 @@ export default async function FioriSapui5Page({ params }: { params: Promise<{ la
             <ServiceBenefits sectionTitle={t.checksTitle} variant="checks" accentColor="#f97316" items={t.checks} />
             <ServiceBenefits sectionTitle={t.benefitsTitle} variant="pills" accentColor="#f97316" items={t.benefits} />
             <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
-        </main>
+        </div>
     );
 }

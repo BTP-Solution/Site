@@ -27,7 +27,7 @@ export default async function BusinessIntelligencePage({ params }: { params: Pro
     const t = getBusinessIntelligenceContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/sap-consulting/business-intelligence" />
             <ServiceHero
@@ -71,6 +71,6 @@ export default async function BusinessIntelligencePage({ params }: { params: Pro
                 buttonHref="/contact"
                 features={t.ctaFeatures}
             />
-        </main>
+        </div>
     );
 }

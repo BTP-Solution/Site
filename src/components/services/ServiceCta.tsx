@@ -1,3 +1,5 @@
+'use client';
+import { usePathname } from 'next/navigation';
 import TransitionLink from '@/components/ui/TransitionLink';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
@@ -11,6 +13,7 @@ type ServiceCtaProps = {
 };
 
 export default function ServiceCta({ title, subtitle, buttonText, buttonHref, features, accentColor = '#3463ac' }: ServiceCtaProps) {
+    const en = usePathname().split('/')[1] === 'en';
     return (
         <section className="w-full bg-gradient-to-b from-[#060d1a] to-[#0a1628] py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             
@@ -26,7 +29,7 @@ export default function ServiceCta({ title, subtitle, buttonText, buttonHref, fe
                         <div className="flex justify-center mb-6">
                             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.06] bg-white/[0.02]">
                                 <Sparkles className="h-3.5 w-3.5" style={{ color: accentColor }} />
-                                <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-slate-400">Hemen Başlayın</span>
+                                <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-slate-400">{en ? 'Get Started' : 'Hemen Başlayın'}</span>
                             </div>
                         </div>
 

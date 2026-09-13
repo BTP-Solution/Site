@@ -19,9 +19,11 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
         const CORE_COLOR = '#c084fc';
         const FRAG_COLORS = ['#3463ac', '#7e22ce', '#a855f7', '#60a5fa', '#ffffff'];
 
-        let animationFrameId: number;
+        let animationFrameId = 0;
+        let onScreen = false;
+        const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-        let core = {
+        const core = {
             x: canvas.width / 2,
             y: canvas.height / 2,
             vx: (Math.random() - 0.5) * 3, // Slower base speed
@@ -157,9 +159,19 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
             animationFrameId = requestAnimationFrame(animate);
         };
 
-        animate();
+        const syncAnimation = () => {
+            cancelAnimationFrame(animationFrameId);
+            if (onScreen && !document.hidden && !motion.matches) animationFrameId = requestAnimationFrame(animate);
+        };
+        const observer = new IntersectionObserver(([entry]) => { onScreen = entry.isIntersecting; syncAnimation(); });
+        observer.observe(canvas);
+        document.addEventListener('visibilitychange', syncAnimation);
+        motion.addEventListener('change', syncAnimation);
 
         return () => {
+            observer.disconnect();
+            document.removeEventListener('visibilitychange', syncAnimation);
+            motion.removeEventListener('change', syncAnimation);
             window.removeEventListener('resize', resize);
             cancelAnimationFrame(animationFrameId);
         };
@@ -167,6 +179,7 @@ export default function ParticleCanvas({ className = '' }: ParticleCanvasProps) 
 
     return (
         <canvas
+            aria-hidden="true"
             ref={canvasRef}
             className={`absolute inset-0 pointer-events-none ${className}`}
         />

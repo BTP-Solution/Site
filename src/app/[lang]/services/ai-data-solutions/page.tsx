@@ -26,7 +26,7 @@ export default async function AiDataSolutionsPage({ params }: { params: Promise<
     const t = getAiDataSolutionsMainContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/ai-data-solutions" />
             <ServiceHero
@@ -63,6 +63,6 @@ export default async function AiDataSolutionsPage({ params }: { params: Promise<
                 buttonHref="/contact"
                 features={t.ctaFeatures}
             />
-        </main>
+        </div>
     );
 }

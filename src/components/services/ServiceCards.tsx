@@ -26,7 +26,7 @@ export default function ServiceCards({
     variant = 'grid',
 }: ServiceCardsProps) {
 
-    const SectionHeader = () => (
+    const renderSectionHeader = () => (
         <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="h-px w-12 bg-gradient-to-r from-transparent" style={{ backgroundImage: `linear-gradient(to right, transparent, ${accentColor}30)` }} />
@@ -45,7 +45,7 @@ export default function ServiceCards({
             <section className="w-full bg-[#0a1628]/50 py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
                 <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
                 <div className="max-w-7xl mx-auto relative">
-                    <SectionHeader />
+                    {renderSectionHeader()}
 
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
                         
@@ -140,7 +140,7 @@ export default function ServiceCards({
             <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-white/[0.03] to-transparent z-0 hidden lg:block" />
 
             <div className="max-w-7xl mx-auto relative z-10">
-                <SectionHeader />
+                {renderSectionHeader()}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {cards.map((card, i) => {

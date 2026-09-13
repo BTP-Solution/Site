@@ -1,6 +1,5 @@
 import Hero from '@/components/sections/Hero';
 import BentoGrid from '@/components/sections/BentoGrid';
-import ClientLogos from '@/components/sections/ClientLogos';
 import CtaSection from '@/components/sections/CtaSection';
 import { getDictionary, Locale } from '@/lib/i18n/getDictionary';
 

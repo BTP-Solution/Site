@@ -3,7 +3,7 @@ type ServiceIntroProps = {
     accentColor?: string;
 };
 
-export default function ServiceIntro({ paragraphs, accentColor = '#3463ac' }: ServiceIntroProps) {
+export default function ServiceIntro({ paragraphs }: ServiceIntroProps) {
     return (
         <section className="w-full bg-[#060d1a] py-20 px-4 sm:px-6 lg:px-8 relative">
             

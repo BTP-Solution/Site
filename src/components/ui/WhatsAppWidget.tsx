@@ -1,20 +1,14 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const WHATSAPP_NUMBER = '905547251187';
 const TEAMS_EMAIL = 'erdal.eser@btpsolution.com';
 
 export default function WhatsAppWidget({ lang }: { lang: string }) {
-    const [mounted, setMounted] = useState(false);
     const [isWhatsAppHovered, setIsWhatsAppHovered] = useState(false);
     const [isTeamsHovered, setIsTeamsHovered] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) return null;
 
     const message = lang === 'tr'
         ? 'Merhaba, BTP Solution hizmetleri hakkında bilgi almak istiyorum.'
@@ -28,6 +22,7 @@ export default function WhatsAppWidget({ lang }: { lang: string }) {
 
     return (
         <div
+            data-contact-widget
             className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
             style={{ animation: 'float-in 0.6s cubic-bezier(0.16,1,0.3,1) 1s both' }}
         >

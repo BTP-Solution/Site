@@ -1,5 +1,6 @@
 'use client';
 
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 import { useEffect, useRef, useState } from 'react';
 import TransitionLink from '@/components/ui/TransitionLink';
 import {
@@ -32,11 +33,11 @@ import {
 } from 'lucide-react';
 
 type ServicesOverviewProps = {
-    dict: any;
+    dict: Dictionary;
     lang: string;
 };
 
-const ICON_MAP: Record<string, any> = {
+const ICON_MAP: Record<string, import('lucide-react').LucideIcon> = {
     Monitor, Code2, Blocks, Brain, ArrowRight, Sparkles,
     Truck, Search, RotateCw, Coins, Users, BarChart3, ShoppingBag,
     Cloud, Terminal, Layout, ArrowUpCircle, Workflow,
@@ -122,7 +123,7 @@ export default function ServicesOverview({ dict, lang }: ServicesOverviewProps) 
     }, []);
 
     return (
-        <main ref={sectionRef} className="w-full bg-[#060d1a] min-h-screen">
+        <section ref={sectionRef} className="w-full bg-[#060d1a] min-h-screen">
 
             <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
                 
@@ -158,7 +159,7 @@ export default function ServicesOverview({ dict, lang }: ServicesOverviewProps) 
                     <div className="flex flex-col gap-16 lg:gap-20">
                         {SERVICE_CATEGORIES.map((cat, catIdx) => {
                             const CatIcon = ICON_MAP[cat.icon];
-                            const catContent = s?.categories?.[cat.key] || {};
+                            const catContent = s.categories[cat.key as keyof typeof s.categories];
 
                             return (
                                 <div
@@ -253,6 +254,6 @@ export default function ServicesOverview({ dict, lang }: ServicesOverviewProps) 
                     </button>
                 </div>
             </section>
-        </main>
+        </section>
     );
 }

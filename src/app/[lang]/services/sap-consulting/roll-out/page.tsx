@@ -25,7 +25,7 @@ export default async function RolloutPage({ params }: { params: Promise<{ lang: 
     const t = getRollOutContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/sap-consulting/roll-out" />
             <ServiceHero
@@ -79,6 +79,6 @@ export default async function RolloutPage({ params }: { params: Promise<{ lang: 
                 buttonHref="/contact"
                 features={t.ctaFeatures}
             />
-        </main>
+        </div>
     );
 }
