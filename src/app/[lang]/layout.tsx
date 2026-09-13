@@ -51,7 +51,7 @@ export default async function RootLayout({
           <main className="flex-1">
             {children}
           </main>
-          <Footer dict={dictionary} />
+          <Footer dict={dictionary} lang={lang} />
           <CookieBanner dict={dictionary} />
           <WhatsAppWidget lang={lang} />
         </PageTransitionProvider>
