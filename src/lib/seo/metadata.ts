@@ -39,10 +39,12 @@ export function generateSeoMetadata({
             locale: lang === 'tr' ? 'tr_TR' : 'en_US',
             alternateLocale: [altLang === 'tr' ? 'tr_TR' : 'en_US'],
             type: 'website',
+            images: [{ url: `${SITE_URL}/api/og`, width: 1200, height: 630, alt: 'BTP Solution — SAP & AI' }],
             ...openGraph,
         },
         twitter: {
             card: 'summary_large_image',
+            images: [`${SITE_URL}/api/og`],
             title,
             description,
         },

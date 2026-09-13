@@ -1,9 +1,12 @@
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 import Image from 'next/image';
 import { MapPin, Mail, Phone, ArrowUpRight, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
+import { withLocale } from '@/lib/i18n/locale';
 
 type FooterProps = {
-    dict: any;
+    dict: Dictionary;
+    lang: string;
 };
 
 const SOCIAL_LINKS = [
@@ -11,7 +14,7 @@ const SOCIAL_LINKS = [
     { icon: Twitter, href: 'https://twitter.com/btpsolution', label: 'Twitter' },
 ];
 
-export default function Footer({ dict }: FooterProps) {
+export default function Footer({ dict, lang }: FooterProps) {
     const serviceLinks = [
         { label: dict.footer.services?.sapConsulting || 'SAP Consulting', href: '/services/sap-consulting' },
         { label: dict.footer.services?.techDev || 'Technology & Development', href: '/services/tech-development' },
@@ -70,7 +73,7 @@ export default function Footer({ dict }: FooterProps) {
                         <ul className="space-y-3">
                             {serviceLinks.map((link) => (
                                 <li key={link.href}>
-                                    <Link href={link.href} className="group flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200">
+                                    <Link href={withLocale(link.href, lang)} className="group flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200">
                                         <span>{link.label}</span>
                                         <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200 text-[#5b8fd4]" />
                                     </Link>
@@ -84,7 +87,7 @@ export default function Footer({ dict }: FooterProps) {
                         <ul className="space-y-3">
                             {companyLinks.map((link) => (
                                 <li key={link.href}>
-                                    <Link href={link.href} className="group flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200">
+                                    <Link href={withLocale(link.href, lang)} className="group flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200">
                                         <span>{link.label}</span>
                                         <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200 text-[#5b8fd4]" />
                                     </Link>

@@ -3,7 +3,9 @@
   "name": "site",
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-09-27",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "observability": {
     "enabled": true
   },
@@ -16,5 +18,18 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "site"
     }
-  ]
+  ],
+  "ratelimits": [
+    {
+      "name": "CONTACT_RATE_LIMITER",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    }
+  ],
+  "vars": {
+    "CONTACT_TO_EMAIL": "info@btpsolution.com"
+  }
 }

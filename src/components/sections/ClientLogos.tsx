@@ -1,7 +1,8 @@
 'use client';
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 
 type ClientLogosProps = {
-    dict: any;
+    dict: Dictionary;
 };
 
 const CLIENTS = [

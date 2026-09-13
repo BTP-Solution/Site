@@ -44,14 +44,15 @@ export default async function RootLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased bg-white text-zinc-900 min-h-screen flex flex-col`}>
+        <a href="#main-content" className="skip-link">{lang === 'en' ? 'Skip to content' : 'İçeriğe geç'}</a>
         <OrganizationJsonLd />
         <WebSiteJsonLd lang={lang} />
         <PageTransitionProvider>
           <Header dict={dictionary} lang={lang} />
-          <main className="flex-1">
+          <main id="main-content" className="flex-1">
             {children}
           </main>
-          <Footer dict={dictionary} />
+          <Footer dict={dictionary} lang={lang} />
           <CookieBanner dict={dictionary} />
           <WhatsAppWidget lang={lang} />
         </PageTransitionProvider>

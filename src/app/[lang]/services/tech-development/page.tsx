@@ -26,7 +26,7 @@ export default async function TechDevelopmentPage({ params }: { params: Promise<
     const t = getTechDevelopmentMainContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/tech-development" />
             <ServiceHero
@@ -51,6 +51,6 @@ export default async function TechDevelopmentPage({ params }: { params: Promise<
             </div>
             <ServiceBenefits sectionTitle={t.benefitsTitle} variant="checks" accentColor="#10b981" items={t.benefits} />
             <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
-        </main>
+        </div>
     );
 }

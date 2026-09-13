@@ -1,7 +1,8 @@
 'use client';
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 
 type ExpertiseMarqueeProps = {
-    dict: any;
+    dict: Dictionary;
 };
 
 const MODULE_ROW = [
@@ -65,10 +66,10 @@ function MarqueeRow({ items, reverse = false, label }: { items: typeof MODULE_RO
 
 export default function ExpertiseMarquee({ dict }: ExpertiseMarqueeProps) {
     return (
-        <section className="relative bg-[#060d1a] py-10 border-y border-white/[0.04] overflow-hidden">
+        <section aria-label={dict.expertise.label} className="relative bg-[#060d1a] py-10 border-y border-white/[0.04] overflow-hidden">
             <div className="space-y-4">
-                <MarqueeRow items={MODULE_ROW} label="MODÜLLER" />
-                <MarqueeRow items={TECH_ROW} reverse label="TEKNOLOJİ" />
+                <MarqueeRow items={MODULE_ROW} label={dict.navigation.services === 'Services' ? 'MODULES' : 'MODÜLLER'} />
+                <MarqueeRow items={TECH_ROW} reverse label={dict.navigation.services === 'Services' ? 'TECHNOLOGY' : 'TEKNOLOJİ'} />
             </div>
         </section>
     );

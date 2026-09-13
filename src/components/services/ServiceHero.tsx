@@ -2,6 +2,7 @@
 
 import TransitionLink from '@/components/ui/TransitionLink';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import iconMap from '@/lib/iconMap';
 
 type Breadcrumb = {
@@ -49,6 +50,7 @@ export default function ServiceHero({
     stats,
     variant = 'default',
 }: ServiceHeroProps) {
+    const en = usePathname().split('/')[1] === 'en';
     const renderTitle = () => {
         if (!highlightedWord) return <>{title}</>;
         const parts = title.split(highlightedWord);
@@ -66,8 +68,8 @@ export default function ServiceHero({
         );
     };
 
-    const BreadcrumbNav = () => (
-        <nav className="flex items-center gap-1.5 text-[11px] tracking-wider uppercase mb-8">
+    const renderBreadcrumbNav = () => (
+        <nav className="flex flex-wrap items-center gap-1.5 text-[11px] tracking-wider uppercase mb-8">
             {breadcrumbs.map((crumb, i) => (
                 <span key={i} className="flex items-center gap-1.5">
                     {i > 0 && <ChevronRight className="h-3 w-3 text-slate-700" />}
@@ -81,7 +83,7 @@ export default function ServiceHero({
         </nav>
     );
 
-    const CtaButtons = ({ centered = false }: { centered?: boolean }) => (
+    const renderCtaButtons = ({ centered = false }: { centered?: boolean } = {}) => (
         <div className={`flex flex-wrap items-center gap-4 ${centered ? 'justify-center' : ''}`}>
             <TransitionLink
                 href={ctaHref}
@@ -101,7 +103,7 @@ export default function ServiceHero({
         </div>
     );
 
-    const StatsRow = ({ centered = false }: { centered?: boolean }) => {
+    const renderStatsRow = ({ centered = false }: { centered?: boolean } = {}) => {
         if (!stats?.length) return null;
         return (
             <div className={`flex flex-wrap gap-8 mt-14 pt-10 border-t border-white/[0.06] ${centered ? 'justify-center' : ''}`}>
@@ -117,7 +119,7 @@ export default function ServiceHero({
         );
     };
 
-    const OrbitalVisual = () => (
+    const renderOrbitalVisual = () => (
         <div className="relative w-full aspect-square flex items-center justify-center">
             
             <div className="absolute inset-[10%] rounded-full blur-[80px]" style={{ background: `${accentColor}08` }} />
@@ -145,7 +147,7 @@ export default function ServiceHero({
         </div>
     );
 
-    const RetroGrid = () => (
+    const renderRetroGrid = () => (
         <div className="absolute bottom-0 left-0 right-0 h-[40%] overflow-hidden pointer-events-none" style={{ perspective: '400px' }}>
             <div
                 className="absolute inset-0 animate-retro-grid"
@@ -172,17 +174,17 @@ export default function ServiceHero({
                     <div className="absolute top-[10%] left-[15%] w-[30%] h-[30%] rounded-full blur-[120px] animate-orb-1" style={{ background: `${gradientFrom}10` }} />
                     <div className="absolute top-[30%] right-[10%] w-[25%] h-[35%] rounded-full blur-[120px] animate-orb-2" style={{ background: `${gradientTo}08` }} />
                 </div>
-                <RetroGrid />
+                {renderRetroGrid()}
 
                 <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 text-center">
-                    <BreadcrumbNav />
+                    {renderBreadcrumbNav()}
 
                     <div className="hero-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full border mb-8 mx-auto" style={{ borderColor: `${accentColor}30`, background: `${accentColor}08` }}>
                         {iconName && iconMap[iconName] && (() => { const HI = iconMap[iconName]; return <HI className="h-3.5 w-3.5" style={{ color: accentColor }} strokeWidth={2} />; })()}
-                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: `${accentColor}cc` }}>SAP Danışmanlık</span>
+                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: `${accentColor}cc` }}>{en ? 'SAP Consulting' : 'SAP Danışmanlık'}</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.08] tracking-tight mb-6">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl [overflow-wrap:anywhere] max-w-full font-black text-white leading-[1.08] tracking-tight mb-6">
                         {renderTitle()}
                     </h1>
 
@@ -198,8 +200,8 @@ export default function ServiceHero({
                         {description}
                     </p>
 
-                    <CtaButtons centered />
-                    <StatsRow centered />
+                    {renderCtaButtons({ centered: true })}
+                    {renderStatsRow({ centered: true })}
                 </div>
             </section>
         );
@@ -213,20 +215,20 @@ export default function ServiceHero({
                 <div className="absolute top-[25%] right-[-5%] w-[28%] h-[45%] rounded-full blur-[120px] animate-orb-2" style={{ background: `${gradientTo}08` }} />
                 <div className="absolute bottom-[-10%] left-[25%] w-[30%] h-[25%] rounded-full blur-[100px] animate-orb-3 bg-[#ff7700]/[0.03]" />
             </div>
-            <RetroGrid />
+            {renderRetroGrid()}
 
             <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-                <BreadcrumbNav />
+                {renderBreadcrumbNav()}
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-                    <div className="lg:col-span-3 flex flex-col items-start gap-5">
+                    <div className="lg:col-span-3 min-w-0 flex flex-col items-start gap-5">
                         
                         <div className="hero-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full border" style={{ borderColor: `${accentColor}30`, background: `${accentColor}08` }}>
                             <span className="flex w-2 h-2 rounded-full animate-pulse" style={{ background: accentColor, boxShadow: `0 0 8px ${accentColor}` }} />
-                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: `${accentColor}cc` }}>SAP Danışmanlık</span>
+                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: `${accentColor}cc` }}>{en ? 'SAP Consulting' : 'SAP Danışmanlık'}</span>
                         </div>
 
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.08] tracking-tight">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl [overflow-wrap:anywhere] max-w-full font-black text-white leading-[1.08] tracking-tight">
                             {renderTitle()}
                         </h1>
 
@@ -242,14 +244,14 @@ export default function ServiceHero({
                         </p>
 
                         <div className="pt-2">
-                            <CtaButtons />
+                            {renderCtaButtons()}
                         </div>
 
-                        <StatsRow />
+                        {renderStatsRow()}
                     </div>
 
                     <div className="lg:col-span-2 hidden lg:block">
-                        <OrbitalVisual />
+                        {renderOrbitalVisual()}
                     </div>
                 </div>
             </div>

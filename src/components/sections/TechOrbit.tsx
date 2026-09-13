@@ -1,10 +1,11 @@
 'use client';
 
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 import { useState } from 'react';
 import { Monitor, FileText, Truck, Settings, ChevronRight } from 'lucide-react';
 
 type TechOrbitProps = {
-    dict: any;
+    dict: Dictionary;
 };
 
 const CATEGORIES = [
@@ -79,7 +80,7 @@ export default function TechOrbit({ dict }: TechOrbitProps) {
     const [active, setActive] = useState('consulting');
 
     return (
-        <section className="relative bg-[#050b15] py-16 sm:py-24 overflow-hidden">
+        <section aria-label={dict.bento.sectionTitle} className="relative bg-[#050b15] py-16 sm:py-24 overflow-hidden">
             
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse,_rgba(52,99,172,0.04)_0%,_transparent_70%)] pointer-events-none"></div>
 

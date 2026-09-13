@@ -1,12 +1,13 @@
 'use client';
 
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 import TransitionLink from '@/components/ui/TransitionLink';
 import Image from 'next/image';
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronDown, Database, Link2, BarChart3, Monitor, FileText, Truck, Settings, FileCheck2, Code2, Blocks, Brain, Sparkles, ArrowRight, Cpu, Archive, Zap, ShieldCheck } from 'lucide-react';
+import { ChevronDown, Monitor, FileCheck2, Code2, Blocks, Brain, ArrowRight, } from 'lucide-react';
 
 type NavbarProps = {
-    dict: any;
+    dict: Dictionary;
     lang: string;
 };
 
@@ -85,9 +86,6 @@ export default function Navbar({ dict, lang }: NavbarProps) {
         }, 250);
     }, [openDropdown]);
 
-    const handleNavigate = useCallback(() => {
-        closeDropdown();
-    }, [closeDropdown]);
 
     const toggleDropdown = (menu: 'services' | 'products') => {
         if (openDropdown === menu && !isAnimatingOut) {
@@ -201,7 +199,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                             className="text-[11px] font-semibold uppercase tracking-[0.12em] transition-opacity duration-200 group-hover/cat:opacity-80"
                                                             style={{ color: cat.color }}
                                                         >
-                                                            {cat.label}
+                                                            {dict.serviceNavigation[cat.href as keyof typeof dict.serviceNavigation]}
                                                         </span>
                                                         <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all duration-200 group-hover/cat:opacity-60 group-hover/cat:translate-x-0" style={{ color: cat.color }} />
                                                     </TransitionLink>
@@ -209,7 +207,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                     <div className="flex flex-col">
                                                         {cat.items.map((item, i) => (
                                                             <TransitionLink
-                                                                key={item.label}
+                                                                key={dict.serviceNavigation[item.href as keyof typeof dict.serviceNavigation]}
                                                                 href={`/${lang}${item.href}`}
                                                                 onClick={() => { closeDropdown(); }}
                                                                 className="mega-content-item group/item relative rounded-md py-2 pl-3 pr-2 text-[13px] text-slate-500 transition-all duration-150 hover:text-white hover:bg-white/[0.03]"
@@ -220,7 +218,7 @@ export default function Navbar({ dict, lang }: NavbarProps) {
                                                                     className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 rounded-full transition-all duration-200 group-hover/item:h-4"
                                                                     style={{ backgroundColor: cat.color }}
                                                                 />
-                                                                {item.label}
+                                                                {dict.serviceNavigation[item.href as keyof typeof dict.serviceNavigation]}
                                                             </TransitionLink>
                                                         ))}
                                                     </div>

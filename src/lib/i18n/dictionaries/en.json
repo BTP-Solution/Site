@@ -35,7 +35,8 @@
                 "suffix": "+",
                 "label": "Active Products"
             }
-        ]
+        ],
+        "badge": "Next-Generation SAP and AI Solutions"
     },
     "expertise": {
         "label": "Platforms We Specialize In"
@@ -46,28 +47,78 @@
         "consulting": {
             "tag": "Consulting",
             "title": "SAP Consulting",
-            "description": "S/4HANA migration, BTP integration, ABAP & Fiori development, and process optimization to future-proof your enterprise."
+            "description": "S/4HANA migration, BTP integration, ABAP & Fiori development, and process optimization to future-proof your enterprise.",
+            "tags": [
+                "SD",
+                "MM",
+                "FI",
+                "CO",
+                "PP",
+                "QM"
+            ]
         },
         "edonusum": {
             "title": "E-Transformation",
-            "description": "We manage all your e-transformation processes including e-Invoice, e-Dispatch, e-Archive with seamless SAP integration."
+            "description": "We manage all your e-transformation processes including e-Invoice, e-Dispatch, e-Archive with seamless SAP integration.",
+            "tags": [
+                "e-Invoice",
+                "e-Dispatch",
+                "e-Archive",
+                "e-Ledger",
+                "e-Producer Receipt"
+            ]
         },
         "supplychain": {
             "title": "Digital Supply Chain",
-            "description": "We digitize your planning, production, logistics, and supplier management processes to boost efficiency."
+            "description": "We digitize your planning, production, logistics, and supplier management processes to boost efficiency.",
+            "tags": [
+                "EWM",
+                "TM",
+                "IBP",
+                "Logistics",
+                "Warehouse Management"
+            ]
         },
         "integration": {
             "title": "Integration Solutions",
-            "description": "Bank integration, DBS, API connections, and U-ETDS to connect your systems end-to-end."
+            "description": "Bank integration, DBS, API connections, and U-ETDS to connect your systems end-to-end.",
+            "tags": [
+                "Direct Debit",
+                "Bank APIs",
+                "U-ETDS",
+                "B2B Integration",
+                "Web Services"
+            ]
         },
         "tech": {
             "title": "Technology & Cloud",
-            "description": "S/4HANA, SAP BTP, ABAP/RAP/CAP, Fiori, and cloud strategies to manage your technological transformation."
+            "description": "S/4HANA, SAP BTP, ABAP/RAP/CAP, Fiori, and cloud strategies to manage your technological transformation.",
+            "tags": [
+                "SAP BTP",
+                "S/4HANA",
+                "Fiori",
+                "ABAP RAP",
+                "Cloud"
+            ]
         },
         "rnd": {
             "tag": "R&D",
             "title": "Product Innovation",
-            "description": "We develop niche products on the SAP ecosystem focused on AI and sustainability."
+            "description": "We develop niche products on the SAP ecosystem focused on AI and sustainability.",
+            "products": [
+                {
+                    "title": "BTP AI Edge",
+                    "description": "Automate business processes with AI-powered forecasting and decision support."
+                },
+                {
+                    "title": "GreenOps Dashboard",
+                    "description": "Track sustainability and carbon emissions in real time with ESG-aligned reporting."
+                },
+                {
+                    "title": "Smart Logistics Co-Pilot",
+                    "description": "Optimize your logistics network with sensors and AI-powered assistance."
+                }
+            ]
         },
         "productSlides": [
             {
@@ -143,10 +194,22 @@
         "heroTitle3": "into Value",
         "heroSubtitle": "At BTP Solution, we bring your enterprise business processes into the digital age with specialized SAP consulting services and AI-powered innovative products.",
         "stats": [
-            { "value": "50+", "label": "Projects Delivered" },
-            { "value": "30+", "label": "Happy Clients" },
-            { "value": "4+", "label": "Years of Experience" },
-            { "value": "20+", "label": "Expert Team" }
+            {
+                "value": "50+",
+                "label": "Projects Delivered"
+            },
+            {
+                "value": "30+",
+                "label": "Happy Clients"
+            },
+            {
+                "value": "4+",
+                "label": "Years of Experience"
+            },
+            {
+                "value": "20+",
+                "label": "Expert Team"
+            }
         ],
         "whoWeAre": "Who We Are",
         "storyP1": "BTP Solution is a technology and consulting company specialized in the SAP ecosystem. Our Istanbul-based team provides end-to-end services to enterprise clients in S/4HANA transformation, SAP BTP integrations, ABAP/RAP/CAP development, and process automation.",
@@ -159,16 +222,40 @@
         "valuesTitle": "Our Values",
         "valuesSubtitle": "The core values that shape our work style and guide us in every project.",
         "values": [
-            { "title": "Technology Focus", "description": "We follow the latest technologies in the SAP ecosystem and deliver the best solutions to our clients." },
-            { "title": "Reliability", "description": "We build trust-based relationships through transparent communication, timely delivery, and quality output in every project." },
-            { "title": "Agility", "description": "In a rapidly changing business world, we respond instantly to our clients' needs with our flexible approach." },
-            { "title": "Global Vision", "description": "We develop enterprise solutions that reach from Turkey to the world, delivering services at international standards." }
+            {
+                "title": "Technology Focus",
+                "description": "We follow the latest technologies in the SAP ecosystem and deliver the best solutions to our clients."
+            },
+            {
+                "title": "Reliability",
+                "description": "We build trust-based relationships through transparent communication, timely delivery, and quality output in every project."
+            },
+            {
+                "title": "Agility",
+                "description": "In a rapidly changing business world, we respond instantly to our clients' needs with our flexible approach."
+            },
+            {
+                "title": "Global Vision",
+                "description": "We develop enterprise solutions that reach from Turkey to the world, delivering services at international standards."
+            }
         ],
         "whyUsTitle": "Why BTP Solution?",
         "whyUs": [
-            { "title": "SAP Expertise", "description": "Deep expertise in S/4HANA, BTP, ABAP RAP/CAP, Fiori, and all SAP modules.", "icon": "🏆" },
-            { "title": "Innovative Products", "description": "AI-powered niche products running on the SAP ecosystem, like APD Automation.", "icon": "🚀" },
-            { "title": "End-to-End Solutions", "description": "We are with you in every step from consulting to implementation, from integration to maintenance.", "icon": "🔗" }
+            {
+                "title": "SAP Expertise",
+                "description": "Deep expertise in S/4HANA, BTP, ABAP RAP/CAP, Fiori, and all SAP modules.",
+                "icon": "🏆"
+            },
+            {
+                "title": "Innovative Products",
+                "description": "AI-powered niche products running on the SAP ecosystem, like APD Automation.",
+                "icon": "🚀"
+            },
+            {
+                "title": "End-to-End Solutions",
+                "description": "We are with you in every step from consulting to implementation, from integration to maintenance.",
+                "icon": "🔗"
+            }
         ],
         "discoverServices": "Discover Our Services",
         "contactTitle": "Get in Touch",
@@ -191,46 +278,139 @@
                 "title": "SAP Consulting & Implementation",
                 "description": "S/4HANA transformation, module implementation, and enterprise process optimization to future-proof your infrastructure.",
                 "items": [
-                    { "title": "Supply Chain, Production & Logistics", "description": "Supply chain optimization with SAP MM, SD, PP, WM/EWM modules." },
-                    { "title": "Process Analysis & Project Management", "description": "Analyzing your business processes to create a digital transformation roadmap." },
-                    { "title": "SAP Roll-out & Support Services", "description": "Multi-location roll-out projects and continuous support services." },
-                    { "title": "Financial Solutions", "description": "Financial planning, reporting, and consolidation with SAP FI/CO." },
-                    { "title": "Human Resources Solutions", "description": "Digitalization of HR processes with SAP SuccessFactors and HCM." },
-                    { "title": "Business Intelligence & Analytics", "description": "Data-driven decision making with SAP BW and Analytics Cloud." },
-                    { "title": "Customer Experience & Sales", "description": "360° customer experience management with SAP CX/CRM." }
+                    {
+                        "title": "Supply Chain, Production & Logistics",
+                        "description": "Supply chain optimization with SAP MM, SD, PP, WM/EWM modules."
+                    },
+                    {
+                        "title": "Process Analysis & Project Management",
+                        "description": "Analyzing your business processes to create a digital transformation roadmap."
+                    },
+                    {
+                        "title": "SAP Roll-out & Support Services",
+                        "description": "Multi-location roll-out projects and continuous support services."
+                    },
+                    {
+                        "title": "Financial Solutions",
+                        "description": "Financial planning, reporting, and consolidation with SAP FI/CO."
+                    },
+                    {
+                        "title": "Human Resources Solutions",
+                        "description": "Digitalization of HR processes with SAP SuccessFactors and HCM."
+                    },
+                    {
+                        "title": "Business Intelligence & Analytics",
+                        "description": "Data-driven decision making with SAP BW and Analytics Cloud."
+                    },
+                    {
+                        "title": "Customer Experience & Sales",
+                        "description": "360° customer experience management with SAP CX/CRM."
+                    }
                 ]
             },
             "tech": {
                 "title": "Technology & Software Development",
                 "description": "Modern solutions with SAP BTP, ABAP RAP/CAP, Fiori/SAPUI5, and cloud technologies.",
                 "items": [
-                    { "title": "SAP BTP Solutions", "description": "Application development and integration on Business Technology Platform." },
-                    { "title": "ABAP, RAP / CAP Development", "description": "Modern ABAP and CAP applications with clean core principles." },
-                    { "title": "SAP Fiori & SAPUI5 Interfaces", "description": "User-friendly, responsive SAP interface development." },
-                    { "title": "Cloud Migration & Modernization", "description": "Secure migration from on-premise systems to cloud infrastructure." },
-                    { "title": "Workflow & Process Automation", "description": "Business process automation with SAP Build Process Automation." }
+                    {
+                        "title": "SAP BTP Solutions",
+                        "description": "Application development and integration on Business Technology Platform."
+                    },
+                    {
+                        "title": "ABAP, RAP / CAP Development",
+                        "description": "Modern ABAP and CAP applications with clean core principles."
+                    },
+                    {
+                        "title": "SAP Fiori & SAPUI5 Interfaces",
+                        "description": "User-friendly, responsive SAP interface development."
+                    },
+                    {
+                        "title": "Cloud Migration & Modernization",
+                        "description": "Secure migration from on-premise systems to cloud infrastructure."
+                    },
+                    {
+                        "title": "Workflow & Process Automation",
+                        "description": "Business process automation with SAP Build Process Automation."
+                    }
                 ]
             },
             "integration": {
                 "title": "Integration Solutions",
                 "description": "Integration with SAP and non-SAP systems, banks, e-transformation platforms, and third-party applications.",
                 "items": [
-                    { "title": "E-Transformation & Digital Archiving", "description": "e-Invoice, e-Dispatch, e-Archive, and all e-transformation processes." },
-                    { "title": "API & System Integrations", "description": "REST, SOAP, OData-based system integrations." },
-                    { "title": "SAP & Non-SAP System Integrations", "description": "Data flow between different ERP and business systems." },
-                    { "title": "Bank & Fintech Integrations", "description": "Multi-bank integration, DBS, and payment systems." }
+                    {
+                        "title": "E-Transformation & Digital Archiving",
+                        "description": "e-Invoice, e-Dispatch, e-Archive, and all e-transformation processes."
+                    },
+                    {
+                        "title": "API & System Integrations",
+                        "description": "REST, SOAP, OData-based system integrations."
+                    },
+                    {
+                        "title": "SAP & Non-SAP System Integrations",
+                        "description": "Data flow between different ERP and business systems."
+                    },
+                    {
+                        "title": "Bank & Fintech Integrations",
+                        "description": "Multi-bank integration, DBS, and payment systems."
+                    }
                 ]
             },
             "ai": {
                 "title": "Data, AI & Smart Solutions",
                 "description": "Creating value from data with data management, business intelligence, AI, and smart automation.",
                 "items": [
-                    { "title": "Data Management & Transformation", "description": "Master data management, data quality, and transformation projects." },
-                    { "title": "Business Intelligence & Advanced Analytics", "description": "Advanced reporting with SAP Analytics Cloud and BW." },
-                    { "title": "Artificial Intelligence & Machine Learning", "description": "Demand forecasting, anomaly detection, and intelligent decision support systems." },
-                    { "title": "Smart Workflow & Process Automation", "description": "RPA and AI-powered process automation solutions." }
+                    {
+                        "title": "Data Management & Transformation",
+                        "description": "Master data management, data quality, and transformation projects."
+                    },
+                    {
+                        "title": "Business Intelligence & Advanced Analytics",
+                        "description": "Advanced reporting with SAP Analytics Cloud and BW."
+                    },
+                    {
+                        "title": "Artificial Intelligence & Machine Learning",
+                        "description": "Demand forecasting, anomaly detection, and intelligent decision support systems."
+                    },
+                    {
+                        "title": "Smart Workflow & Process Automation",
+                        "description": "RPA and AI-powered process automation solutions."
+                    }
                 ]
             }
         }
+    },
+    "cookies": {
+        "title": "Cookie Preferences",
+        "description": "We use cookies needed to operate this website. You can accept or reject optional cookies.",
+        "accept": "Accept",
+        "reject": "Reject",
+        "close": "Reject optional cookies and close"
+    },
+    "serviceNavigation": {
+        "/services/sap-consulting": "SAP Consulting and Implementation",
+        "/services/sap-consulting/supply-chain": "Supply Chain, Manufacturing and Logistics",
+        "/services/sap-consulting/process-analysis": "Process Analysis and Project Management",
+        "/services/sap-consulting/roll-out": "SAP Roll-out and Support",
+        "/services/sap-consulting/financial-solutions": "Financial Solutions",
+        "/services/sap-consulting/hr-solutions": "Human Resources Solutions",
+        "/services/sap-consulting/business-intelligence": "Business Intelligence and Data Analytics",
+        "/services/sap-consulting/customer-experience": "Customer Experience and Sales",
+        "/services/tech-development": "Technology and Software Development",
+        "/services/tech-development/sap-btp": "SAP BTP Solutions",
+        "/services/tech-development/abap-rap-cap": "ABAP, RAP / CAP Development",
+        "/services/tech-development/fiori-sapui5": "SAP Fiori and SAPUI5 Interfaces",
+        "/services/tech-development/cloud-migration": "Cloud Migration and Modernization",
+        "/services/tech-development/workflow-automation": "Workflow and Process Automation",
+        "/services/integration-solutions": "Integration Solutions",
+        "/services/integration-solutions/e-donusum": "E-Transformation and Digital Archiving",
+        "/services/integration-solutions/api-integration": "API and System Integration",
+        "/services/integration-solutions/sap-nonsap": "SAP and Non-SAP Integration",
+        "/services/integration-solutions/banka-fintech": "Banking and Fintech Integration",
+        "/services/ai-data-solutions": "Data, AI and Intelligent Solutions",
+        "/services/ai-data-solutions/data-management": "Data Management and Transformation",
+        "/services/ai-data-solutions/business-analytics": "Business Intelligence and Advanced Analytics",
+        "/services/ai-data-solutions/ai-ml": "Artificial Intelligence and Machine Learning",
+        "/services/ai-data-solutions/rpa-automation": "Intelligent Workflow and Process Automation"
     }
 }

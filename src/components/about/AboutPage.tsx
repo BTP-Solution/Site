@@ -1,10 +1,11 @@
 'use client';
 
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 import { Building2, Users, Target, Award, MapPin, Mail, Phone, ArrowRight, Sparkles, Globe, Cpu, Shield, Zap } from 'lucide-react';
 import TransitionLink from '@/components/ui/TransitionLink';
 
 type AboutPageProps = {
-    dict: any;
+    dict: Dictionary;
     lang: string;
 };
 
@@ -16,7 +17,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
     const about = dict.about;
 
     return (
-        <main className="w-full flex flex-col items-center overflow-hidden bg-[#060d1a]">
+        <section className="w-full flex flex-col items-center overflow-hidden bg-[#060d1a]">
             
             <div className="fixed inset-0 pointer-events-none z-0">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#3463ac]/10 blur-[120px]" />
@@ -50,7 +51,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                 <section className="w-full pb-20">
                     <div className="container mx-auto px-4 sm:px-8 max-w-5xl">
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s both' }}>
-                            {about.stats.map((stat: any, i: number) => {
+                            {about.stats.map((stat, i: number) => {
                                 const Icon = STAT_ICONS[i];
                                 return (
                                     <div
@@ -118,7 +119,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                             <p className="mt-4 text-slate-400 max-w-2xl mx-auto">{about.valuesSubtitle}</p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            {about.values.map((val: any, i: number) => {
+                            {about.values.map((val, i: number) => {
                                 const Icon = VALUE_ICONS[i];
                                 const color = VALUE_COLORS[i];
                                 return (
@@ -152,7 +153,7 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                             <div className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-[#3463ac] to-[#7e22ce] mx-auto" />
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                            {about.whyUs.map((item: any) => (
+                            {about.whyUs.map((item) => (
                                 <div key={item.title} className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 text-center hover:border-white/[0.12] transition-all duration-300">
                                     <div className="text-3xl mb-4">{item.icon}</div>
                                     <h3 className="text-lg font-semibold text-white">{item.title}</h3>
@@ -234,6 +235,6 @@ export default function AboutPage({ dict, lang }: AboutPageProps) {
                 </section>
 
             </div>
-        </main>
+        </section>
     );
 }

@@ -26,7 +26,7 @@ export default async function AbapRapCapPage({ params }: { params: Promise<{ lan
     const t = getAbapRapCapContent(lang);
 
     return (
-        <main className="w-full flex flex-col bg-[#060d1a]">
+        <div className="w-full flex flex-col bg-[#060d1a]">
             <BreadcrumbJsonLd items={t.breadcrumbs} lang={lang} />
             <ServiceJsonLd name={t.title} description={t.description} lang={lang} path="/services/tech-development/abap-rap-cap" />
             <ServiceHero
@@ -48,6 +48,6 @@ export default async function AbapRapCapPage({ params }: { params: Promise<{ lan
             <ServiceBenefits sectionTitle={t.checksTitle} variant="checks" accentColor="#10b981" items={t.checks} />
             <ServiceBenefits sectionTitle={t.benefitsTitle} variant="pills" accentColor="#10b981" items={t.benefits} />
             <ServiceCta title={t.ctaTitle} subtitle={t.ctaSubtitle} buttonText={t.ctaButton} buttonHref="/contact" features={t.ctaFeatures} />
-        </main>
+        </div>
     );
 }

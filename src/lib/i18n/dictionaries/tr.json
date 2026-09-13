@@ -35,7 +35,8 @@
                 "suffix": "+",
                 "label": "İnovatif Çözüm"
             }
-        ]
+        ],
+        "badge": "Yeni Nesil SAP ve AI Çözümleri"
     },
     "expertise": {
         "label": "Uzmanı Olduğumuz Platformlar"
@@ -193,10 +194,22 @@
         "heroTitle3": "Dönüştürüyoruz",
         "heroSubtitle": "BTP Solution olarak SAP ekosisteminde uzmanlaşmış danışmanlık hizmetleri ve yapay zekâ destekli yenilikçi ürünlerle kurumsal iş süreçlerinizi dijital çağa taşıyoruz.",
         "stats": [
-            { "value": "50+", "label": "Tamamlanan Proje" },
-            { "value": "30+", "label": "Mutlu Müşteri" },
-            { "value": "4+", "label": "Yıllık Deneyim" },
-            { "value": "20+", "label": "Uzman Kadro" }
+            {
+                "value": "50+",
+                "label": "Tamamlanan Proje"
+            },
+            {
+                "value": "30+",
+                "label": "Mutlu Müşteri"
+            },
+            {
+                "value": "4+",
+                "label": "Yıllık Deneyim"
+            },
+            {
+                "value": "20+",
+                "label": "Uzman Kadro"
+            }
         ],
         "whoWeAre": "Biz Kimiz?",
         "storyP1": "BTP Solution, SAP ekosisteminde uzmanlaşmış bir teknoloji ve danışmanlık şirketidir. İstanbul merkezli ekibimiz, kurumsal müşterilerimize S/4HANA dönüşümü, SAP BTP entegrasyonları, ABAP/RAP/CAP geliştirme ve süreç otomasyonu alanlarında uçtan uca hizmet sunmaktadır.",
@@ -209,16 +222,40 @@
         "valuesTitle": "Değerlerimiz",
         "valuesSubtitle": "İş yapış tarzımızı şekillendiren ve her projede rehberimiz olan temel değerlerimiz.",
         "values": [
-            { "title": "Teknoloji Odaklılık", "description": "SAP ekosisteminde en güncel teknolojileri takip ediyor, müşterilerimize en iyi çözümleri sunuyoruz." },
-            { "title": "Güvenilirlik", "description": "Her projede şeffaf iletişim, zamanında teslimat ve kaliteli iş çıktısı ile güvene dayalı ilişkiler kuruyoruz." },
-            { "title": "Çeviklik", "description": "Hızla değişen iş dünyasında esnek yaklaşımımız ile müşterilerimizin ihtiyaçlarına anında cevap veriyoruz." },
-            { "title": "Global Vizyon", "description": "Uluslararası standartlarda hizmet sunarak Türkiye'den dünyaya açılan kurumsal çözümler geliştiriyoruz." }
+            {
+                "title": "Teknoloji Odaklılık",
+                "description": "SAP ekosisteminde en güncel teknolojileri takip ediyor, müşterilerimize en iyi çözümleri sunuyoruz."
+            },
+            {
+                "title": "Güvenilirlik",
+                "description": "Her projede şeffaf iletişim, zamanında teslimat ve kaliteli iş çıktısı ile güvene dayalı ilişkiler kuruyoruz."
+            },
+            {
+                "title": "Çeviklik",
+                "description": "Hızla değişen iş dünyasında esnek yaklaşımımız ile müşterilerimizin ihtiyaçlarına anında cevap veriyoruz."
+            },
+            {
+                "title": "Global Vizyon",
+                "description": "Uluslararası standartlarda hizmet sunarak Türkiye'den dünyaya açılan kurumsal çözümler geliştiriyoruz."
+            }
         ],
         "whyUsTitle": "Neden BTP Solution?",
         "whyUs": [
-            { "title": "SAP Uzmanlığı", "description": "S/4HANA, BTP, ABAP RAP/CAP, Fiori ve tüm SAP modüllerinde derin uzmanlık.", "icon": "🏆" },
-            { "title": "Yenilikçi Ürünler", "description": "APD Automation gibi yapay zekâ destekli, SAP ekosistemi üzerinde çalışan niş ürünler.", "icon": "🚀" },
-            { "title": "Uçtan Uca Çözüm", "description": "Danışmanlıktan uygulamaya, entegrasyondan bakıma kadar tüm süreçlerde yanınızdayız.", "icon": "🔗" }
+            {
+                "title": "SAP Uzmanlığı",
+                "description": "S/4HANA, BTP, ABAP RAP/CAP, Fiori ve tüm SAP modüllerinde derin uzmanlık.",
+                "icon": "🏆"
+            },
+            {
+                "title": "Yenilikçi Ürünler",
+                "description": "APD Automation gibi yapay zekâ destekli, SAP ekosistemi üzerinde çalışan niş ürünler.",
+                "icon": "🚀"
+            },
+            {
+                "title": "Uçtan Uca Çözüm",
+                "description": "Danışmanlıktan uygulamaya, entegrasyondan bakıma kadar tüm süreçlerde yanınızdayız.",
+                "icon": "🔗"
+            }
         ],
         "discoverServices": "Hizmetlerimizi Keşfedin",
         "contactTitle": "Bize Ulaşın",
@@ -241,46 +278,139 @@
                 "title": "SAP Danışmanlık ve Uygulama Hizmetleri",
                 "description": "S/4HANA dönüşümü, modül implementasyonu ve kurumsal süreç optimizasyonu ile altyapınızı geleceğe hazırlıyoruz.",
                 "items": [
-                    { "title": "Tedarik Zinciri, Üretim ve Lojistik", "description": "SAP MM, SD, PP, WM/EWM modülleriyle tedarik zinciri optimizasyonu." },
-                    { "title": "Süreç Analizi ve Proje Yönetimi", "description": "İş süreçlerinizi analiz ederek dijital dönüşüm roadmap'i oluşturuyoruz." },
-                    { "title": "SAP Roll-out ve Destek Hizmetleri", "description": "Çok lokasyonlu projelerde roll-out ve sürekli destek hizmetleri." },
-                    { "title": "Finansal Çözümler", "description": "SAP FI/CO ile finansal planlama, raporlama ve konsolidasyon." },
-                    { "title": "İnsan Kaynakları Çözümleri", "description": "SAP SuccessFactors ve HCM ile İK süreçlerinin dijitalleştirilmesi." },
-                    { "title": "İş Zekası ve Veri Analitiği", "description": "SAP BW, Analytics Cloud ile veri odaklı karar alma süreçleri." },
-                    { "title": "Müşteri Deneyimi ve Satış", "description": "SAP CX/CRM ile 360° müşteri deneyimi yönetimi." }
+                    {
+                        "title": "Tedarik Zinciri, Üretim ve Lojistik",
+                        "description": "SAP MM, SD, PP, WM/EWM modülleriyle tedarik zinciri optimizasyonu."
+                    },
+                    {
+                        "title": "Süreç Analizi ve Proje Yönetimi",
+                        "description": "İş süreçlerinizi analiz ederek dijital dönüşüm roadmap'i oluşturuyoruz."
+                    },
+                    {
+                        "title": "SAP Roll-out ve Destek Hizmetleri",
+                        "description": "Çok lokasyonlu projelerde roll-out ve sürekli destek hizmetleri."
+                    },
+                    {
+                        "title": "Finansal Çözümler",
+                        "description": "SAP FI/CO ile finansal planlama, raporlama ve konsolidasyon."
+                    },
+                    {
+                        "title": "İnsan Kaynakları Çözümleri",
+                        "description": "SAP SuccessFactors ve HCM ile İK süreçlerinin dijitalleştirilmesi."
+                    },
+                    {
+                        "title": "İş Zekası ve Veri Analitiği",
+                        "description": "SAP BW, Analytics Cloud ile veri odaklı karar alma süreçleri."
+                    },
+                    {
+                        "title": "Müşteri Deneyimi ve Satış",
+                        "description": "SAP CX/CRM ile 360° müşteri deneyimi yönetimi."
+                    }
                 ]
             },
             "tech": {
                 "title": "Teknoloji ve Yazılım Geliştirme",
                 "description": "SAP BTP, ABAP RAP/CAP, Fiori/SAPUI5 ve bulut teknolojileriyle modern çözümler geliştiriyoruz.",
                 "items": [
-                    { "title": "SAP BTP Çözümleri", "description": "Business Technology Platform üzerinde uygulama geliştirme ve entegrasyon." },
-                    { "title": "ABAP, RAP / CAP Geliştirme", "description": "Clean core prensibiyle modern ABAP ve CAP uygulamaları." },
-                    { "title": "SAP Fiori ve SAPUI5 Arayüzleri", "description": "Kullanıcı dostu, responsive SAP arayüz geliştirme." },
-                    { "title": "Bulut Geçiş ve Modernizasyon", "description": "On-premise sistemlerden bulut altyapısına güvenli geçiş." },
-                    { "title": "İş Akışı ve Süreç Otomasyonu", "description": "SAP Build Process Automation ile iş süreçlerinin otomatikleştirilmesi." }
+                    {
+                        "title": "SAP BTP Çözümleri",
+                        "description": "Business Technology Platform üzerinde uygulama geliştirme ve entegrasyon."
+                    },
+                    {
+                        "title": "ABAP, RAP / CAP Geliştirme",
+                        "description": "Clean core prensibiyle modern ABAP ve CAP uygulamaları."
+                    },
+                    {
+                        "title": "SAP Fiori ve SAPUI5 Arayüzleri",
+                        "description": "Kullanıcı dostu, responsive SAP arayüz geliştirme."
+                    },
+                    {
+                        "title": "Bulut Geçiş ve Modernizasyon",
+                        "description": "On-premise sistemlerden bulut altyapısına güvenli geçiş."
+                    },
+                    {
+                        "title": "İş Akışı ve Süreç Otomasyonu",
+                        "description": "SAP Build Process Automation ile iş süreçlerinin otomatikleştirilmesi."
+                    }
                 ]
             },
             "integration": {
                 "title": "Entegrasyon Çözümleri",
                 "description": "SAP ve non-SAP sistemleri, bankalar, e-dönüşüm platformları ve üçüncü parti uygulamalarla entegrasyon.",
                 "items": [
-                    { "title": "E-Dönüşüm ve Dijital Arşivleme", "description": "e-Fatura, e-İrsaliye, e-Arşiv ve tüm e-dönüşüm süreçleri." },
-                    { "title": "API ve Sistem Entegrasyonları", "description": "REST, SOAP, OData tabanlı sistem entegrasyonları." },
-                    { "title": "SAP ve Non-SAP Sistem Entegrasyonları", "description": "Farklı ERP ve iş sistemleri arası veri akışı." },
-                    { "title": "Banka ve Fintech Entegrasyonları", "description": "Çoklu banka entegrasyonu, DBS ve ödeme sistemleri." }
+                    {
+                        "title": "E-Dönüşüm ve Dijital Arşivleme",
+                        "description": "e-Fatura, e-İrsaliye, e-Arşiv ve tüm e-dönüşüm süreçleri."
+                    },
+                    {
+                        "title": "API ve Sistem Entegrasyonları",
+                        "description": "REST, SOAP, OData tabanlı sistem entegrasyonları."
+                    },
+                    {
+                        "title": "SAP ve Non-SAP Sistem Entegrasyonları",
+                        "description": "Farklı ERP ve iş sistemleri arası veri akışı."
+                    },
+                    {
+                        "title": "Banka ve Fintech Entegrasyonları",
+                        "description": "Çoklu banka entegrasyonu, DBS ve ödeme sistemleri."
+                    }
                 ]
             },
             "ai": {
                 "title": "Veri, Yapay Zeka ve Akıllı Çözümler",
                 "description": "Veri yönetimi, iş zekası, yapay zeka ve akıllı otomasyon ile veriden değer yaratıyoruz.",
                 "items": [
-                    { "title": "Veri Yönetimi ve Dönüşümü", "description": "Master data yönetimi, veri kalitesi ve dönüşüm projeleri." },
-                    { "title": "İş Zekası ve Gelişmiş Analitik", "description": "SAP Analytics Cloud ve BW ile gelişmiş raporlama." },
-                    { "title": "Yapay Zeka ve Makine Öğrenimi", "description": "Talep tahmini, anomali tespiti ve akıllı karar destek sistemleri." },
-                    { "title": "Akıllı İş Akışı ve Süreç Otomasyonu", "description": "RPA ve AI destekli süreç otomasyonu çözümleri." }
+                    {
+                        "title": "Veri Yönetimi ve Dönüşümü",
+                        "description": "Master data yönetimi, veri kalitesi ve dönüşüm projeleri."
+                    },
+                    {
+                        "title": "İş Zekası ve Gelişmiş Analitik",
+                        "description": "SAP Analytics Cloud ve BW ile gelişmiş raporlama."
+                    },
+                    {
+                        "title": "Yapay Zeka ve Makine Öğrenimi",
+                        "description": "Talep tahmini, anomali tespiti ve akıllı karar destek sistemleri."
+                    },
+                    {
+                        "title": "Akıllı İş Akışı ve Süreç Otomasyonu",
+                        "description": "RPA ve AI destekli süreç otomasyonu çözümleri."
+                    }
                 ]
             }
         }
+    },
+    "cookies": {
+        "title": "Çerez Tercihleri",
+        "description": "Sitemizin çalışması için gerekli çerezleri kullanırız. İsteğe bağlı çerezlere izin verebilir veya bunları reddedebilirsiniz.",
+        "accept": "Kabul Ediyorum",
+        "reject": "Reddet",
+        "close": "İsteğe bağlı çerezleri reddet ve kapat"
+    },
+    "serviceNavigation": {
+        "/services/sap-consulting": "SAP Danışmanlık ve Uygulama Hizmetleri",
+        "/services/sap-consulting/supply-chain": "Tedarik Zinciri, Üretim ve Lojistik",
+        "/services/sap-consulting/process-analysis": "Süreç Analizi ve Proje Yönetimi",
+        "/services/sap-consulting/roll-out": "SAP Roll-out ve Destek Hizmetleri",
+        "/services/sap-consulting/financial-solutions": "Finansal Çözümler",
+        "/services/sap-consulting/hr-solutions": "İnsan Kaynakları Çözümleri",
+        "/services/sap-consulting/business-intelligence": "İş Zekası ve Veri Analitiği",
+        "/services/sap-consulting/customer-experience": "Müşteri Deneyimi ve Satış",
+        "/services/tech-development": "Teknoloji ve Yazılım Geliştirme",
+        "/services/tech-development/sap-btp": "SAP BTP Çözümleri",
+        "/services/tech-development/abap-rap-cap": "ABAP, RAP / CAP Geliştirme",
+        "/services/tech-development/fiori-sapui5": "SAP Fiori ve SAPUI5 Arayüzleri",
+        "/services/tech-development/cloud-migration": "Bulut Geçiş ve Modernizasyon",
+        "/services/tech-development/workflow-automation": "İş Akışı ve Süreç Otomasyonu",
+        "/services/integration-solutions": "Entegrasyon Çözümleri",
+        "/services/integration-solutions/e-donusum": "E-Dönüşüm ve Dijital Arşivleme",
+        "/services/integration-solutions/api-integration": "API ve Sistem Entegrasyonları",
+        "/services/integration-solutions/sap-nonsap": "SAP ve Non-SAP Sistem Entegrasyonları",
+        "/services/integration-solutions/banka-fintech": "Banka ve Fintech Entegrasyonları",
+        "/services/ai-data-solutions": "Veri, Yapay Zeka ve Akıllı Çözümler",
+        "/services/ai-data-solutions/data-management": "Veri Yönetimi ve Dönüşümü",
+        "/services/ai-data-solutions/business-analytics": "İş Zekası ve Gelişmiş Analitik",
+        "/services/ai-data-solutions/ai-ml": "Yapay Zeka ve Makine Öğrenimi",
+        "/services/ai-data-solutions/rpa-automation": "Akıllı İş Akışı ve Süreç Otomasyonu"
     }
 }

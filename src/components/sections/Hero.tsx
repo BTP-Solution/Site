@@ -1,11 +1,12 @@
 'use client';
 
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 import TransitionLink from '@/components/ui/TransitionLink';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
 type HeroProps = {
-    dict: any;
+    dict: Dictionary;
     lang: string;
 };
 
@@ -97,7 +98,7 @@ export default function Hero({ dict, lang }: HeroProps) {
                         style={{ animationDelay: '0s', animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0s both, badge-glow 4s ease-in-out infinite' }}
                     >
                         <Sparkles className="h-4 w-4 text-purple-400" />
-                        <span>Yeni Nesil SAP ve AI Çözümleri</span>
+                        <span>{dict.hero.badge}</span>
                     </div>
 
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 leading-[1.1] pb-2" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
@@ -138,7 +139,7 @@ export default function Hero({ dict, lang }: HeroProps) {
 
                     <div className="mt-20 w-full max-w-4xl mx-auto rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md p-6 sm:p-8" style={{ animation: 'float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.7s both' }}>
                         <div className="grid grid-cols-1 divide-y divide-white/5 sm:grid-cols-3 sm:divide-y-0 sm:divide-x sm:divide-white/5">
-                            {dict.hero.stats.map((stat: any, i: number) => (
+                            {dict.hero.stats.map((stat, i: number) => (
                                 <div key={i} className="flex flex-col items-center py-4 sm:py-0">
                                     <span className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 tabular-nums">
                                         <AnimatedCounter target={stat.value} suffix={stat.suffix} />

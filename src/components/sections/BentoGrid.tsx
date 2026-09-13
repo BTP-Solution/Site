@@ -1,5 +1,6 @@
 'use client';
 
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 import { useEffect, useRef, useState } from 'react';
 import {
     Briefcase,
@@ -15,7 +16,7 @@ import {
 import ParticleCanvas from '@/components/ui/ParticleCanvas';
 
 type BentoGridProps = {
-    dict: any;
+    dict: Dictionary;
 };
 
 const SERVICES = [
@@ -192,7 +193,7 @@ export default function BentoGrid({ dict }: BentoGridProps) {
                             </div>
 
                             <div className="relative h-[110px] sm:h-[90px] w-full pointer-events-none">
-                                {b.rnd.products ? b.rnd.products.map((prod: any, idx: number) => (
+                                {b.rnd.products ? b.rnd.products.map((prod, idx: number) => (
                                     <div
                                         key={idx}
                                         className={`absolute top-0 left-0 w-full transition-all duration-700 ease-in-out ${activeRndIndex === idx ? 'opacity-100 translate-y-0 z-10 visible' : 'opacity-0 translate-y-4 z-0 invisible'}`}
@@ -229,7 +230,7 @@ export default function BentoGrid({ dict }: BentoGridProps) {
                                     </button>
 
                                     <div className="flex items-center gap-2 px-2">
-                                        {b.rnd.products && b.rnd.products.map((_: any, idx: number) => (
+                                        {b.rnd.products && b.rnd.products.map((_, idx: number) => (
                                             <button
                                                 key={idx}
                                                 onClick={(e) => {

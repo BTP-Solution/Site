@@ -29,11 +29,6 @@ export function WebSiteJsonLd({ lang }: { lang: string }) {
         name: 'BTP Solution',
         url: `https://btpsolution.com/${lang}`,
         inLanguage: lang === 'tr' ? 'tr-TR' : 'en-US',
-        potentialAction: {
-            '@type': 'SearchAction',
-            target: `https://btpsolution.com/${lang}/search?q={search_term_string}`,
-            'query-input': 'required name=search_term_string',
-        },
     };
 
     return (
