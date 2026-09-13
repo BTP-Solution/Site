@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { withLocale } from '@/lib/i18n/locale';
 
 type FooterProps = {
-    dict: Dictionary;
+    dict: any;
     lang: string;
 };
 
