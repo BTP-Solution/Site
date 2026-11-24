@@ -23,9 +23,10 @@ npm run build
 npx playwright install chromium
 npm run test:e2e
 npm run build:cloudflare
+PLAYWRIGHT_TARGET=worker npm run test:e2e
 ```
 
-Birim testleri Node.js test runner ile çalışır; dil yönlendirmesi, bağlantılar, çeviri yapısı, form doğrulaması, hız sınırı ve Resend sonuçlarını kapsar. E2E testleri Playwright kullanır. E-posta gönderen test yoktur: servis yanıtları taklit edilir.
+Birim testleri Node.js test runner ile çalışır; dil yönlendirmesi, bağlantılar, çeviri yapısı, form doğrulaması, APD talep konusu, hız sınırı ve Resend sonuçlarını kapsar. E2E testleri Playwright kullanır; mevcut 58 URL'nin yanıtını, canonical/hreflang etiketlerini, sitemap kapsamını, menüyü ve mobil/masaüstü yerleşimi doğrular. Mevcut adresler `src/tests/e2e/existing-urls.json` dosyasında tutulur. E-posta gönderen test yoktur: servis yanıtları taklit edilir.
 
 Windows'ta kısıtlı bir işlem ortamı `spawn EPERM` verirse birim testleri aynı işlemde çalıştırılabilir:
 
@@ -33,11 +34,11 @@ Windows'ta kısıtlı bir işlem ortamı `spawn EPERM` verirse birim testleri ay
 node --experimental-strip-types --experimental-test-isolation=none --test src/tests/unit/*.test.mjs
 ```
 
-Bu seçenek üretim derlemesi veya tarayıcı testlerinin yerini tutmaz. GitHub Actions, Linux üzerinde lint, tip kontrolü, testler, üretim derlemesi, Playwright ve yayın yapmayan OpenNext derlemesini çalıştırır.
+Bu seçenek üretim derlemesi veya tarayıcı testlerinin yerini tutmaz. GitHub Actions, Linux üzerinde lint, tip kontrolü, testler, üretim derlemesi ve Playwright kontrollerini çalıştırır. Ardından OpenNext paketini oluşturup aynı tarayıcı kontrollerini yerel Cloudflare Worker üzerinde tekrarlar; bu adımlar yayın yapmaz. `PLAYWRIGHT_TARGET=worker` için önce `npm run build:cloudflare` çalıştırılmalıdır.
 
-## İletişim ve APD demo formu
+## İletişim ve APD kapsam görüşmesi
 
-`/tr/contact`, `/en/contact` ve APD demo formu aynı `POST /api/contact` uç noktasını kullanır.
+`/tr/contact`, `/en/contact` ve APD görüşme formu aynı `POST /api/contact` uç noktasını kullanır. APD formu, talep konusunu `apd` olarak iletir; konu ve alıcı sunucuda sınırlandırılır.
 
 Alıcı varsayılan olarak **info@btpsolution.com**. Gönderim için:
 1. Resend'de gönderici alan adını doğrulayın.
@@ -69,6 +70,7 @@ OpenNext'in Node proxy desteği kısıtlı olduğu için dil yönlendirmesi Edge
 
 - TR/EN ana metinleri: `src/lib/i18n/dictionaries/`.
 - Hizmet ve APD metinleri: `src/lib/i18n/services/`.
+- Ana sayfa ve APD sunumu: `src/components/marketing/`. APD geliştirme aşamasındadır; canlı müşteri kullanımı veya ölçülmüş başarı iddiası eklemeyin.
 - Yeni sayfa eklerken `src/app/sitemap.ts` listesini güncelleyin.
 - Site içi etkileşimli bağlantılarda `TransitionLink`, sunucu bileşenlerinde `withLocale` kullanın.
 - Ortak layout tek `main` öğesi sağlar; sayfalarda `section`/ `div` kullanın.

@@ -1,345 +1,72 @@
 'use client';
-
-import type { Dictionary } from '@/lib/i18n/getDictionary';
-import { useState, useEffect } from 'react';
-import TransitionLink from '@/components/ui/TransitionLink';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Globe, Menu, X, ChevronRight, ChevronDown, Cloud, BarChart3, Check, Sparkles, FileCheck2 } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
+import type { Dictionary } from '@/lib/i18n/getDictionary';
 import Navbar from './Navbar';
+import styles from '@/components/marketing/Marketing.module.css';
 
-const SUPPORTED_LANGUAGES = [
-    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-];
-
-type HeaderProps = {
-    dict: Dictionary;
-    lang: string;
-};
-
-export default function Header({ dict, lang }: HeaderProps) {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [expandedMobileSection, setExpandedMobileSection] = useState<string | null>(null);
-    const [isScrolled, setIsScrolled] = useState(false);
+export default function Header({ dict, lang }: { dict: Dictionary; lang: string }) {
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const [servicesOpen, setServicesOpen] = useState(false);
+    const headerRef = useRef<HTMLElement>(null);
+    const menuRef = useRef<HTMLButtonElement>(null);
+    const servicesRef = useRef<HTMLButtonElement>(null);
     const pathname = usePathname();
-
-    const redirectedPathname = (locale: string) => {
-        if (!pathname) return `/${locale}`;
-        const segments = pathname.split('/');
-        segments[1] = locale; // Replace the current locale segment with the new one
-        return segments.join('/');
-    };
-
+    const en = lang === 'en';
+    const close = () => { setMobileOpen(false); setServicesOpen(false); };
     useEffect(() => {
-        const handleScroll = () => {
-            const y = window.scrollY;
-            setIsScrolled(prev => {
-
-                if (!prev && y > 50) return true;
-                if (prev && y < 10) return false;
-                return prev;
-            });
+        const onKey = (event: KeyboardEvent) => {
+            if (event.key !== 'Escape') return;
+            if (mobileOpen) { setMobileOpen(false); setServicesOpen(false); menuRef.current?.focus(); }
+            else if (servicesOpen) { setServicesOpen(false); servicesRef.current?.focus(); }
         };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
+        const onOutside = (event: MouseEvent) => {
+            if (!headerRef.current?.contains(event.target as Node)) { setServicesOpen(false); setMobileOpen(false); }
+        };
+        const onResize = () => { if (window.innerWidth > 900) { setMobileOpen(false); setServicesOpen(false); } };
+        document.addEventListener('keydown', onKey);
+        document.addEventListener('click', onOutside);
+        window.addEventListener('resize', onResize);
+        return () => { document.removeEventListener('keydown', onKey); document.removeEventListener('click', onOutside); window.removeEventListener('resize', onResize); };
+    }, [mobileOpen, servicesOpen]);
     useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => { document.body.style.overflow = ''; };
-    }, [isMobileMenuOpen]);
-
-    useEffect(() => {
-        if (!isMobileMenuOpen) return;
-        const close = (event: KeyboardEvent) => { if (event.key === 'Escape') { setIsMobileMenuOpen(false); document.querySelector<HTMLButtonElement>('[aria-controls="mobile-menu"]')?.focus(); } };
-        document.addEventListener('keydown', close);
-        return () => document.removeEventListener('keydown', close);
-    }, [isMobileMenuOpen]);
-
-    const toggleSection = (section: string) => {
-        setExpandedMobileSection(prev => prev === section ? null : section);
-    };
-
-    return (
-        <header
-            className={`header-glass sticky top-0 z-50 w-full border-b bg-slate-950/50 backdrop-blur-xl ${isScrolled
-                ? 'scrolled border-white/[0.06]'
-                : 'border-white/[0.03]'
-                }`}
-        >
-            <div
-                className={`container relative mx-auto flex items-center justify-between px-4 sm:px-8 transition-all duration-400 ${isScrolled ? 'h-16' : 'h-24'
-                    }`}
-            >
-                
-                <div className="flex-1 pr-6 z-50" onClick={() => { if (isMobileMenuOpen) setIsMobileMenuOpen(false); }}>
-                    <Navbar dict={dict} lang={lang} />
-                </div>
-
-                <div className="flex items-center justify-end gap-3 w-auto shrink-0">
-
-                    <div className="hidden sm:flex group relative items-center">
-                        <button className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 backdrop-blur-md text-sm font-medium text-slate-400 transition-all duration-300 hover:bg-white/[0.08] hover:text-white hover:border-white/[0.15] hover:shadow-[0_0_20px_rgba(52,99,172,0.12)] focus-visible:outline-none">
-                            <Globe className="h-4 w-4" />
-                            <span className="uppercase">{lang}</span>
-                            <ChevronDown className="h-3.5 w-3.5 opacity-40 transition-transform duration-300 group-hover:rotate-180 group-hover:opacity-80" />
-                        </button>
-
-                        <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:visible group-focus-within:opacity-100 transition-all duration-200 w-52 z-50">
-                            <div className="dropdown-panel flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-slate-950/95 backdrop-blur-2xl shadow-[0_20px_60px_-12px_rgba(0,0,0,0.6)] ring-1 ring-white/[0.05] p-1.5 max-h-64 overflow-y-auto custom-scrollbar">
-                                <div className="mb-1 px-3 pt-2 pb-1">
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Language</span>
-                                </div>
-                                {SUPPORTED_LANGUAGES.map((l) => (
-                                    <a
-                                        key={l.code}
-                                        href={redirectedPathname(l.code)} onClickCapture={event => {
-                                            if (!window.location.search && !window.location.hash) return;
-                                            event.currentTarget.href = redirectedPathname(l.code) + window.location.search + window.location.hash;
-                                        }}
-                                        className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all duration-200 ${lang === l.code
-                                            ? 'bg-[#3463ac]/15 text-white font-semibold shadow-[inset_0_0_0_1px_rgba(52,99,172,0.2)]'
-                                            : 'text-slate-400 hover:text-white hover:bg-white/[0.06]'
-                                            }`}
-                                    >
-                                        <span className="text-base">{l.flag}</span>
-                                        <span className="flex-1">{l.name}</span>
-                                        {lang === l.code && (
-                                            <Check className="h-3.5 w-3.5 text-[#5b8fd4]" />
-                                        )}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    <TransitionLink
-                        href={`/${lang}/contact`}
-                        className="cta-shimmer hidden sm:inline-flex h-10 items-center justify-center rounded-full px-6 text-sm font-semibold text-white shadow-[0_0_20px_rgba(52,99,172,0.25)] transition-all duration-300 hover:shadow-[0_4px_30px_rgba(52,99,172,0.4)] hover:-translate-y-0.5 focus-visible:outline-none cursor-pointer"
-                    >
-                        <span className="relative z-10 flex items-center gap-2">
-                            <Sparkles className="h-3.5 w-3.5" />
-                            {dict.navigation.getConsultation}
-                        </span>
-                    </TransitionLink>
-
-                    <button
-                        onClick={() => {
-                            setIsMobileMenuOpen(!isMobileMenuOpen);
-                            if (!isMobileMenuOpen) setExpandedMobileSection(null);
-                        }}
-                        className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-slate-400 transition-all duration-300 hover:bg-white/[0.08] hover:text-white hover:border-white/[0.15] focus-visible:outline-none"
-                        aria-label={lang === 'en' ? 'Toggle mobile menu' : 'Mobil menüyü aç/kapat'}
-                        aria-expanded={isMobileMenuOpen}
-                        aria-controls="mobile-menu"
-                    >
-                        <div className="relative h-5 w-5">
-                            <span className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${isMobileMenuOpen ? 'rotate-90 opacity-0 scale-75' : 'rotate-0 opacity-100 scale-100'}`}>
-                                <Menu className="h-5 w-5" />
-                            </span>
-                            <span className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${isMobileMenuOpen ? 'rotate-0 opacity-100 scale-100' : '-rotate-90 opacity-0 scale-75'}`}>
-                                <X className="h-5 w-5" />
-                            </span>
-                        </div>
-                    </button>
-                </div>
+        if (!mobileOpen) return;
+        const original = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => { document.body.style.overflow = original; };
+    }, [mobileOpen]);
+    const languagePath = (locale: string) => '/' + [locale, ...pathname.split('/').slice(2)].join('/');
+    return <header className={styles.header} ref={headerRef}>
+        <div className={styles.headerInner}>
+            <Link className={styles.brand} href={`/${lang}`} onClick={close} aria-label="BTP Solution">
+                <Image src="/btp_logo-2.png" alt="BTP" width={120} height={31} priority /><span>SOLUTION</span>
+            </Link>
+            <nav className={styles.desktopNav} aria-label={en ? 'Main navigation' : 'Ana menü'}>
+                <Link href={`/${lang}/products/apd`} aria-current={pathname.includes('/products/apd') ? 'page' : undefined} onClick={close}>APD</Link>
+                <button ref={servicesRef} type="button" className={styles.navButton} aria-expanded={servicesOpen} aria-controls="desktop-services" onClick={() => setServicesOpen(!servicesOpen)}>{en ? 'SAP Services' : 'SAP Hizmetleri'}<ChevronDown aria-hidden="true" /></button>
+                <Link href={`/${lang}/about`} aria-current={pathname.endsWith('/about') ? 'page' : undefined} onClick={close}>{dict.navigation.about}</Link>
+            </nav>
+            <div className={styles.headerActions}>
+                <nav className={styles.language} aria-label={en ? 'Language' : 'Dil'}>
+                    {['tr', 'en'].map((locale, i) => <span key={locale} style={{ display: 'contents' }}>
+                        {i > 0 && <span aria-hidden="true">/</span>}
+                        <a href={languagePath(locale)} hrefLang={locale} lang={locale} aria-label={locale === 'tr' ? 'Türkçe' : 'English'} aria-current={lang === locale ? 'page' : undefined} onClickCapture={event => { event.currentTarget.href = languagePath(locale) + window.location.search + window.location.hash; }}>{locale.toUpperCase()}</a>
+                    </span>)}
+                </nav>
+                <Link className={styles.headerCta} href={`/${lang}/contact`} onClick={close}>{dict.navigation.getConsultation}<ArrowUpRight aria-hidden="true" /></Link>
+                <button ref={menuRef} type="button" className={styles.menuToggle} aria-label={en ? 'Toggle mobile menu' : 'Mobil menüyü aç/kapat'} aria-expanded={mobileOpen} aria-controls="mobile-menu" onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}>{mobileOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
             </div>
-
-            <div
-                id="mobile-menu"
-                inert={!isMobileMenuOpen}
-                className={`absolute left-0 w-full bg-slate-950 backdrop-blur-3xl z-40 lg:hidden overflow-y-auto custom-scrollbar transition-all duration-500 ${isMobileMenuOpen
-                    ? 'opacity-100 visible'
-                    : 'opacity-0 invisible pointer-events-none'
-                    }`}
-                style={{
-                    top: isScrolled ? '4rem' : '6rem',
-                    height: isScrolled ? 'calc(100dvh - 4rem)' : 'calc(100dvh - 6rem)',
-                }}
-            >
-                <div className="flex flex-col px-6 py-8 gap-4">
-
-                    <div className={`flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden backdrop-blur-sm ${isMobileMenuOpen ? 'mobile-stagger-1' : ''}`}>
-                        <button
-                            aria-expanded={expandedMobileSection === 'services'} aria-controls="mobile-services"
-                            onClick={() => toggleSection('services')}
-                            className="flex items-center justify-between p-5 w-full text-left focus-visible:outline-none group"
-                        >
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#3463ac]/20 to-purple-500/10 ring-1 ring-white/[0.06]">
-                                    <Cloud className="h-4 w-4 text-[#5b8fd4]" />
-                                </div>
-                                <span className="font-semibold text-slate-200">{dict.navigation.services}</span>
-                            </div>
-                            <ChevronDown className={`h-4 w-4 text-slate-500 transition-transform duration-400 ${expandedMobileSection === 'services' ? 'rotate-180 text-[#5b8fd4]' : ''}`} />
-                        </button>
-
-                        <div id="mobile-services" inert={expandedMobileSection !== 'services'} className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'services' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-                            }`}>
-                            <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
-
-                            <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#3463ac]/70">{dict.serviceNavigation['/services/sap-consulting']}</span>
-                            </div>
-                            {[
-                                { label: 'Tedarik Zinciri, Üretim ve Lojistik', href: '/services/sap-consulting/supply-chain' },
-                                { label: 'Süreç Analizi ve Proje Yönetimi', href: '/services/sap-consulting/process-analysis' },
-                                { label: 'SAP Roll-out ve Destek Hizmetleri', href: '/services/sap-consulting/roll-out' },
-                                { label: 'Finansal Çözümler', href: '/services/sap-consulting/financial-solutions' },
-                                { label: 'İnsan Kaynakları Çözümleri', href: '/services/sap-consulting/hr-solutions' },
-                                { label: 'İş Zekası ve Veri Analitiği', href: '/services/sap-consulting/business-intelligence' },
-                                { label: 'Müşteri Deneyimi ve Satış', href: '/services/sap-consulting/customer-experience' },
-                            ].map(s => (
-                                <TransitionLink key={dict.serviceNavigation[s.href as keyof typeof dict.serviceNavigation]} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
-                                    <span className="font-medium text-[13px]">{dict.serviceNavigation[s.href as keyof typeof dict.serviceNavigation]}</span>
-                                </TransitionLink>
-                            ))}
-
-                            <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#a78bfa]/70">{dict.serviceNavigation['/services/tech-development']}</span>
-                            </div>
-                            {[
-                                { label: 'SAP BTP Çözümleri', href: '/services/tech-development/sap-btp' },
-                                { label: 'ABAP, RAP / CAP Geliştirme', href: '/services/tech-development/abap-rap-cap' },
-                                { label: 'SAP Fiori ve SAPUI5 Arayüzleri', href: '/services/tech-development/fiori-sapui5' },
-                                { label: 'Bulut Geçiş ve Modernizasyon', href: '/services/tech-development/cloud-migration' },
-                                { label: 'İş Akışı ve Süreç Otomasyonu', href: '/services/tech-development/workflow-automation' },
-                            ].map(s => (
-                                <TransitionLink key={dict.serviceNavigation[s.href as keyof typeof dict.serviceNavigation]} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
-                                    <span className="font-medium text-[13px]">{dict.serviceNavigation[s.href as keyof typeof dict.serviceNavigation]}</span>
-                                </TransitionLink>
-                            ))}
-
-                            <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#f59e0b]/70">{dict.serviceNavigation['/services/integration-solutions']}</span>
-                            </div>
-                            {[
-                                { label: 'E-Dönüşüm ve Dijital Arşivleme', href: '/services/integration-solutions/e-donusum' },
-                                { label: 'API ve Sistem Entegrasyonları', href: '/services/integration-solutions/api-integration' },
-                                { label: 'SAP ve Non-SAP Sistem Entegrasyonları', href: '/services/integration-solutions/sap-nonsap' },
-                                { label: 'Banka ve Fintech Entegrasyonları', href: '/services/integration-solutions/banka-fintech' },
-                            ].map(s => (
-                                <TransitionLink key={dict.serviceNavigation[s.href as keyof typeof dict.serviceNavigation]} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
-                                    <span className="font-medium text-[13px]">{dict.serviceNavigation[s.href as keyof typeof dict.serviceNavigation]}</span>
-                                </TransitionLink>
-                            ))}
-
-                            <div className="px-5 pt-3 pb-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-[#818cf8]/70">{dict.serviceNavigation['/services/ai-data-solutions']}</span>
-                            </div>
-                            {[
-                                { label: 'Veri Yönetimi ve Dönüşümü', href: '/services/ai-data-solutions/data-management' },
-                                { label: 'İş Zekası ve Gelişmiş Analitik', href: '/services/ai-data-solutions/business-analytics' },
-                                { label: 'Yapay Zeka ve Makine Öğrenimi', href: '/services/ai-data-solutions/ai-ml' },
-                                { label: 'Akıllı İş Akışı ve Süreç Otomasyonu', href: '/services/ai-data-solutions/rpa-automation' },
-                            ].map(s => (
-                                <TransitionLink key={dict.serviceNavigation[s.href as keyof typeof dict.serviceNavigation]} href={`/${lang}${s.href}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-2 px-5 text-slate-400 hover:text-white transition-colors">
-                                    <span className="font-medium text-[13px]">{dict.serviceNavigation[s.href as keyof typeof dict.serviceNavigation]}</span>
-                                </TransitionLink>
-                            ))}
-
-                            <div className="h-3"></div>
-                        </div>
-                    </div>
-
-                    <div className={`flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden backdrop-blur-sm ${isMobileMenuOpen ? 'mobile-stagger-2' : ''}`}>
-                        <button
-                            aria-expanded={expandedMobileSection === 'products'} aria-controls="mobile-products"
-                            onClick={() => toggleSection('products')}
-                            className="flex items-center justify-between p-5 w-full text-left focus-visible:outline-none group"
-                        >
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500/20 to-[#3463ac]/10 ring-1 ring-white/[0.06]">
-                                    <BarChart3 className="h-4 w-4 text-purple-400" />
-                                </div>
-                                <span className="font-semibold text-slate-200">{dict.navigation.products}</span>
-                            </div>
-                            <ChevronDown className={`h-4 w-4 text-slate-500 transition-transform duration-400 ${expandedMobileSection === 'products' ? 'rotate-180 text-purple-400' : ''}`} />
-                        </button>
-
-                        <div id="mobile-products" inert={expandedMobileSection !== 'products'} className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'products' ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-                            }`}>
-                            <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
-                            <TransitionLink href={`/${lang}/products/apd`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 py-3.5 px-5 text-slate-400 hover:text-white transition-colors">
-                                <FileCheck2 className="h-4 w-4 text-[#ff7700]" />
-                                <span className="font-medium text-sm">APD Automation</span>
-                            </TransitionLink>
-                        </div>
-                    </div>
-
-                    <div className={`flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden backdrop-blur-sm ${isMobileMenuOpen ? 'mobile-stagger-3' : ''}`}>
-                        <TransitionLink href={`/${lang}/about`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between p-5 w-full text-left group">
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-white/[0.06] to-white/[0.02] ring-1 ring-white/[0.06]">
-                                    <span className="text-sm">💡</span>
-                                </div>
-                                <span className="font-semibold text-slate-200">{dict.navigation.about}</span>
-                            </div>
-                            <ChevronRight className="h-4 w-4 text-slate-500 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-white" />
-                        </TransitionLink>
-                    </div>
-
-                    <div className={`flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden backdrop-blur-sm ${isMobileMenuOpen ? 'mobile-stagger-4' : ''}`}>
-                        <button
-                            aria-expanded={expandedMobileSection === 'language'} aria-controls="mobile-language"
-                            onClick={() => toggleSection('language')}
-                            className="flex items-center justify-between p-5 w-full text-left focus-visible:outline-none"
-                        >
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-white/[0.06] to-white/[0.02] ring-1 ring-white/[0.06]">
-                                    <Globe className="h-4 w-4 text-slate-400" />
-                                </div>
-                                <span className="font-semibold text-slate-200">
-                                    {SUPPORTED_LANGUAGES.find(l => l.code === lang)?.flag} {SUPPORTED_LANGUAGES.find(l => l.code === lang)?.name || lang.toUpperCase()}
-                                </span>
-                            </div>
-                            <ChevronDown className={`h-4 w-4 text-slate-500 transition-transform duration-400 ${expandedMobileSection === 'language' ? 'rotate-180 text-white' : ''}`} />
-                        </button>
-
-                        <div id="mobile-language" inert={expandedMobileSection !== 'language'} className={`flex flex-col transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedMobileSection === 'language' ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-                            }`}>
-                            <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
-                            {SUPPORTED_LANGUAGES.map((l) => (
-                                <a
-                                    key={l.code}
-                                    href={redirectedPathname(l.code)} onClickCapture={event => {
-                                            if (!window.location.search && !window.location.hash) return;
-                                            event.currentTarget.href = redirectedPathname(l.code) + window.location.search + window.location.hash;
-                                        }}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className={`flex items-center gap-3 py-3.5 px-5 text-sm transition-all ${lang === l.code
-                                        ? 'bg-[#3463ac]/10 text-white font-semibold'
-                                        : 'text-slate-400 hover:text-white hover:bg-white/[0.04]'
-                                        }`}
-                                >
-                                    <span className="text-base">{l.flag}</span>
-                                    <span className="flex-1">{l.name}</span>
-                                    {lang === l.code && (
-                                        <Check className="h-3.5 w-3.5 text-[#5b8fd4]" />
-                                    )}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className={`mt-4 pb-6 ${isMobileMenuOpen ? 'mobile-stagger-5' : ''}`}>
-                        <TransitionLink
-                            href={`/${lang}/contact`} onClick={() => setIsMobileMenuOpen(false)}
-                            className="cta-shimmer flex w-full h-14 items-center justify-center rounded-2xl px-6 text-base font-semibold text-white shadow-[0_0_30px_rgba(52,99,172,0.3)] transition-all cursor-pointer"
-                        >
-                            <span className="relative z-10 flex items-center gap-2">
-                                <Sparkles className="h-4 w-4" />
-                                {dict.navigation.getConsultation}
-                            </span>
-                        </TransitionLink>
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
+        </div>
+        <div id="desktop-services" className={styles.servicesPanel} hidden={!servicesOpen}><Navbar dict={dict} lang={lang} onNavigate={close} /></div>
+        <nav id="mobile-menu" className={styles.mobileMenu} hidden={!mobileOpen} inert={!mobileOpen} aria-label={en ? 'Mobile navigation' : 'Mobil menü'}>
+            <Link href={`/${lang}/products/apd`} onClick={close}>APD Automation<ArrowUpRight size={16} aria-hidden="true" /></Link>
+            <button type="button" aria-expanded={servicesOpen} aria-controls="mobile-services" onClick={() => setServicesOpen(!servicesOpen)}>{dict.navigation.services}<ChevronDown aria-hidden="true" /></button>
+            <div id="mobile-services" hidden={!servicesOpen}><Navbar dict={dict} lang={lang} onNavigate={close} /></div>
+            <Link href={`/${lang}/about`} onClick={close}>{dict.navigation.about}</Link>
+            <Link href={`/${lang}/contact`} onClick={close}>{dict.navigation.getConsultation}<ArrowUpRight size={16} aria-hidden="true" /></Link>
+        </nav>
+    </header>;
 }

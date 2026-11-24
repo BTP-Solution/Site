@@ -45,9 +45,9 @@ test('mobile heading fits and menu is translated and keyboard dismissible', asyn
     await page.keyboard.press('Escape');
     await expect(menu).toHaveAttribute('aria-expanded', 'false');
 });
-test('demo links reach form and existing technical features', async ({ page }) => {
+test('APD evaluation links reach form and existing scope anchor', async ({ page }) => {
     await page.goto('/en/products/apd');
-    await page.getByRole('link', { name: 'Schedule a Demo', exact: true }).click();
+    await page.getByRole('link', { name: 'Discuss APD', exact: true }).click();
     await expect(page).toHaveURL(/#contact-form$/);
     await expect(page.locator('#contact-form')).toBeInViewport();
     await expect(page.locator('#apd-features')).toHaveCount(1);
@@ -60,7 +60,7 @@ test('form error preserves input and retry only succeeds on provider acceptance'
     await page.getByLabel('Message', { exact: true }).fill('This is a mocked browser test.');
     await page.route('**/api/contact', route => route.fulfill({ status: 503, json: { error: 'service_unavailable' } }));
     await page.getByRole('button', { name: 'Send request', exact: true }).click();
-    await expect(page.getByRole('alert')).toBeVisible();
+    await expect(page.locator('#contact-form').getByRole('alert')).toBeVisible();
     await expect(page.getByLabel('Message', { exact: true })).toHaveValue('This is a mocked browser test.');
     await expect(page.getByRole('heading', { name: 'Request submitted' })).toHaveCount(0);
     await page.unroute('**/api/contact');

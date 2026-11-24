@@ -7,11 +7,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         lang,
         path: '/products/apd',
         title: lang === 'tr'
-            ? 'APD: SAP Uyumlu Fatura ve Belge Otomasyonu | BTP Solution'
-            : 'APD: SAP Compatible Invoice & Document Automation | BTP Solution',
+            ? 'APD: SAP için Fatura ve Belge Otomasyonu | BTP Solution'
+            : 'APD: Invoice & Document Automation for SAP | BTP Solution',
         description: lang === 'tr'
-            ? 'Automatic Posting Document (APD) ile finansal belgelerinizi yapay zeka ile işleyin. SAP S/4HANA ve ECC uyumlu belge otomasyonu için demoyu planlayın.'
-            : 'Process your financial documents with AI using Automatic Posting Document (APD). Plan a demo for SAP S/4HANA and ECC compatible document automation.',
+            ? 'SAP belge işleme ve kayıt süreçleri için geliştirdiğimiz APD ürününü tanıyın. Geliştirme durumunu, kapsamını ve sürecinize uygunluğunu birlikte değerlendirelim.'
+            : 'Explore APD, our product in development for document processing and SAP posting. Review its development status, scope and suitability for your workflows.',
     });
 }
 

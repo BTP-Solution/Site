@@ -36,6 +36,19 @@ test('provider acceptance is required before success; recipient is server contro
 test('missing credentials or rate limiter returns unavailable without sending', async () => {
     for (const env of [{}, { RESEND_API_KEY: 'test', CONTACT_FROM_EMAIL: 'test@example.com' }]) assert.equal((await handleContact(makeRequest(), env, neverSend)).status, 503);
 });
+test('APD requests retain their topic while recipient and subject remain server controlled', async () => {
+    let payload;
+    const response = await handleContact(makeRequest({ ...valid, topic: 'apd', subject: 'Injected subject', to: 'attacker@example.com' }), environment, async (_url, init) => {
+        payload = JSON.parse(init.body);
+        return Response.json({ id: 'mock-apd-message' });
+    });
+    assert.equal(response.status, 200);
+    assert.match(payload.subject, /APD/);
+    assert.doesNotMatch(payload.subject, /Injected/);
+    assert.match(payload.text, /Topic: apd/);
+    assert.deepEqual(payload.to, ['info@btpsolution.com']);
+    assert.equal(parseContact({ ...valid, topic: 'arbitrary-topic' }).topic, 'general');
+});
 test('invalid input is rejected without sending', async () => assert.equal((await handleContact(makeRequest({ ...valid, email: 'invalid' }), environment, neverSend)).status, 400));
 test('cross-origin requests are rejected', async () => assert.equal((await handleContact(makeRequest(valid, { origin: 'https://other.example' }), environment, neverSend)).status, 403));
 test('non-JSON requests are rejected', async () => assert.equal((await handleContact(makeRequest(valid, { 'content-type': 'text/plain' }), environment, neverSend)).status, 415));

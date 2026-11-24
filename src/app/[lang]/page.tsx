@@ -1,7 +1,4 @@
-import Hero from '@/components/sections/Hero';
-import BentoGrid from '@/components/sections/BentoGrid';
-import CtaSection from '@/components/sections/CtaSection';
-import { getDictionary, Locale } from '@/lib/i18n/getDictionary';
+import HomePage from '@/components/marketing/HomePage';
 
 export default async function Home({
   params,
@@ -9,14 +6,5 @@ export default async function Home({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const dictionary = await getDictionary((lang as Locale) || 'tr');
-
-  return (
-    <>
-      <Hero dict={dictionary} lang={lang} />
-      <BentoGrid dict={dictionary} />
-      
-      <CtaSection dict={dictionary} lang={lang} />
-    </>
-  );
+  return <HomePage lang={lang} />;
 }

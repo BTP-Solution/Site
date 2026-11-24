@@ -1,4 +1,4 @@
-export type ContactInput = { name: string; company: string; email: string; message: string; lang: 'tr' | 'en'; website: string };
+export type ContactInput = { name: string; company: string; email: string; message: string; lang: 'tr' | 'en'; website: string; topic: 'general' | 'apd' };
 export type ContactEnvironment = {
     RESEND_API_KEY?: string;
     CONTACT_FROM_EMAIL?: string;
@@ -10,7 +10,7 @@ export function parseContact(value: unknown): ContactInput | null {
     if (!value || typeof value !== 'object') return null;
     const data = value as Record<string, unknown>;
     const text = (key: string) => typeof data[key] === 'string' ? data[key].trim() : '';
-    const input: ContactInput = { name: text('name'), company: text('company'), email: text('email'), message: text('message'), lang: data.lang === 'en' ? 'en' : 'tr', website: text('website') };
+    const input: ContactInput = { name: text('name'), company: text('company'), email: text('email'), message: text('message'), lang: data.lang === 'en' ? 'en' : 'tr', website: text('website'), topic: data.topic === 'apd' ? 'apd' : 'general' };
     if (input.name.length < 2 || input.name.length > 100 || !input.company || input.company.length > 160 ||
         input.email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.email) ||
         input.message.length < 10 || input.message.length > 4000 || input.website || /[\r\n]/.test(input.name + input.email + input.company)) return null;
@@ -54,8 +54,8 @@ export async function handleContact(request: Request, env: ContactEnvironment, s
                 from: env.CONTACT_FROM_EMAIL,
                 to: [env.CONTACT_TO_EMAIL || 'info@btpsolution.com'],
                 reply_to: data.email,
-                subject: `BTP Solution — ${data.lang === 'en' ? 'Contact / demo request' : 'İletişim / demo talebi'}`,
-                text: `Name: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nLanguage: ${data.lang}\n\n${data.message}`,
+                subject: `BTP Solution — ${data.topic === 'apd' ? 'APD' : (data.lang === 'en' ? 'Contact' : 'İletişim')} — ${data.lang === 'en' ? 'Meeting request' : 'Görüşme talebi'}`,
+                text: `Name: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nLanguage: ${data.lang}\nTopic: ${data.topic}\n\n${data.message}`,
             }),
             signal: AbortSignal.timeout(10000),
         });

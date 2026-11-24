@@ -2,7 +2,7 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { Send, CheckCircle2 } from 'lucide-react';
 
-export default function ContactForm({ lang }: { lang: string }) {
+export default function ContactForm({ lang, purpose = 'general', tone = 'dark' }: { lang: string; purpose?: 'general' | 'apd'; tone?: 'dark' | 'light' }) {
     const en = lang === 'en';
     const t = en ? {
         title: 'Contact our team', name: 'Full name', company: 'Company', email: 'Corporate email', message: 'Message',
@@ -17,6 +17,11 @@ export default function ContactForm({ lang }: { lang: string }) {
         error: 'Talebinizi gönderemedik. Tekrar deneyin veya info@btpsolution.com adresine yazın.',
         rate: 'Çok fazla istek gönderdiniz. Bir dakika bekleyip tekrar deneyin.', note: 'Bu bilgileri talebinize yanıt vermek için kullanırız.',
     };
+    if (purpose === 'apd') {
+        t.title = en ? 'Request an APD scope discussion' : 'APD için kapsam görüşmesi talep edin';
+        t.submit = en ? 'Discuss APD with our team' : 'APD için görüşelim';
+    }
+    const light = tone === 'light';
     const [state, setState] = useState<'idle' | 'sending' | 'success'>('idle');
     const [error, setError] = useState('');
     const attempt = useRef<{ body: string; id: string } | null>(null);
@@ -36,26 +41,28 @@ export default function ContactForm({ lang }: { lang: string }) {
             setState('success');
         } catch { setError(t.error); setState('idle'); }
     }
-    const inputClass = 'w-full rounded-lg border border-white/20 bg-[#060d1a] px-4 py-3 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/40';
-    return <div id="contact-form" className="scroll-mt-32 rounded-2xl border border-white/10 bg-[#0a1628] p-6 sm:p-8">
-        {state === 'success' ? <div role="status" className="py-10 text-center text-white">
+    const inputClass = `w-full rounded-md border px-4 py-3 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/40 ${light ? 'border-slate-300 bg-white text-[#142b4a]' : 'border-white/20 bg-[#060d1a] text-white'}`;
+    const labelClass = `block text-sm ${light ? 'text-slate-600' : 'text-slate-300'}`;
+    return <div id="contact-form" className={`scroll-mt-32 rounded-lg border p-6 sm:p-8 ${light ? 'border-slate-200 bg-white text-[#142b4a]' : 'border-white/10 bg-[#0a1628] text-white'}`}>
+        {state === 'success' ? <div role="status" className="py-10 text-center">
             <CheckCircle2 aria-hidden="true" className="mx-auto mb-6 h-12 w-12 text-emerald-400" />
-            <h2 className="mb-3 text-2xl font-bold">{t.success}</h2><p className="text-slate-300">{t.successMessage}</p>
+            <h2 className="mb-3 text-2xl font-bold">{t.success}</h2><p className={labelClass}>{t.successMessage}</p>
         </div> : <form onSubmit={submit} className="space-y-5" aria-label={t.title} aria-busy={state === 'sending'}>
-            <h2 className="text-xl font-bold text-white">{t.title}</h2>
+            <h2 className="text-xl font-semibold">{t.title}</h2>
+            <input type="hidden" name="topic" value={purpose} />
             <fieldset disabled={state === 'sending'} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
-                    <label className="block text-sm text-slate-300">{t.name}<input className={inputClass} name="name" autoComplete="name" required minLength={2} maxLength={100} /></label>
-                    <label className="block text-sm text-slate-300">{t.company}<input className={inputClass} name="company" autoComplete="organization" required maxLength={160} /></label>
+                    <label className={labelClass}>{t.name}<input className={inputClass} name="name" autoComplete="name" required minLength={2} maxLength={100} /></label>
+                    <label className={labelClass}>{t.company}<input className={inputClass} name="company" autoComplete="organization" required maxLength={160} /></label>
                 </div>
-                <label className="block text-sm text-slate-300">{t.email}<input className={inputClass} name="email" type="email" autoComplete="email" required maxLength={254} /></label>
-                <label className="block text-sm text-slate-300">{t.message}<textarea className={inputClass} name="message" rows={5} required minLength={10} maxLength={4000} /></label>
+                <label className={labelClass}>{t.email}<input className={inputClass} name="email" type="email" autoComplete="email" required maxLength={254} /></label>
+                <label className={labelClass}>{t.message}<textarea className={inputClass} name="message" rows={4} required minLength={10} maxLength={4000} defaultValue={purpose === 'apd' ? (en ? 'I would like to discuss APD’s current scope and suitability for our document processes.' : 'APD’nin güncel kapsamını ve belge süreçlerimize uygunluğunu görüşmek istiyorum.') : ''} /></label>
                 <div hidden aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
-                <p className="text-xs text-slate-400">{t.note}</p>
-                <button type="submit" className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#d95f00] px-6 py-4 font-semibold text-white disabled:opacity-60"><Send aria-hidden="true" className="h-4 w-4" />{state === 'sending' ? t.submitting : t.submit}</button>
+                <p className={`text-xs ${light ? 'text-slate-600' : 'text-slate-400'}`}>{t.note}</p>
+                <button type="submit" className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-[#234f89] px-6 py-4 font-semibold text-white hover:bg-[#173b6a] disabled:opacity-60"><Send aria-hidden="true" className="h-4 w-4" />{state === 'sending' ? t.submitting : t.submit}</button>
             </fieldset>
-            {error && <p role="alert" className="text-sm text-rose-300">{error}</p>}
-            <a className="inline-block text-sm text-blue-300 underline" href="mailto:info@btpsolution.com">info@btpsolution.com</a>
+            {error && <p role="alert" className={`text-sm ${light ? 'text-rose-700' : 'text-rose-300'}`}>{error}</p>}
+            <a className={`inline-block text-sm underline ${light ? 'text-[#234f89]' : 'text-blue-300'}`} href="mailto:info@btpsolution.com">info@btpsolution.com</a>
         </form>}
     </div>;
 }
