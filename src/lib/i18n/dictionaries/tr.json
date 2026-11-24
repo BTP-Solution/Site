@@ -214,7 +214,7 @@
         "whoWeAre": "Biz Kimiz?",
         "storyP1": "BTP Solution, SAP ekosisteminde uzmanlaşmış bir teknoloji ve danışmanlık şirketidir. İstanbul merkezli ekibimiz, kurumsal müşterilerimize S/4HANA dönüşümü, SAP BTP entegrasyonları, ABAP/RAP/CAP geliştirme ve süreç otomasyonu alanlarında uçtan uca hizmet sunmaktadır.",
         "storyP2": "Yapay zekâ destekli ürünlerimiz ve yenilikçi entegrasyon çözümlerimizle, işletmelerin dijital dönüşüm yolculuğunda güvenilir iş ortağı olmayı hedefliyoruz. Her projede kalite, şeffaflık ve sürdürülebilirliği ön planda tutuyoruz.",
-        "storyP3": "APD Automation gibi niş ürünlerimizle SAP süreçlerinde otomasyonu bir üst seviyeye taşırken, finansal çözümlerden tedarik zinciri yönetimine kadar geniş bir yelpazede değer katıyoruz.",
+        "storyP3": "AIA gibi yapay zekâ destekli ürünler geliştiriyor, SAP deneyimimizi işletmelerin ihtiyaçlarına uygun yazılımlara dönüştürüyoruz. Finansal çözümlerden tedarik zinciri yönetimine kadar farklı iş alanlarında çalışıyoruz.",
         "mission": "Misyonumuz",
         "missionText": "SAP teknolojilerini ve yapay zekâyı kullanarak kurumsal süreçleri dönüştürmek, müşterilerimize rekabet avantajı sağlamak ve dijital çağda sürdürülebilir büyümeyi mümkün kılmak.",
         "vision": "Vizyonumuz",
@@ -248,7 +248,7 @@
             },
             {
                 "title": "Yenilikçi Ürünler",
-                "description": "APD Automation gibi yapay zekâ destekli, SAP ekosistemi üzerinde çalışan niş ürünler.",
+                "description": "SAP için yapay zekâ destekli fatura otomasyonu AIA ve işletmenize özel yapay zekâ çözümleri.",
                 "icon": "🚀"
             },
             {

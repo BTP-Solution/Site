@@ -20,17 +20,19 @@ test('all 58 original public URLs keep their status, canonical and language alte
 });
 
 for (const lang of ['tr', 'en']) {
-    test(`${lang}: APD is discoverable, development status is explicit and enquiry context is retained`, async ({ page }) => {
+    test(`${lang}: AIA preserves the product URL, invoice focus and enquiry context`, async ({ page }) => {
         await page.goto(`/${lang}`);
-        const apd = page.getByRole('link', { name: lang === 'tr' ? 'APD’yi inceleyin' : 'Explore APD', exact: true });
+        await expect(page.locator('main')).not.toContainText(/müşteri sisteminde canlı|temsili gösterim|not yet live|illustrative diagram/i);
+        const apd = page.locator('main').getByRole('link', { name: lang === 'tr' ? 'AIA’yı keşfedin' : 'Explore AIA', exact: true });
         await apd.click();
         await expect(page).toHaveURL(new RegExp(`/${lang}/products/apd$`));
-        await expect(page.locator('main')).toContainText(lang === 'tr' ? 'henüz müşteri sisteminde canlı değildir' : 'not yet live in a customer system');
+        await expect(page.locator('main')).toContainText(lang === 'tr' ? 'İlk odağımız gelen fatura işleme' : 'Our first focus is incoming invoice processing');
+        await expect(page.locator('main')).not.toContainText(/müşteri sisteminde canlı|temsili gösterim|Kontrolleri kurgulamak|not yet live|illustrative diagram|Design the controls/i);
         await expect(page.locator('main')).not.toContainText(/ISO 27001|SOC 2|99.9|Sıfır Hatayla|Zero Errors/);
-        await page.getByRole('link', { name: lang === 'tr' ? 'APD’yi birlikte değerlendirelim' : 'Discuss APD', exact: true }).click();
+        await page.getByRole('link', { name: lang === 'tr' ? 'AIA için görüşelim' : 'Discuss AIA', exact: true }).click();
         await expect(page.locator('#contact-form')).toBeInViewport();
         await expect(page.locator('input[name="topic"]')).toHaveValue('apd');
-        await expect(page.locator('textarea[name="message"]')).toHaveValue(/APD/);
+        await expect(page.locator('textarea[name="message"]')).toHaveValue(/AIA/);
     });
     test(`${lang}: header keeps all 24 service links and does not overflow`, async ({ page }) => {
         await page.setViewportSize({ width: 1100, height: 800 });

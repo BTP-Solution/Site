@@ -1,76 +1,65 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, Info, Check } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, FileText, Braces, Network } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 import { getApdContent } from '@/lib/i18n/services/apdProduct';
 import ProcessIllustration from './ProcessIllustration';
 import styles from './Marketing.module.css';
+import AiaWordmark from './AiaWordmark';
 
 export default function ApdPage({ lang }: { lang: string }) {
     const en = lang === 'en';
     const t = getApdContent(lang);
+    const icons = [FileText, Braces, Network];
     return <div className={styles.site}>
-        <section className={`${styles.hero} ${styles.apdHero}`}>
+        <section className={styles.hero + ' ' + styles.productHero}>
             <div className={styles.wrap}>
-                <nav className={styles.breadcrumb} aria-label={en ? 'Breadcrumb' : 'Sayfa yolu'}><Link href={`/${lang}`}>{en ? 'Home' : 'Ana sayfa'}</Link><span aria-hidden="true">/</span><span aria-current="page">APD Automation</span></nav>
+                <nav className={styles.breadcrumb} aria-label={en ? 'Breadcrumb' : 'Sayfa yolu'}><Link href={'/' + lang}>{en ? 'Home' : 'Ana sayfa'}</Link><span aria-hidden="true">/</span><span aria-current="page">AIA</span></nav>
                 <div className={styles.heroGrid}>
-                    <div>
-                        <p className={styles.eyebrow}>{en ? 'APD / AUTOMATIC POSTING DOCUMENT' : 'APD / AUTOMATIC POSTING DOCUMENT'}</p>
-                        <h1>{en ? 'Document automation.' : 'Belge otomasyonu.'}<br /><em>{en ? 'With a SAP perspective.' : 'SAP bakış açısıyla.'}</em></h1>
-                        <p className={styles.lead}>{en ? 'We are developing APD to bring document processing and SAP posting into a connected workflow. Our focus is on reducing manual steps while considering the controls your process needs.' : 'Belge işleme ve SAP kayıt süreçlerini bir araya getirmek için APD’yi geliştiriyoruz. Odağımız, sürecin ihtiyaç duyduğu kontrolleri gözeterek manuel adımları azaltmak.'}</p>
-                        <div className={styles.actions}><a href="#contact-form" className={styles.primary}>{en ? 'Discuss APD' : 'APD’yi birlikte değerlendirelim'}<ArrowRight aria-hidden="true" /></a><a href="#apd-features" className={styles.secondary}>{en ? 'View the scope' : 'Kapsamı inceleyin'}</a></div>
-                        <p className={styles.note}>{t.stageTitle} · {en ? 'Not yet live in a customer system.' : 'Henüz müşteri sisteminde canlı değildir.'}</p>
+                    <div className={styles.heroCopy}>
+                        <div className={styles.productSignature}><AiaWordmark /><span>BTP SOLUTION</span></div>
+                        <h1>{en ? 'AI-Powered' : 'SAP için'}<br /><em>{en ? 'Invoice Automation' : 'Yapay Zekâ Destekli'}</em><br />{en ? 'for SAP' : 'Fatura Otomasyonu'}</h1>
+                        <p className={styles.lead}>{en ? 'AIA brings our AI development and SAP expertise together around incoming invoices. We are building it around the way your business works, with a vision that reaches beyond the invoice.' : 'AIA, gelen faturaları anlamak ve SAP muhasebe süreçleriyle buluşturmak için geliştirdiğimiz yapay zekâ çözümü. İşletmenizin çalışma biçimini merkeze alan, faturanın ötesine uzanan bir vizyonla.'}</p>
+                        <div className={styles.actions}><a href="#contact-form" className={styles.primary}>{en ? 'Discuss AIA' : 'AIA için görüşelim'}<ArrowUpRight aria-hidden="true" /></a><a href="#apd-features" className={styles.textLink}>{en ? 'Explore the approach' : 'Yaklaşımımızı keşfedin'}<ArrowRight aria-hidden="true" /></a></div>
                     </div>
                     <ProcessIllustration lang={lang} />
                 </div>
-                <aside className={styles.stageNotice}><Info aria-hidden="true" /><p><strong>{t.stageTitle}</strong>{t.stageDescription}</p></aside>
             </div>
         </section>
-        <section className={`${styles.section} ${styles.sectionWhite}`}>
+
+        <section className={styles.invoiceSection} id="apd-features">
             <div className={styles.wrap}>
-                <p className={styles.eyebrow}>{en ? 'THE PROCESS WE ARE WORKING TOWARDS' : 'ÜZERİNDE ÇALIŞTIĞIMIZ YAKLAŞIM'}</p>
-                <div className={styles.sectionHead}><h2>{en ? 'A document is the start.' : 'Belge bir başlangıç.'}<br />{en ? 'The process is the whole picture.' : 'Asıl konu, sürecin bütünü.'}</h2><p>{en ? 'Data extraction, business rules and the SAP transaction need to be considered together. This is the proposed workflow behind APD.' : 'Veri okuma, iş kuralları ve SAP işlemi birlikte ele alınmalı. APD için hedeflediğimiz akışı bu üç adım oluşturuyor.'}</p></div>
-                <div className={styles.steps}>{t.flow.map(([title, body], i) => <article className={styles.step} key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
+                <div className={styles.sectionHead}>
+                    <div><p className={styles.eyebrow}>{en ? 'FIRST USE CASE / INCOMING INVOICES' : 'İLK KULLANIM ALANI / GELEN FATURALAR'}</p><h2>{en ? 'We write the AI.' : 'Sizin muhasebenize'}<br /><em>{en ? 'Around your accounting.' : 'yapay zekâ yazıyoruz.'}</em></h2></div>
+                    <p>{en ? 'An invoice carries more than numbers. We bring together document data, accounting knowledge and SAP expertise in one product approach.' : 'Bir fatura, rakamlardan daha fazlasını taşır. Belgedeki veriyi, muhasebe bilgisini ve SAP uzmanlığını aynı ürün yaklaşımında bir araya getiriyoruz.'}</p>
+                </div>
+                <div className={styles.pillars}>{t.pillars.map(([title, body], i) => { const Icon = icons[i]; return <article key={title}><Icon aria-hidden="true" /><h3>{title}</h3><p>{body}</p></article>; })}</div>
             </div>
         </section>
-        <section className={styles.section} id="apd-features">
-            <div className={styles.wrap}>
-                <p className={styles.eyebrow}>{en ? 'DEVELOPMENT SCOPE' : 'GELİŞTİRME KAPSAMI'}</p>
-                <div className={styles.sectionHead}><h2>{en ? 'A clear scope.' : 'Kapsam açık.'}<br />{en ? 'A shared understanding.' : 'Beklenti ortak.'}</h2><p>{en ? 'Suitability starts with your documents, your SAP environment and your business rules.' : 'Uygunluğu belgeleriniz, SAP ortamınız ve iş kurallarınız üzerinden değerlendiriyoruz.'}</p></div>
-                <table className={styles.scopeTable}>
-                    <caption className="sr-only">{en ? 'APD development status and evaluation scope' : 'APD geliştirme durumu ve değerlendirme kapsamı'}</caption>
-                    <thead><tr><th scope="col">{en ? 'Area' : 'Başlık'}</th><th scope="col">{en ? 'Status' : 'Durum'}</th><th scope="col">{en ? 'Scope' : 'Kapsam'}</th></tr></thead>
-                    <tbody>{t.scope.map(([area, status, detail]) => <tr key={area}><td>{area}</td><td>{status}</td><td>{detail}</td></tr>)}</tbody>
-                </table>
+
+        <section className={styles.visionSection}>
+            <div className={styles.wrap + ' ' + styles.visionGrid}>
+                <div><p className={styles.eyebrow}>{en ? 'A BIGGER PRODUCT VISION' : 'DAHA GENİŞ BİR ÜRÜN VİZYONU'}</p><h2>{en ? 'An invoice is' : 'Fatura, hikâyenin'}<br /><em>{en ? 'just the beginning.' : 'başlangıcı.'}</em></h2><p>{en ? 'Our first focus is incoming invoice processing. Our ambition is to bring AI into more of the work accounting teams do every day.' : 'İlk odağımız gelen fatura işleme. Hedefimiz, yapay zekâyı muhasebe ekiplerinin günlük işlerinde daha geniş bir alana taşımak.'}</p></div>
+                <div className={styles.visionTrack}>
+                    <div><span>{en ? 'FIRST FOCUS' : 'İLK ODAK'}</span><h3>{en ? 'Incoming invoices' : 'Gelen faturalar'}</h3><p>{en ? 'Document data, accounting logic and the SAP workflow.' : 'Belge verisi, muhasebe mantığı ve SAP iş akışı.'}</p></div>
+                    <div><span>{en ? 'THE DIRECTION AHEAD' : 'GELECEĞE BAKIŞ'}</span><h3>{en ? 'AI across accounting' : 'Muhasebenin farklı iş akışları'}</h3><p>{en ? 'A vision to grow the product into new accounting scenarios.' : 'Yeni muhasebe senaryolarına doğru genişletmeyi hedeflediğimiz bir ürün.'}</p></div>
+                </div>
             </div>
         </section>
-        <section className={`${styles.section} ${styles.dark}`}>
-            <div className={`${styles.wrap} ${styles.split}`}>
-                <div><p className={styles.eyebrow}>{en ? 'BUILT WITH A PROCESS PERSPECTIVE' : 'SÜREÇ ODAKLI ÜRÜN GELİŞTİRME'}</p><h2>{en ? 'What should we evaluate together?' : 'Birlikte neyi değerlendirelim?'}</h2><p>{en ? 'A useful evaluation needs a specific scenario. Start with the document flow that creates the most manual work for your team.' : 'Anlamlı bir değerlendirme için belirli bir senaryodan başlamak gerekir. Ekibinizin en çok manuel iş yaptığı belge akışını birlikte ele alalım.'}</p><Link href={`/${lang}/services/sap-consulting/financial-solutions`} className={styles.textLink}>{en ? 'Explore our financial consulting services' : 'Finansal danışmanlık hizmetlerimizi inceleyin'}<ArrowUpRight aria-hidden="true" /></Link></div>
-                <ol className={styles.numberedList}>{(en ? [
-                    ['An example document', 'Which data fields are needed? How much do formats and document quality vary?'],
-                    ['An exception scenario', 'What should happen when an amount does not match, a field is missing or a document is duplicated?'],
-                    ['A target SAP transaction', 'Which record is needed, which controls apply and how will the outcome be verified?'],
-                ] : [
-                    ['Bir örnek belge', 'Hangi alanlar gerekli? Formatlar ve belge kalitesi ne kadar değişiyor?'],
-                    ['Bir istisna senaryosu', 'Tutar uyuşmadığında, alan eksik olduğunda veya belge tekrar geldiğinde ne olmalı?'],
-                    ['Bir hedef SAP işlemi', 'Hangi kayıt oluşturulmalı, hangi kontroller uygulanmalı ve sonuç nasıl doğrulanmalı?'],
-                ]).map(([title, body], i) => <li key={title}><span>0{i + 1}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
-            </div>
-        </section>
-        <section className={`${styles.section} ${styles.sectionWhite}`}>
-            <div className={`${styles.wrap} ${styles.split}`}>
-                <div><p className={styles.eyebrow}>{en ? 'YOUR QUESTIONS' : 'MERAK EDİLENLER'}</p><h2>{en ? 'Before we begin.' : 'Başlamadan önce.'}</h2><p>{en ? 'Product status, SAP compatibility and the next steps.' : 'Ürünün durumu, SAP uygunluğu ve sonraki adımlar.'}</p></div>
+
+        <section className={styles.section}>
+            <div className={styles.wrap + ' ' + styles.faqGrid}>
+                <div><p className={styles.eyebrow}>{en ? 'LET’S GET TO KNOW EACH OTHER' : 'BİRBİRİMİZİ TANIYALIM'}</p><h2>{en ? 'Your business.' : 'Sizin işiniz.'}<br /><em>{en ? 'Your questions.' : 'Sizin sorularınız.'}</em></h2><Link className={styles.textLink} href={'/' + lang + '/services/sap-consulting/financial-solutions'}>{en ? 'Our SAP finance expertise' : 'SAP finans uzmanlığımız'}<ArrowUpRight aria-hidden="true" /></Link></div>
                 <div className={styles.faq}>{t.faq.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
             </div>
         </section>
+
         <section className={styles.formSection}>
-            <div className={`${styles.wrap} ${styles.split}`}>
+            <div className={styles.wrap + ' ' + styles.formGrid}>
                 <div className={styles.formIntro}>
-                    <p className={styles.eyebrow}>{en ? 'LET’S DISCUSS APD' : 'APD’Yİ BİRLİKTE KONUŞALIM'}</p>
-                    <h2>{en ? 'Start with your document workflow.' : 'Sizin belge akışınızla başlayalım.'}</h2>
-                    <p>{en ? 'Tell us about your process and SAP environment. Let’s clarify the current product scope and the next evaluation step.' : 'Sürecinizi ve SAP ortamınızı paylaşın. Ürünün güncel kapsamını ve bir sonraki değerlendirme adımını birlikte netleştirelim.'}</p>
-                    <ul>{(en ? ['Your current document workflow', 'SAP environment and target transaction', 'Scope and evaluation criteria'] : ['Mevcut belge akışınız', 'SAP ortamı ve hedef işlem', 'Kapsam ve değerlendirme ölçütleri']).map(item => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul>
-                    <p className={styles.note}>{t.stageDescription}</p>
+                    <p className={styles.eyebrow}>AIA</p>
+                    <h2>{en ? 'Tell us about' : 'Muhasebenizin'}<br /><em>{en ? 'your accounting.' : 'işini konuşalım.'}</em></h2>
+                    <p>{en ? 'Share the work that takes your team’s time. Let’s talk about the AI we can build for your business.' : 'Ekibinizin zamanını alan işleri anlatın. İşletmeniz için geliştirebileceğimiz yapay zekâyı birlikte konuşalım.'}</p>
+                    <a className={styles.textLink} href="mailto:info@btpsolution.com">info@btpsolution.com<ArrowUpRight aria-hidden="true" /></a>
                 </div>
                 <ContactForm lang={lang} purpose="apd" tone="light" />
             </div>

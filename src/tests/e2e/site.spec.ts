@@ -47,7 +47,7 @@ test('mobile heading fits and menu is translated and keyboard dismissible', asyn
 });
 test('APD evaluation links reach form and existing scope anchor', async ({ page }) => {
     await page.goto('/en/products/apd');
-    await page.getByRole('link', { name: 'Discuss APD', exact: true }).click();
+    await page.getByRole('link', { name: 'Discuss AIA', exact: true }).click();
     await expect(page).toHaveURL(/#contact-form$/);
     await expect(page.locator('#contact-form')).toBeInViewport();
     await expect(page.locator('#apd-features')).toHaveCount(1);

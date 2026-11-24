@@ -20,7 +20,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: string 
                 </div>
                 <div><h2>{dict.navigation.services}</h2><ul>{serviceLinks.map(([label, path]) => <li key={path}><Link href={`/${lang}${path}`}>{label}</Link></li>)}</ul></div>
                 <div><h2>{dict.footer.company}</h2><ul>
-                    <li><Link href={`/${lang}/products/apd`}>APD Automation</Link></li>
+                    <li><Link href={`/${lang}/products/apd`}>{en ? 'AIA · Invoice Automation' : 'AIA · Fatura Otomasyonu'}</Link></li>
                     <li><Link href={`/${lang}/about`}>{dict.navigation.about}</Link></li>
                     <li><Link href={`/${lang}/services`}>{en ? 'All services' : 'Tüm hizmetler'}</Link></li>
                     <li><Link href={`/${lang}/contact`}>{dict.navigation.contact}</Link></li>

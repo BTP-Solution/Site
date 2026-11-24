@@ -43,7 +43,7 @@ test('APD requests retain their topic while recipient and subject remain server 
         return Response.json({ id: 'mock-apd-message' });
     });
     assert.equal(response.status, 200);
-    assert.match(payload.subject, /APD/);
+    assert.match(payload.subject, /AIA/);
     assert.doesNotMatch(payload.subject, /Injected/);
     assert.match(payload.text, /Topic: apd/);
     assert.deepEqual(payload.to, ['info@btpsolution.com']);

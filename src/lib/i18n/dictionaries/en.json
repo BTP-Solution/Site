@@ -214,7 +214,7 @@
         "whoWeAre": "Who We Are",
         "storyP1": "BTP Solution is a technology and consulting company specialized in the SAP ecosystem. Our Istanbul-based team provides end-to-end services to enterprise clients in S/4HANA transformation, SAP BTP integrations, ABAP/RAP/CAP development, and process automation.",
         "storyP2": "With our AI-powered products and innovative integration solutions, we aim to be a trusted business partner in enterprises' digital transformation journeys. We prioritize quality, transparency, and sustainability in every project.",
-        "storyP3": "With niche products like APD Automation, we take automation in SAP processes to the next level while adding value across a wide range from financial solutions to supply chain management.",
+        "storyP3": "We develop AI-powered products such as AIA, turning our SAP experience into software built around business needs. Our work spans financial solutions, supply chain management and other business areas.",
         "mission": "Our Mission",
         "missionText": "To transform enterprise processes using SAP technologies and artificial intelligence, provide our clients with competitive advantage, and enable sustainable growth in the digital age.",
         "vision": "Our Vision",
@@ -248,7 +248,7 @@
             },
             {
                 "title": "Innovative Products",
-                "description": "AI-powered niche products running on the SAP ecosystem, like APD Automation.",
+                "description": "AIA, AI-powered invoice automation for SAP, and AI solutions built around your business.",
                 "icon": "🚀"
             },
             {

@@ -7,11 +7,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         lang,
         path: '/products/apd',
         title: lang === 'tr'
-            ? 'APD: SAP için Fatura ve Belge Otomasyonu | BTP Solution'
-            : 'APD: Invoice & Document Automation for SAP | BTP Solution',
+            ? 'AIA | SAP için Yapay Zekâ Destekli Fatura Otomasyonu'
+            : 'AIA | AI-Powered Invoice Automation for SAP',
         description: lang === 'tr'
-            ? 'SAP belge işleme ve kayıt süreçleri için geliştirdiğimiz APD ürününü tanıyın. Geliştirme durumunu, kapsamını ve sürecinize uygunluğunu birlikte değerlendirelim.'
-            : 'Explore APD, our product in development for document processing and SAP posting. Review its development status, scope and suitability for your workflows.',
+            ? 'AIA ile SAP için yapay zekâ destekli fatura otomasyonunu keşfedin. Gelen faturaları ve muhasebe süreçlerinizi bir araya getiren BTP Solution ürün yaklaşımı.'
+            : 'Discover AIA: AI-powered invoice automation for SAP. Explore the BTP Solution product approach bringing incoming invoices and accounting workflows together.',
     });
 }
 

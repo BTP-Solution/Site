@@ -70,7 +70,7 @@ OpenNext'in Node proxy desteği kısıtlı olduğu için dil yönlendirmesi Edge
 
 - TR/EN ana metinleri: `src/lib/i18n/dictionaries/`.
 - Hizmet ve APD metinleri: `src/lib/i18n/services/`.
-- Ana sayfa ve APD sunumu: `src/components/marketing/`. APD geliştirme aşamasındadır; canlı müşteri kullanımı veya ölçülmüş başarı iddiası eklemeyin.
+- Ana sayfa ve APD sunumu: `src/components/marketing/`. Ürün adı AIA, başlığı “SAP için Yapay Zekâ Destekli Fatura Otomasyonu” / “AI-Powered Invoice Automation for SAP” olarak kullanılır; APD URL ve form konu anahtarı korunur. İlk kullanım alanı gelen faturalar, genişleyen muhasebe kapsamı ise ürün vizyonudur. İç geliştirme notlarını pazarlama sayfasına taşımayın; canlı müşteri referansı, ölçülmüş sonuç veya hazır olmayan özellik iddiası eklemeyin.
 - Yeni sayfa eklerken `src/app/sitemap.ts` listesini güncelleyin.
 - Site içi etkileşimli bağlantılarda `TransitionLink`, sunucu bileşenlerinde `withLocale` kullanın.
 - Ortak layout tek `main` öğesi sağlar; sayfalarda `section`/ `div` kullanın.

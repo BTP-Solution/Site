@@ -18,8 +18,8 @@ export default function ContactForm({ lang, purpose = 'general', tone = 'dark' }
         rate: 'Çok fazla istek gönderdiniz. Bir dakika bekleyip tekrar deneyin.', note: 'Bu bilgileri talebinize yanıt vermek için kullanırız.',
     };
     if (purpose === 'apd') {
-        t.title = en ? 'Request an APD scope discussion' : 'APD için kapsam görüşmesi talep edin';
-        t.submit = en ? 'Discuss APD with our team' : 'APD için görüşelim';
+        t.title = en ? 'Let’s talk about your business' : 'İşinizi birlikte konuşalım';
+        t.submit = en ? 'Request a conversation' : 'Görüşme talep edin';
     }
     const light = tone === 'light';
     const [state, setState] = useState<'idle' | 'sending' | 'success'>('idle');
@@ -56,7 +56,7 @@ export default function ContactForm({ lang, purpose = 'general', tone = 'dark' }
                     <label className={labelClass}>{t.company}<input className={inputClass} name="company" autoComplete="organization" required maxLength={160} /></label>
                 </div>
                 <label className={labelClass}>{t.email}<input className={inputClass} name="email" type="email" autoComplete="email" required maxLength={254} /></label>
-                <label className={labelClass}>{t.message}<textarea className={inputClass} name="message" rows={4} required minLength={10} maxLength={4000} defaultValue={purpose === 'apd' ? (en ? 'I would like to discuss APD’s current scope and suitability for our document processes.' : 'APD’nin güncel kapsamını ve belge süreçlerimize uygunluğunu görüşmek istiyorum.') : ''} /></label>
+                <label className={labelClass}>{t.message}<textarea className={inputClass} name="message" rows={4} required minLength={10} maxLength={4000} defaultValue={purpose === 'apd' ? (en ? 'I would like to learn more about AIA for our business.' : 'AIA hakkında görüşmek istiyorum.') : ''} /></label>
                 <div hidden aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
                 <p className={`text-xs ${light ? 'text-slate-600' : 'text-slate-400'}`}>{t.note}</p>
                 <button type="submit" className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-[#234f89] px-6 py-4 font-semibold text-white hover:bg-[#173b6a] disabled:opacity-60"><Send aria-hidden="true" className="h-4 w-4" />{state === 'sending' ? t.submitting : t.submit}</button>

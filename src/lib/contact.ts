@@ -54,7 +54,7 @@ export async function handleContact(request: Request, env: ContactEnvironment, s
                 from: env.CONTACT_FROM_EMAIL,
                 to: [env.CONTACT_TO_EMAIL || 'info@btpsolution.com'],
                 reply_to: data.email,
-                subject: `BTP Solution — ${data.topic === 'apd' ? 'APD' : (data.lang === 'en' ? 'Contact' : 'İletişim')} — ${data.lang === 'en' ? 'Meeting request' : 'Görüşme talebi'}`,
+                subject: `BTP Solution — ${data.topic === 'apd' ? 'AIA' : (data.lang === 'en' ? 'Contact' : 'İletişim')} — ${data.lang === 'en' ? 'Meeting request' : 'Görüşme talebi'}`,
                 text: `Name: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nLanguage: ${data.lang}\nTopic: ${data.topic}\n\n${data.message}`,
             }),
             signal: AbortSignal.timeout(10000),
