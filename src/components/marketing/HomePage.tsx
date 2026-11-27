@@ -19,7 +19,8 @@ const copy = {
             ['Mevcut SAP yapısını geliştirme', 'Ekibinizin günlük işine uygun uygulamalar, arayüzler ve iş akışları geliştirin.'],
         ],
         featured: 'Öne çıkan çözüm',
-        product: 'M·AI, gelen hizmet faturasını SAP kaydına hazırlamak için muhasebe hesabı ve masraf yeri önerir. Son kontrol finans ekibindedir.',
+        productLead: 'Faturalar kayda dönüşsün. Ekibinize kararlar için daha çok zaman kalsın.',
+        product: 'M·AI, şirketinize özel yapay zekâyla gelen faturaları SAP kaydına dönüştürür.',
         productLink: 'M·AI’ı inceleyin',
     },
     en: {
@@ -36,7 +37,8 @@ const copy = {
             ['Extend your existing SAP system', 'Develop applications, interfaces and workflows for your team’s day-to-day work.'],
         ],
         featured: 'Featured solution',
-        product: 'M·AI suggests a general ledger account and cost center to prepare incoming service invoices for posting in SAP. Your finance team makes the final review.',
+        productLead: 'From invoices to SAP records. More time for the decisions that matter.',
+        product: 'M·AI uses AI tailored to your business to turn incoming invoices into SAP records.',
         productLink: 'Explore M·AI',
     },
 };
@@ -74,7 +76,11 @@ export default function HomePage({ lang }: { lang: string }) {
         <section className={styles.solution} aria-labelledby="featured-product">
             <div className={styles.columns + ' ' + styles.shell}>
                 <div><p className={styles.tag}>{text.featured}</p><h2 id="featured-product">M·AI</h2></div>
-                <div><p>{text.product}</p><Link href={withLocale('/products/apd', lang)}>{text.productLink}<ArrowUpRight aria-hidden="true" /></Link></div>
+                <div>
+                    <p><strong>{text.productLead}</strong></p>
+                    <p>{text.product}</p>
+                    <Link href={withLocale('/products/apd', lang)}>{text.productLink}<ArrowUpRight aria-hidden="true" /></Link>
+                </div>
             </div>
         </section>
     </div>;
