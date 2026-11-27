@@ -23,9 +23,18 @@ for (const lang of ['tr', 'en']) {
     test(`${lang}: AIA preserves the product URL, invoice focus and enquiry context`, async ({ page }) => {
         await page.goto(`/${lang}`);
         await expect(page.locator('main')).not.toContainText(/müşteri sisteminde canlı|temsili gösterim|not yet live|illustrative diagram/i);
-        const apd = page.locator('main').getByRole('link', { name: lang === 'tr' ? 'AIA’yı keşfedin' : 'Explore AIA', exact: true });
+        await expect(page.locator('main h1')).toHaveText(lang === 'tr'
+            ? 'SAP projelerinizi iş süreçlerinize göre hayata geçiriyoruz.'
+            : 'We build SAP solutions around the way you work.');
+        const productLinks = page.locator('header, footer').locator(`a[href="/${lang}/products/apd"]`);
+        await expect(productLinks).toHaveCount(3);
+        for (const link of await productLinks.all()) await expect(link).toHaveText(/M·AI/);
+        const apd = page.locator('main').getByRole('link', { name: lang === 'tr' ? 'M·AI’ı inceleyin' : 'Explore M·AI', exact: true });
         await apd.click();
         await expect(page).toHaveURL(new RegExp(`/${lang}/products/apd$`));
+        await expect(page.locator('header').getByRole('img', { name: 'AIA', exact: true })).toBeVisible();
+        await expect(page.locator('footer').getByRole('link', { name: /^AIA ·/ })).toBeVisible();
+        await expect(page.locator('body')).not.toContainText('M·AI');
         await expect(page.locator('main')).toContainText(lang === 'tr' ? 'İlk odağımız gelen fatura işleme' : 'Our first focus is incoming invoice processing');
         await expect(page.locator('main')).not.toContainText(/müşteri sisteminde canlı|temsili gösterim|Kontrolleri kurgulamak|not yet live|illustrative diagram|Design the controls/i);
         await expect(page.locator('main')).not.toContainText(/ISO 27001|SOC 2|99.9|Sıfır Hatayla|Zero Errors/);

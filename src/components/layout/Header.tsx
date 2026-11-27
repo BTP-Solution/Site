@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/getDictionary';
 import Navbar from './Navbar';
-import AiaWordmark from '@/components/marketing/AiaWordmark';
+import ProductNavLabel from './ProductNavLabel';
 import styles from '@/components/marketing/Marketing.module.css';
 
 export default function Header({ dict, lang }: { dict: Dictionary; lang: string }) {
@@ -46,7 +46,7 @@ export default function Header({ dict, lang }: { dict: Dictionary; lang: string 
                 <Image src="/btp_logo-2.png" alt="BTP" width={120} height={31} priority /><span>SOLUTION</span>
             </Link>
             <nav className={styles.desktopNav} aria-label={en ? 'Main navigation' : 'Ana menü'}>
-                <Link href={`/${lang}/products/apd`} aria-current={pathname.includes('/products/apd') ? 'page' : undefined} onClick={close}><AiaWordmark /></Link>
+                <Link href={`/${lang}/products/apd`} aria-current={pathname.includes('/products/apd') ? 'page' : undefined} onClick={close}><ProductNavLabel lang={lang} wordmark /></Link>
                 <button ref={servicesRef} type="button" className={styles.navButton} aria-expanded={servicesOpen} aria-controls="desktop-services" onClick={() => setServicesOpen(!servicesOpen)}>{en ? 'SAP Services' : 'SAP Hizmetleri'}<ChevronDown aria-hidden="true" /></button>
                 <Link href={`/${lang}/about`} aria-current={pathname.endsWith('/about') ? 'page' : undefined} onClick={close}>{dict.navigation.about}</Link>
             </nav>
@@ -63,7 +63,7 @@ export default function Header({ dict, lang }: { dict: Dictionary; lang: string 
         </div>
         <div id="desktop-services" className={styles.servicesPanel} hidden={!servicesOpen}><Navbar dict={dict} lang={lang} onNavigate={close} /></div>
         <nav id="mobile-menu" className={styles.mobileMenu} hidden={!mobileOpen} inert={!mobileOpen} aria-label={en ? 'Mobile navigation' : 'Mobil menü'}>
-            <Link href={`/${lang}/products/apd`} onClick={close}>{en ? 'AIA · Invoice Automation' : 'AIA · Fatura Otomasyonu'}<ArrowUpRight size={16} aria-hidden="true" /></Link>
+            <Link href={`/${lang}/products/apd`} onClick={close}><ProductNavLabel lang={lang} /><ArrowUpRight size={16} aria-hidden="true" /></Link>
             <button type="button" aria-expanded={servicesOpen} aria-controls="mobile-services" onClick={() => setServicesOpen(!servicesOpen)}>{dict.navigation.services}<ChevronDown aria-hidden="true" /></button>
             <div id="mobile-services" hidden={!servicesOpen}><Navbar dict={dict} lang={lang} onNavigate={close} /></div>
             <Link href={`/${lang}/about`} onClick={close}>{dict.navigation.about}</Link>
